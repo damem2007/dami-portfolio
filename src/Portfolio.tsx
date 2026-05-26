@@ -528,8 +528,8 @@ export default function Portfolio() {
   const [isRailVisible, setIsRailVisible] = useState(false);
   const [activeNav, setActiveNav] = useState(navItems[0].href);
   const [theme, setTheme] = useState<PortfolioTheme>(() => {
-    if (typeof window === "undefined") return "day";
-    return window.localStorage.getItem("portfolio-theme") === "night" ? "night" : "day";
+    if (typeof window === "undefined") return "night";
+    return window.localStorage.getItem("portfolio-theme") === "day" ? "day" : "night";
   });
 
   useEffect(() => {
