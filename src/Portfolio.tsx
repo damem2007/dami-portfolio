@@ -73,14 +73,14 @@ const capabilities = [
     icon: <Workflow className="h-5 w-5" />,
     summary:
       "Checkout, POS, OMS, BOPIS, ship-from-store, CyberSource fraud decisioning, risk scoring, card tokenization, 3DS, tax integrations, fulfillment, and order-to-cash delivery.",
-    items: ["CyberSource", "AVS / CVV", "3D Secure", "Tokenization", "Velocity rules", "Device metadata"],
+    items: ["CyberSource", "AVS / CVV", "3D Secure", "Tokenization", "Velocity rules", "Device metadata", "Merchants Onboarding"],
   },
   {
     title: "Banking Integrations",
     icon: <Network className="h-5 w-5" />,
     summary:
       "Core banking, digital channels, data mapping matrix, SWIFT MT-to-ISO 20022 matching, account servicing, statements, treasury confirmation matching, and source-to-target mapping.",
-    items: ["T24 / Temenos", "SWIFT MT", "Data Mapping", "ISO 20022", "def3000/TR", "ACH", "SEPA", " Loan IQ", "Syndicated Loan"],
+    items: ["T24 / Temenos", "SWIFT MT", "ACH", "Data Mapping", "ISO 20022", "SEPA", " Loan IQ", "Syndicated Loan"],
   },
   {
     title: "Delivery Controls",
