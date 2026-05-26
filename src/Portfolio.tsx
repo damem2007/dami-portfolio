@@ -1,465 +1,730 @@
-import React from "react";
 import { motion } from "framer-motion";
-import { Mail, MapPin, Linkedin, Briefcase, BarChart3, BadgeCheck, Target, Layers, CheckCircle2, ArrowRight, Globe, Database, Workflow, ShieldCheck } from "lucide-react";
+import {
+  ArrowRight,
+  BadgeCheck,
+  BarChart3,
+  Bot,
+  Building2,
+  Briefcase,
+  CheckCircle2,
+  CreditCard,
+  Database,
+  FileCheck2,
+  Globe,
+  Landmark,
+  Layers,
+  Linkedin,
+  Mail,
+  Map,
+  MapPin,
+  Network,
+  Plane,
+  Phone,
+  ShieldCheck,
+  Target,
+  Workflow,
+} from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 
+const contact = {
+  email: "dahunsi.damilola@outlook.com",
+  phone: "236-660-6272",
+  linkedin: "https://www.linkedin.com/in/damidahunsi",
+};
+
 const highlights = [
-    "10+ years across fintech, payments, ERP, enterprise systems, and digital transformation",
-    "Deep expertise in payment processing, ISO 20022 / SWIFT MT messaging, clearing, settlement, and merchant operations",
-    "Strong track record translating complex business problems into scalable product and systems solutions",
-    "Metrics-driven delivery across business analysis, product ownership, QA/UAT, implementation, and stakeholder alignment",
+  "11+ years translating payments, banking, retail commerce, and enterprise-system change into release-ready outcomes.",
+  "Deep RS2 BankWORKS card-processing coverage across ISO 8583 MTIs, bitmap-driven data elements, authorization, clearing, settlement, merchant funding, reconciliation, disputes, and reporting.",
+  "Strong omnichannel commerce coverage across CyberSource fraud decisioning, checkout, POS, OMS, tax, inventory, fulfillment, and order-to-cash flows.",
+  "Asseco institutional-payments experience across SWIFT MT-to-ISO 20022 update work, MT103, MT202, MT910, MT940, MT950, MT300, MT320, and treasury confirmation matching.",
+  "Built an AI model that converts meetings, workshops, interview notes, and discovery inputs into structured business analysis artifacts.",
+  "Known for SQL-backed validation, traceable requirements, stakeholder workshops, UAT strategy, and production readiness in regulated environments.",
 ];
 
 const metrics = [
-    { value: "60%", label: "Reduction in payment rejects" },
-    { value: "$2M+", label: "Cost savings / efficiency impact delivered across initiatives" },
-    { value: "95%", label: "UAT first-pass success achieved on major programs" },
-    { value: "1B+", label: "Monthly transactions supported in enterprise payment environments" },
+  { value: "1B+", label: "monthly card transactions supported on RS2 BankWORKS" },
+  { value: "200+", label: "SIT, UAT, regression, and settlement scenarios coordinated" },
+  { value: "95%", label: "first-pass acceptance achieved on major payment programs" },
+  { value: "2.2M+", label: "customer and staff credentials migrated with less than 3% error" },
+  { value: "30%", label: "fewer post-release defects through stronger validation discipline" },
+  { value: "$4M+", label: "combined project portfolios represented across public, financial, and enterprise programs" },
 ];
 
-const expertise = [
-    "Business Systems Analysis",
-    "Product Management",
-    "Payments & Fintech",
-    "ISO 20022 / SWIFT MT",
-    "Requirements Engineering",
-    "User Stories & Acceptance Criteria",
-    "Process Mapping & BPMN",
-    "UAT / QA / Defect Triage",
-    "Agile / Scrum Delivery",
-    "Stakeholder Workshops",
-    "Data Mapping & Integration",
-    "ERP / Treasury / Enterprise Platforms",
-    "Implementation & Change Readiness",
-    "API & Cross-Functional Solution Design",
+const capabilities = [
+  {
+    title: "Payments Platforms",
+    icon: <Globe className="h-5 w-5" />,
+    summary:
+      "Acquiring, issuing, authorization, clearing, settlement, merchant funding, disputes, chargebacks, statements, reporting, and ISO 8583 message analysis.",
+    items: ["RS2 BankWORKS", "MTI", "Bitmap", "Data Elements", "Visa Base II", "Mastercard IPM"],
+  },
+  {
+    title: "Retail Commerce",
+    icon: <Workflow className="h-5 w-5" />,
+    summary:
+      "Checkout, POS, OMS, BOPIS, ship-from-store, CyberSource fraud decisioning, risk scoring, tax integrations, fulfillment, and order-to-cash delivery.",
+    items: ["CyberSource", "AVS / CVV", "Velocity rules", "Device metadata", "Oracle Xstore", "Avalara"],
+  },
+  {
+    title: "Banking Integrations",
+    icon: <Network className="h-5 w-5" />,
+    summary:
+      "Core banking, digital channels, SWIFT MT-to-ISO 20022 update work, account servicing, statements, treasury confirmation matching, and source-to-target mapping.",
+    items: ["T24 / Temenos", "SWIFT MT", "ISO 20022 update", "def3000/TR", "ACH", "SEPA"],
+  },
+  {
+    title: "Delivery Controls",
+    icon: <ShieldCheck className="h-5 w-5" />,
+    summary:
+      "BRDs, FSDs, user stories, process flows, API mappings, data validation, UAT assets, release readiness, and post-go-live stabilization.",
+    items: ["SQL", "Postman", "SOAPUI", "Jira", "Confluence", "Zephyr Scale"],
+  },
+  {
+    title: "AI BA Automation",
+    icon: <Bot className="h-5 w-5" />,
+    summary:
+      "AI-assisted artifact generation that turns meetings, workshops, interviews, and notes into structured BA outputs for delivery teams.",
+    items: ["Business summaries", "User stories", "Acceptance criteria", "UAT scenarios", "Risks", "Dependencies"],
+  },
 ];
 
-const certifications = [
-    {
-        name: "CBAP — Certified Business Analysis Professional",
-        org: "IIBA",
-        short: "CBAP",
-        badgeClass: "bg-blue-100 text-blue-700 ring-blue-200",
-    },
-    {
-        name: "ITIL v4 — ITIL Foundation",
-        org: "AXELOS",
-        short: "ITIL",
-        badgeClass: "bg-purple-100 text-purple-700 ring-purple-200",
-    },
-    {
-        name: "CSM — Certified Scrum Master",
-        org: "Scrum Alliance",
-        short: "CSM",
-        badgeClass: "bg-amber-100 text-amber-700 ring-amber-200",
-    },
-    {
-        name: "CSPO — Certified Scrum Product Owner",
-        org: "Scrum Alliance",
-        short: "CSPO",
-        badgeClass: "bg-orange-100 text-orange-700 ring-orange-200",
-    },
-    {
-        name: "ISTQB — Certified Software Tester",
-        org: "ISTQB",
-        short: "ISTQB",
-        badgeClass: "bg-emerald-100 text-emerald-700 ring-emerald-200",
-    },
+const paymentDepth = [
+  {
+    title: "ISO 8583 Card Message Analysis",
+    icon: <CreditCard className="h-5 w-5" />,
+    summary:
+      "Practical understanding of MTI, bitmap, and data elements including DE2 PAN, DE3 processing code, DE4 amount, DE11 STAN, DE39 response code, and DE41 terminal ID.",
+    proof:
+      "Used to support RS2 BankWORKS testing, transaction-type handling, reversals, response-code analysis, routing defects, and clearing or settlement downstream impact.",
+  },
+  {
+    title: "Card Lifecycle, Routing & Exceptions",
+    icon: <Workflow className="h-5 w-5" />,
+    summary:
+      "Can explain and validate 0100/0110 authorization, 0200/0210 financial capture, 0400/0410 reversals, and 0800/0810 network management flows.",
+    proof:
+      "Applied across POS, acquirer, card-network, issuer, ONUS/off-us, BIN lookup, fee qualification, authorization response, settlement, statement, and merchant-reporting scenarios.",
+  },
+  {
+    title: "SWIFT MT & ISO 20022 Update Work",
+    icon: <Network className="h-5 w-5" />,
+    summary:
+      "Asseco experience focused on SWIFT MT message work and ISO 20022 update patterns for institutional payment, statement, confirmation, treasury, and reconciliation flows.",
+    proof:
+      "Produced message-aware requirements and validation artifacts for payment initiation, confirmations, statements, matching, exception handling, and downstream reporting.",
+  },
+  {
+    title: "CyberSource Fraud Decisioning",
+    icon: <ShieldCheck className="h-5 w-5" />,
+    summary:
+      "Mapped checkout, authorization, fraud screening, settlement, reconciliation, and chargeback handling into CyberSource decisioning flows.",
+    proof:
+      "Defined rules and mappings for AVS/CVV, velocity checks, device and IP metadata, fraud score, accept/reject/review outcomes, API timeouts, retries, and UAT fraud scenarios.",
+  },
+  {
+    title: "SWIFT Confirmation Matching",
+    icon: <FileCheck2 className="h-5 w-5" />,
+    summary:
+      "Implemented analysis support for a def3000/TR treasury module automating confirmation matching across specific incoming, outgoing, and statement messages.",
+    proof:
+      "Covered MT103/MT202/MT910 against MT940/MT950, plus incoming MT300 and MT320 matched with outgoing MT300 and MT320 for Funds Transfer and Treasury Operations teams.",
+  },
 ];
 
 const experience = [
-    {
-        company: "RS2",
-        role: "Senior Business Systems Analyst / Payments Product Specialist",
-        period: "Fintech / Global Payments Platform",
-        bullets: [
-            "Led requirements engineering and solution analysis for enterprise payment processing systems supporting issuing, acquiring, interchange, and settlement capabilities.",
-            "Reduced transaction rejects by over 60% by improving message validation, workflow clarity, and payment processing rules across high‑volume environments.",
-            "Supported platforms processing over 1B+ monthly transactions while coordinating requirements across product, engineering, operations, and compliance teams.",
-            "Contributed to ISO 20022 / SWIFT message handling improvements, improving reliability of transaction routing and reconciliation processes.",
-        ],
-    },
-    {
-        company: "Asseco Software Nigeria",
-        role: "Business Analyst / Enterprise Systems Delivery",
-        period: "Banking & Enterprise Platforms",
-        bullets: [
-            "Delivered business and systems analysis across enterprise banking and financial systems implementations.",
-            "Facilitated stakeholder workshops, requirements documentation, and integration design across product, architecture, and engineering teams.",
-            "Improved delivery readiness through structured UAT planning, acceptance criteria, and traceable functional documentation.",
-        ],
-    },
-    {
-        company: "Parkway Projects",
-        role: "Business Analysis & Digital Transformation Consultant",
-        period: "Public Sector Programs",
-        bullets: [
-            "Supported large transformation programs focused on digital workflows, operational efficiency, and technology modernization.",
-            "Developed business process maps, functional requirements, and delivery governance artifacts supporting cross‑agency transformation.",
-            "Helped translate strategic policy initiatives into implementable digital systems and operational improvements.",
-        ],
-    },
-    {
-        company: "Baqers",
-        role: "Lead Product Manager & Solutions Architect",
-        period: "Retail Commerce Platform / Market Expansion",
-        bullets: [
-            "Led product strategy and platform architecture for a retail commerce initiative focused on digital marketplace and cross‑border supply chain enablement.",
-            "Defined product vision, feature roadmap, and system architecture supporting supplier onboarding, pricing models, inventory visibility, and transaction workflows.",
-            "Conducted Canadian market entry analysis including supplier economics, margin structures, COGS modeling, and competitive retail benchmarking.",
-            "Collaborated with engineering and business stakeholders to design scalable platform capabilities across catalog management, payments, logistics integration, and analytics.",
-        ],
-    },
+  {
+    company: "Intuit TurboTax Canada",
+    role: "Business Systems Analyst",
+    period: "Jan 2026 - Apr 2026",
+    scope: "Canadian consumer tax preparation, product-release support, tax law updates, and client-facing validation",
+    bullets: [
+      "Led requirements analysis sessions with cross-functional teams for 25+ client and stakeholder needs tied to product releases and changing tax-law requirements.",
+      "Created acceptance criteria, test plans, process flows, internal and external communications, and release-support documentation for tax-regulated product changes.",
+      "Coordinated UAT and validation processes supporting 99.5% defect-free releases while maintaining strong stakeholder communication and prioritization discipline.",
+    ],
+  },
+  {
+    company: "RS2 Plc",
+    role: "Business Systems Analyst",
+    period: "Nov 2021 - Feb 2024",
+    scope: "Global acquiring and issuing platform across North America, Europe, and LATAM",
+    bullets: [
+      "Translated client, operational, and scheme needs into functional specifications, user stories, mappings, and validation packs for authorization, clearing, settlement, reconciliation, disputes, and reporting.",
+      "Analyzed ISO 8583 card-payment flows, including MTI, bitmap, data elements, response codes, processing codes, STAN, terminal ID, reversal behavior, and transaction-type logic.",
+      "Coordinated UAT across 15+ financial institutions and 200+ scenarios, contributing to about 95% first-pass acceptance and about 30% fewer post-release defects.",
+      "Used SQL-backed transaction, charge, client, and settlement validation to reduce settlement and reconciliation exceptions by about 25%.",
+      "Supported WorldPay, Paysafe, Bank of America, Wells Fargo, Landsbankinn, and Barclays initiatives involving merchant onboarding, pricing, funding, IRF mandates, chargebacks, Visa Base II, Mastercard IPM, Visa AFT, and Mastercard MoneySend.",
+    ],
+  },
+  {
+    company: "Asseco Software",
+    role: "Senior Business Analyst / Product Manager / Implementation Lead",
+    period: "Jun 2016 - Oct 2021",
+    scope: "Core banking, authentication, SWIFT, treasury, and enterprise implementation programs",
+    bullets: [
+      "Delivered analysis and implementation support for 15+ banking and financial-system initiatives integrating T24, Finacle, Flexcube, SWIFT Alliance, MFA platforms, middleware, and digital channels.",
+      "Supported SWIFT MT and ISO 20022 update work for institutional payments, including message mapping, statement validation, confirmation matching, exception handling, and downstream reconciliation.",
+      "Implemented analysis support for Asseco's def3000/TR treasury confirmation matching module covering MT103, MT202, MT910, MT940, MT950, MT300, and MT320 message relationships.",
+      "Led migration and validation planning for 2.2M+ customer and staff credentials with less than 3% error while preserving continuity across internet banking, mobile banking, SWIFT, and core banking integrations.",
+      "Produced BRDs, process models, source-to-target mappings, API requirements, UAT assets, training materials, and release plans that improved onboarding timelines by about 40%.",
+    ],
+  },
+  {
+    company: "Baqers.ca",
+    role: "Product Lead / Customer Success / Technical Architect",
+    period: "Sept 2023 - Nov 2025",
+    scope: "Canadian digital commerce, operations, customer experience, and checkout-adjacent flows",
+    bullets: [
+      "Led backlog management, sprint planning, release coordination, and production stabilization for a retail commerce platform while maintaining about 99.5% uptime.",
+      "Improved customer-facing commerce workflows across order management, reporting, customer support, vendor coordination, and integration touchpoints.",
+      "Used customer insights, funnel analysis, and operating metrics to guide roadmap decisions that improved repeat purchase rates by about 15-20% and reduced unresolved complaints by about 25%.",
+    ],
+  },
+  {
+    company: "Parkway Projects Ltd.",
+    role: "Software Tester / QA Analyst",
+    period: "Nov 2014 - Jun 2016",
+    scope: "Banking and payment application quality across regulated delivery settings",
+    bullets: [
+      "Executed functional, integration, regression, and UAT testing for banking and payment applications, strengthening release quality and business-rule validation.",
+      "Built test assets, traceability controls, and release-readiness processes that reduced post-release rework by about 80% in source materials.",
+    ],
+  },
+];
+
+const consultingProjects = [
+  {
+    title: "Tier-1 Bank MFA / IAM Modernization",
+    icon: <ShieldCheck className="h-5 w-5" />,
+    sector: "Financial Sector | Four major Nigerian banks",
+    summary:
+      "Supported bank-wide MFA and identity-management implementations covering customer-facing mobile tokens and internal workforce authentication.",
+    details:
+      "Facilitated PoC and kickoff sessions, documented functional and non-functional requirements, built migration and reconciliation plans, assessed security and operational impacts, and coordinated phased rollout, training, and adoption.",
+    proof: "$600K+ portfolio across major banks; 2.2M+ credentials migrated with less than 3% error in the strongest-cited program.",
+  },
+  {
+    title: "MOT / NITT Transportation Modernization",
+    icon: <Plane className="h-5 w-5" />,
+    sector: "Public Sector | Ministry of Transportation / NITT",
+    summary:
+      "Led analysis and planning for a transportation modernization initiative covering data mining, licensing, inspection, enforcement, and future-state digital service delivery.",
+    details:
+      "Performed process assessments, gap analysis, infrastructure evaluation, Visio and Miro process modeling, legacy data validation, and authored an RFP package with functional requirements, technical specifications, and vendor evaluation matrix.",
+    proof: "$1M modernization program; Asseco supported vendor selection rather than bidding.",
+  },
+  {
+    title: "FIRS Fiscalization & Digital Tax Control",
+    icon: <Landmark className="h-5 w-5" />,
+    sector: "Public Sector | Federal Inland Revenue Service",
+    summary:
+      "Translated tax-control and regulatory needs into system specifications for real-time capture, verification, and reporting of cash-based transactions.",
+    details:
+      "Defined use cases, BPMN process models, impact analysis, offline fallback, mobile-network integration, ECR deployment, SMS/web verification, central tax server workflows, and phased rollout guidance across Asseco, CircleBlue, and FIRS stakeholders.",
+    proof: "PPP / incremental revenue-sharing model focused initially on the hospitality sector.",
+  },
+  {
+    title: "NCAA Customer Protection Department Portal",
+    icon: <Plane className="h-5 w-5" />,
+    sector: "Public Sector | Nigerian Civil Aviation Authority",
+    summary:
+      "Led requirements and process optimization for a customer protection portal designed to improve complaint handling, data accuracy, SLA control, and aviation customer service.",
+    details:
+      "Developed use cases, process models, gap analysis, future-state design, CRM integration requirements, ticketing workflow, SLA escalation logic, and analytics dashboard needs; partnered with design on high-fidelity Adobe XD prototypes.",
+    proof: "Six-month aviation service modernization engagement.",
+  },
+  {
+    title: "ASIRA Annuity Platform Recovery",
+    icon: <BarChart3 className="h-5 w-5" />,
+    sector: "Insurance | Zenith Prudential",
+    summary:
+      "Helped recover a stalled annuity administration implementation by resolving ambiguity, controlling scope, and rebuilding stakeholder agreement.",
+    details:
+      "Ran strategy analysis, pain-point workshops, MoSCoW prioritization, future-state milestone planning, solution demos, and sign-off governance for annuity contract, batch enrollment, investment, audit, and workflow capabilities.",
+    proof: "$70K implementation brought back into delivery alignment.",
+  },
+  {
+    title: "Lagos State eGIS / UAV Orthophoto Mapping",
+    icon: <Map className="h-5 w-5" />,
+    sector: "Public Sector | Lagos State Ministry of Technology",
+    summary:
+      "Supported one of West Africa's large geospatial technology programs to capture high-resolution orthophoto map data for urban planning, resource management, and environmental monitoring.",
+    details:
+      "Facilitated stakeholder workshops across Lagos State, Asseco Poland, and Nigeria teams; translated scope into functional and technical specifications; aligned orthophoto accuracy, data-output, risk, dependency, and training requirements for technology transfer.",
+    proof: "$1.4M program; involvement concentrated in the first two years of a four-year engagement.",
+  },
+  {
+    title: "StarINS Core Insurance Implementation",
+    icon: <Building2 className="h-5 w-5" />,
+    sector: "Insurance | Coronation Nigeria / WAPIC",
+    summary:
+      "Led underwriting and claims analysis for a core insurance platform covering life, annuity, and general insurance lines.",
+    details:
+      "Facilitated interviews and workshops, documented findings using UML and process-flow diagrams, secured functional requirement sign-off, and supported customization across Asseco Poland, Asseco Nigeria, and client teams.",
+    proof: "Part of an approximately $1.5M combined insurance-platform program.",
+  },
+  {
+    title: "Bank3D Corporate Collections Platform",
+    icon: <CreditCard className="h-5 w-5" />,
+    sector: "Payments | Parkway Projects",
+    summary:
+      "Supported QA and UAT for a multi-tenancy corporate payment collection and cash-management platform deployed across 20+ African countries.",
+    details:
+      "Covered corporate onboarding, bank and tenant onboarding, release management, requirements traceability, payment collection workflows, security compliance validation, reporting, and multi-channel posting across branch, web, POS, mobile, ATM, and direct debit.",
+    proof: "Approximately $500K in combined implemented projects on the platform.",
+  },
+  {
+    title: "Nigerian Breweries Smart Sales & Asset Apps",
+    icon: <Workflow className="h-5 w-5" />,
+    sector: "Enterprise Mobility | Nigerian Breweries",
+    summary:
+      "Led UAT and test execution for mobile and back-office applications supporting sales performance, SKU forecasting, distributor order visibility, asset tracking, and field-service operations.",
+    details:
+      "Created and executed test plans and test cases through production deployment for Android and .NET-backed platforms integrating CRM, inventory, asset management, marketing, customer self-service, and field service modules.",
+    proof: "Approximately $200K combined project portfolio.",
+  },
 ];
 
 const caseStudies = [
-    {
-        title: "Enterprise Payments Platform",
-        icon: <Globe className="h-5 w-5" />,
-        summary:
-            "Supported implementation and enhancement of enterprise card processing platforms covering issuing, acquiring, interchange, clearing and settlement. Contributed to requirements definition, message mapping (ISO 8583 / ISO 20022), integration alignment, and operational readiness for high‑volume global payment environments.",
-    },
-    {
-        title: "Enterprise Banking & Integration Delivery",
-        icon: <Layers className="h-5 w-5" />,
-        summary:
-            "Worked on multiple banking technology implementations including core banking integrations, digital channels, and enterprise service layers. Led requirements engineering, data mapping, stakeholder workshops, and UAT coordination across product, architecture, and engineering teams.",
-    },
-    {
-        title: "Government Digital Transformation",
-        icon: <Database className="h-5 w-5" />,
-        summary:
-            "Participated in large‑scale public sector digital transformation initiatives involving process digitization, workflow automation, and data modernization. Helped translate policy and operational requirements into implementable system specifications and delivery artifacts.",
-    },
-    {
-        title: "Commerce Platform Architecture",
-        icon: <BarChart3 className="h-5 w-5" />,
-        summary:
-            "As Lead Product Manager and Solutions Architect at Baqers, defined the architecture and implementation roadmap for a retail marketplace platform including supplier onboarding, catalog management, pricing models, payment workflows, logistics integration, and analytics capabilities.",
-    },
+  {
+    title: "WorldPay LATAM Acquiring Expansion",
+    icon: <Globe className="h-5 w-5" />,
+    summary:
+      "Supported onboarding, requirements analysis, scheme alignment, and delivery readiness for WorldPay's Brazil and LATAM acquiring expansion on RS2 BankWORKS.",
+    outcome:
+      "Validated Visa Debit, Visa AFT, Visa Direct / OCT-aligned, Mastercard MoneySend, settlement, pricing, dispute, and cross-border flows.",
+  },
+  {
+    title: "ISO 8583 Transaction Flow Analysis",
+    icon: <CreditCard className="h-5 w-5" />,
+    summary:
+      "Mapped and validated card transaction behavior across POS/gateway, acquirer, card network, issuer, authorization response, clearing, settlement, and merchant reporting.",
+    outcome:
+      "Used MTI, bitmap, DE2, DE3, DE4, DE11, DE39, DE41, processing code, STAN, POS entry mode, AFS, product ID, fee identifier, and response-code analysis for testing and defect triage.",
+  },
+  {
+    title: "Bank of America Merchant Portal",
+    icon: <BarChart3 className="h-5 w-5" />,
+    summary:
+      "Analyzed chargebacks, reporting consistency, downstream merchant visibility, and source-to-target payment-data integrity on the RS2 acquiring platform.",
+    outcome:
+      "Improved reporting accuracy by about 40%, reduced chargeback disputes by about 25%, and cut issue-resolution time by about 30%.",
+  },
+  {
+    title: "Wells Fargo BankWORKS Onboarding",
+    icon: <Layers className="h-5 w-5" />,
+    summary:
+      "Drove detailed requirement analysis, validation artifacts, API scenarios, and multi-stakeholder UAT for Visa and Mastercard-aligned onboarding workflows.",
+    outcome:
+      "Contributed to about 95% first-pass acceptance, timely deployment quality, and about 30% fewer post-launch defects.",
+  },
+  {
+    title: "Visa & Mastercard IRF Mandates",
+    icon: <ShieldCheck className="h-5 w-5" />,
+    summary:
+      "Led mandate and interchange analysis across LATAM, EU, and North America, including EMV, tokenized payments, AFS, PID, PTC, and POS entry-mode attributes.",
+    outcome:
+      "Reduced IRF-related penalties by about 95% on affected clients and lowered scheme non-compliance incidents and acquirer chargeback exposure by about 35%.",
+  },
+  {
+    title: "def3000/TR SWIFT Confirmation Matching",
+    icon: <FileCheck2 className="h-5 w-5" />,
+    summary:
+      "Supported implementation of a commercial off-the-shelf Asseco def3000/TR treasury module for automated SWIFT confirmation and statement matching.",
+    outcome:
+      "Matched MT103, MT202, and MT910 against MT940/MT950, and matched incoming MT300/MT320 with outgoing MT300/MT320 to improve Funds Transfer and Treasury Operations efficiency.",
+  },
+  {
+    title: "CyberSource Fraud Decisioning",
+    icon: <ShieldCheck className="h-5 w-5" />,
+    summary:
+      "Analyzed retail fraud exposure across ecommerce, card-not-present purchases, account takeover patterns, chargebacks, false declines, and manual review operations.",
+    outcome:
+      "Mapped transaction payloads and rules for CyberSource fraud screening, including billing and shipping data, device/IP metadata, AVS/CVV, velocity rules, fraud scores, review queues, API errors, and UAT fraud scenarios.",
+  },
+  {
+    title: "Omnichannel Checkout, POS & OMS",
+    icon: <Workflow className="h-5 w-5" />,
+    summary:
+      "Supported retail commerce flow improvements across ecommerce checkout, POS, OMS, inventory, payments, tax, fraud controls, fulfillment, and reporting.",
+    outcome:
+      "Connected CyberSource, Decision Manager, Avalara, Oracle Xstore, ORMS / OROB, SFCC, Shopify, ERP, 3PL, and marketplace touchpoints.",
+  },
+  {
+    title: "AI BA Artifact Automation Model",
+    icon: <Bot className="h-5 w-5" />,
+    summary:
+      "Built an AI model that structures messy discovery inputs from meetings, workshop notes, and interviews into delivery-ready business analysis artifacts.",
+    outcome:
+      "Generates business summaries, user stories, acceptance criteria, functional requirements, assumptions, risks, dependencies, open questions, and UAT scenarios.",
+  },
 ];
 
-const testimonials = [
-    {
-        quote: "Damilola combines strong technical expertise with excellent people skills. He consistently goes above and beyond to ensure projects meet delivery timelines and is a valuable asset to any team.",
-        author: "Seyi Lucas",
-        title: "Enterprise / Solutions Architect"
-    },
-    {
-        quote: "Dami’s work ethic is top‑notch. I would gladly recommend him to any organization looking for someone dependable and results‑oriented.",
-        author: "Chukwuka Okafor",
-        title: "Chief Product Officer"
-    },
-    {
-        quote: "One of the best analysts I’ve had the pleasure of working with. Highly analytical, motivated, and focused, with the ability to make a significant impact on project success.",
-        author: "Hrvoje Bek",
-        title: "Strategic Product Manager"
-    },
-    {
-        quote: "A highly committed professional with strong technical, project management, and people skills. A resource any project manager would love to have on their team.",
-        author: "Ayodeji Adeleye",
-        title: "Digital Transformation Program Manager"
-    },
-    {
-        quote: "Dami combines business understanding with deep technical insight to create real value for the organizations and teams he works with.",
-        author: "Matej Sloup",
-        title: "Technology & Business Executive"
-    }
-    ,
-    {
-        quote: "Dami demonstrates deep proficiency in solution design and brings strong ideas, technical insight, and understanding of system dependencies. His commitment and expertise make complex projects much easier to execute.",
-        author: "Salman Saifi",
-        title: "Web Developer / Solutions Collaborator"
-    }
+const certifications = [
+  "CBAP - Certified Business Analysis Professional",
+  "CSM - Certified Scrum Master",
+  "CSPO - Certified Scrum Product Owner",
+  "ITIL V4 - Foundation Certificate in Service Management",
+  "ISTQB - Certified Software Tester",
 ];
 
 const tools = [
-    "JIRA",
-    "Confluence",
-    "Azure DevOps",
-    "SQL",
-    "Visio",
-    "Figma",
-    "Power BI",
-    "Excel",
-    "Postman",
-    "ServiceNow",
-    "SharePoint",
-    "Salesforce",
+  "SQL",
+  "Oracle",
+  "PostgreSQL",
+  "Postman",
+  "SOAPUI",
+  "Wizdler",
+  "Jira",
+  "Confluence",
+  "Zephyr Scale",
+  "Jenkins",
+  "Power BI",
+  "Excel",
+  "Visio",
+  "BPMN / UML",
+  "SharePoint",
+  "REST APIs",
+  "SOAP / WSDL",
+  "CyberSource",
+  "Decision Manager",
+  "RS2 BankWORKS",
+  "ISO 8583",
+  "MTI / Bitmap / DE",
+  "ISO 20022",
+  "SWIFT MT",
+  "def3000/TR",
+  "T24 / Temenos",
+  "Loan IQ",
+  "Oracle Flexcube",
+  "SWIFT Alliance",
+  "SFCC",
+  "Shopify",
+  "Oracle Xstore",
+  "ORMS / OROB",
 ];
 
+const fadeUp = {
+  initial: { opacity: 0, y: 14 },
+  animate: { opacity: 1, y: 0 },
+};
+
 export default function Portfolio() {
-    return (
-        <div className="min-h-screen bg-slate-50 text-slate-900">
-            <section className="relative overflow-hidden border-b bg-white">
-                <div className="absolute inset-0 bg-gradient-to-br from-slate-100 via-white to-slate-100" />
-                <div className="relative mx-auto max-w-7xl px-6 py-16 lg:px-10 lg:py-24">
-                    <div className="grid items-center gap-10 lg:grid-cols-[1.2fr_0.8fr]">
-                        <motion.div
-                            initial={{ opacity: 0, y: 16 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.5 }}
-                        >
-                            <div className="mb-4 inline-flex items-center gap-2 rounded-full border bg-white px-3 py-1 text-sm shadow-sm">
-                                <BadgeCheck className="h-4 w-4" />
-                                Payments, Product & Enterprise Transformation Leader
-                            </div>
-                            <h1 className="max-w-4xl text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl">
-                                Damilola Dahunsi
-                            </h1>
-                            <p className="mt-4 max-w-3xl text-lg leading-8 text-slate-600">
-                                I help organizations translate strategy into executable product, systems, and process outcomes across payments, enterprise platforms, and digital transformation programs — with a strong focus on scale, delivery quality, and measurable business value.
-                            </p>
-                            <div className="mt-6 flex flex-wrap gap-3 text-sm text-slate-600">
-                                <span className="inline-flex items-center gap-2 rounded-full border bg-white px-3 py-2">
-                                    <MapPin className="h-4 w-4" /> Vancouver, BC / Canada
-                                </span>
-                                <span className="inline-flex items-center gap-2 rounded-full border bg-white px-3 py-2">
-                                    <Workflow className="h-4 w-4" /> Agile • Product • Systems Analysis
-                                </span>
-                                <span className="inline-flex items-center gap-2 rounded-full border bg-white px-3 py-2">
-                                    <ShieldCheck className="h-4 w-4" /> Fintech • Payments • Enterprise Delivery
-                                </span>
-                            </div>
-                            <div className="mt-8 flex flex-wrap items-center gap-3">
-                                <Button className="h-12 rounded-2xl px-5 text-base">
-                                    <Mail className="mr-2 h-4 w-4 shrink-0" />
-                                    Contact Me
-                                </Button>
-
-                                <Button variant="outline" className="h-12 rounded-2xl px-5 text-base">
-                                    <Briefcase className="mr-2 h-4 w-4 shrink-0" />
-                                    Download Resume
-                                </Button>
-
-                                <Button variant="outline" className="h-12 rounded-2xl px-5 text-base">
-                                    <Linkedin className="mr-2 h-4 w-4 shrink-0" />
-                                    LinkedIn Profile
-                                </Button>
-                            </div>
-                        </motion.div>
-
-                        <motion.div
-                            initial={{ opacity: 0, scale: 0.98 }}
-                            animate={{ opacity: 1, scale: 1 }}
-                            transition={{ duration: 0.5, delay: 0.1 }}
-                        >
-                            <Card className="rounded-3xl border-0 bg-slate-900 text-white shadow-2xl">
-                                <CardContent className="p-8">
-                                    <div className="mb-6 flex items-center gap-3">
-                                        <BarChart3 className="h-6 w-6" />
-                                        <h2 className="text-xl font-semibold">Impact Snapshot</h2>
-                                    </div>
-                                    <div className="grid gap-4 sm:grid-cols-2">
-                                        {metrics.map((item) => (
-                                            <div key={item.label} className="rounded-2xl bg-white/10 p-4 backdrop-blur">
-                                                <div className="text-3xl font-bold">{item.value}</div>
-                                                <div className="mt-1 text-sm text-slate-200">{item.label}</div>
-                                            </div>
-                                        ))}
-                                    </div>
-                                </CardContent>
-                            </Card>
-                        </motion.div>
-                    </div>
-                </div>
-            </section>
-
-            <section className="mx-auto max-w-7xl px-6 py-14 lg:px-10">
-                <div className="grid gap-6 lg:grid-cols-[1.1fr_0.9fr]">
-                    <Card className="rounded-3xl border-0 shadow-sm">
-                        <CardContent className="p-8">
-                            <div className="mb-5 flex items-center gap-3">
-                                <Target className="h-5 w-5" />
-                                <h2 className="text-2xl font-semibold">Professional Summary</h2>
-                            </div>
-                            <div className="space-y-3 text-slate-700">
-                                {highlights.map((item) => (
-                                    <div key={item} className="flex gap-3">
-                                        <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0" />
-                                        <p>{item}</p>
-                                    </div>
-                                ))}
-                            </div>
-                        </CardContent>
-                    </Card>
-
-                    <Card className="rounded-3xl border-0 shadow-sm">
-                        <CardContent className="p-8">
-                            <div className="mb-5 flex items-center gap-3">
-                                <BadgeCheck className="h-5 w-5" />
-                                <h2 className="text-2xl font-semibold">Professional Credentials</h2>
-                            </div>
-                            <div className="grid gap-3 sm:grid-cols-2">
-                                {certifications.map((item) => (
-                                    <div
-                                        key={item.name}
-                                        className="group rounded-2xl border bg-white p-4 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md"
-                                    >
-                                        <div className="flex items-start gap-4">
-                                            <div
-                                                className={`inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl text-sm font-bold ring-1 ${item.badgeClass}`}
-                                            >
-                                                {item.short}
-                                            </div>
-                                            <div className="min-w-0">
-                                                <div className="text-sm font-semibold leading-6 text-slate-900">{item.name}</div>
-                                                <div className="mt-1 text-xs uppercase tracking-wide text-slate-500">{item.org}</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                ))}
-                            </div>
-                        </CardContent>
-                    </Card>
-                </div>
-            </section>
-
-            <section className="mx-auto max-w-7xl px-6 pb-14 lg:px-10">
-                <Card className="rounded-3xl border-0 shadow-sm">
-                    <CardContent className="p-8">
-                        <div className="mb-6 flex items-center gap-3">
-                            <Briefcase className="h-5 w-5" />
-                            <h2 className="text-2xl font-semibold">Leadership & Delivery Experience</h2>
-                        </div>
-                        <div className="space-y-6">
-                            {experience.map((item) => (
-                                <div key={item.company} className="rounded-2xl border p-6">
-                                    <div className="flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between">
-                                        <div>
-                                            <h3 className="text-xl font-semibold">{item.role}</h3>
-                                            <p className="text-slate-600">{item.company}</p>
-                                        </div>
-                                        <span className="rounded-full bg-slate-100 px-3 py-1 text-sm text-slate-600">
-                                            {item.period}
-                                        </span>
-                                    </div>
-                                    <div className="mt-4 space-y-3 text-slate-700">
-                                        {item.bullets.map((bullet) => (
-                                            <div key={bullet} className="flex gap-3">
-                                                <ArrowRight className="mt-0.5 h-4 w-4 shrink-0" />
-                                                <p>{bullet}</p>
-                                            </div>
-                                        ))}
-                                    </div>
-                                </div>
-                            ))}
-                        </div>
-                    </CardContent>
-                </Card>
-            </section>
-
-            <section className="mx-auto max-w-7xl px-6 pb-14 lg:px-10">
-                <div className="mb-10 text-center">
-                    <h2 className="text-3xl font-semibold">Industry Feedback</h2>
-                    <p className="mt-2 text-slate-600">What colleagues and leaders say about working with Damilola</p>
-                </div>
-                <div className="grid gap-6 lg:grid-cols-3">
-                    {testimonials.map((t) => (
-                        <Card key={t.quote} className="rounded-3xl border-0 shadow-sm">
-                            <CardContent className="p-8">
-                                <p className="text-slate-700 leading-7">“{t.quote}”</p>
-                                <div className="mt-4 text-sm text-slate-500">
-                                    <div className="font-semibold text-slate-700">{t.author}</div>
-                                    <div>{t.title}</div>
-                                </div>
-                            </CardContent>
-                        </Card>
-                    ))}
-                </div>
-            </section>
-
-            <section className="mx-auto max-w-7xl px-6 pb-14 lg:px-10">
-                <div className="mb-10 text-center">
-                    <h2 className="text-3xl font-semibold">Featured Platforms & Programs</h2>
-                    <p className="mt-2 text-slate-600">Selected initiatives and platforms reflecting enterprise‑scale systems, payments infrastructure, and digital transformation work.</p>
-                </div>
-                <div className="grid gap-6 lg:grid-cols-3">
-                    {caseStudies.map((item) => (
-                        <Card key={item.title} className="rounded-3xl border-0 shadow-sm">
-                            <CardContent className="p-8">
-                                <div className="mb-4 inline-flex rounded-2xl bg-slate-100 p-3">{item.icon}</div>
-                                <h3 className="text-xl font-semibold">{item.title}</h3>
-                                <p className="mt-3 leading-7 text-slate-600">{item.summary}</p>
-                            </CardContent>
-                        </Card>
-                    ))}
-                </div>
-            </section>
-
-            <section className="mx-auto max-w-7xl px-6 pb-14 lg:px-10">
-                <div className="grid gap-6 lg:grid-cols-[1fr_1fr]">
-                    <Card className="rounded-3xl border-0 shadow-sm">
-                        <CardContent className="p-8">
-                            <h2 className="text-2xl font-semibold">Strategic Capabilities</h2>
-                            <div className="mt-6 grid gap-4 sm:grid-cols-2">
-                                <div className="rounded-2xl border bg-slate-50 p-4">
-                                    <div className="text-sm font-semibold text-slate-900">Payments & Enterprise Platforms</div>
-                                    <div className="mt-2 text-sm leading-6 text-slate-600">Payments & Fintech, ISO 20022 / SWIFT MT, ERP / Treasury / Enterprise Platforms, Data Mapping & Integration</div>
-                                </div>
-                                <div className="rounded-2xl border bg-slate-50 p-4">
-                                    <div className="text-sm font-semibold text-slate-900">Product & Delivery Leadership</div>
-                                    <div className="mt-2 text-sm leading-6 text-slate-600">Product Management, Agile / Scrum Delivery, Stakeholder Workshops, Implementation & Change Readiness</div>
-                                </div>
-                                <div className="rounded-2xl border bg-slate-50 p-4">
-                                    <div className="text-sm font-semibold text-slate-900">Analysis & Execution</div>
-                                    <div className="mt-2 text-sm leading-6 text-slate-600">Business Systems Analysis, Requirements Engineering, User Stories & Acceptance Criteria, UAT / QA / Defect Triage</div>
-                                </div>
-                                <div className="rounded-2xl border bg-slate-50 p-4">
-                                    <div className="text-sm font-semibold text-slate-900">Process, Architecture & Design</div>
-                                    <div className="mt-2 text-sm leading-6 text-slate-600">Process Mapping & BPMN, API & Cross-Functional Solution Design, enterprise operating model alignment</div>
-                                </div>
-                            </div>
-                        </CardContent>
-                    </Card>
-
-                    <Card className="rounded-3xl border-0 shadow-sm">
-                        <CardContent className="p-8">
-                            <h2 className="text-2xl font-semibold">Tools & Platforms</h2>
-                            <div className="mt-6 grid grid-cols-2 gap-3 sm:grid-cols-3">
-                                {tools.map((item) => (
-                                    <div key={item} className="rounded-2xl border bg-slate-50 p-3 text-slate-700">
-                                        {item}
-                                    </div>
-                                ))}
-                            </div>
-                        </CardContent>
-                    </Card>
-                </div>
-            </section>
-
-            <section className="border-t bg-white">
-                <div className="mx-auto max-w-7xl px-6 py-14 lg:px-10">
-                    <Card className="rounded-3xl border-0 bg-slate-900 text-white shadow-xl">
-                        <CardContent className="p-8 lg:p-10">
-                            <div className="grid gap-6 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
-                                <div>
-                                    <h2 className="text-3xl font-semibold">Let’s build business outcomes, not just documents.</h2>
-                                    <p className="mt-3 max-w-2xl text-slate-300">
-                                        Available for Business Systems Analyst, Product Owner, Implementation Consultant,
-                                        and payments-focused transformation roles across Canada and remote-first teams.
-                                    </p>
-                                </div>
-                                <div className="flex flex-wrap items-center gap-3 lg:justify-end">
-  <Button className="h-12 rounded-2xl bg-white px-5 text-base text-slate-900 hover:bg-slate-100">
-    <Mail className="mr-2 h-4 w-4 shrink-0" />
-    Email Me
-  </Button>
-
-  <Button
-    variant="outline"
-    className="h-12 rounded-2xl border-white/30 px-5 text-base text-white hover:bg-white/10"
-  >
-    <Linkedin className="mr-2 h-4 w-4 shrink-0" />
-    Connect on LinkedIn
-  </Button>
-</div>
-                            </div>
-                        </CardContent>
-                    </Card>
-                </div>
-            </section>
+  return (
+    <main className="min-h-screen w-screen bg-zinc-50 text-zinc-950">
+      <section className="border-b border-zinc-200 bg-white">
+        <div className="mx-auto flex max-w-7xl flex-col gap-4 px-4 py-4 sm:px-6 lg:flex-row lg:items-center lg:justify-between lg:px-8">
+          <div className="flex flex-col gap-1 sm:flex-row sm:items-center sm:gap-3">
+            <span className="text-sm font-semibold">Damilola Dahunsi</span>
+            <span className="hidden h-1 w-1 rounded-full bg-zinc-300 sm:block" />
+            <span className="text-sm text-zinc-600">Payments, Commerce & Banking Systems</span>
+          </div>
+          <div className="flex flex-wrap gap-2">
+            <Button asChild variant="outline" className="h-9 rounded-lg border-zinc-300 bg-white px-3">
+              <a href={`mailto:${contact.email}`}>
+                <Mail className="mr-2 h-4 w-4" />
+                Email
+              </a>
+            </Button>
+            <Button asChild variant="outline" className="h-9 rounded-lg border-zinc-300 bg-white px-3">
+              <a href={contact.linkedin} target="_blank" rel="noreferrer">
+                <Linkedin className="mr-2 h-4 w-4" />
+                LinkedIn
+              </a>
+            </Button>
+          </div>
         </div>
-    );
+      </section>
+
+      <section className="bg-[linear-gradient(135deg,#ffffff_0%,#f4f4f5_48%,#ecfeff_100%)]">
+        <div className="mx-auto grid max-w-7xl gap-8 px-4 py-12 sm:px-6 sm:py-16 lg:grid-cols-[minmax(0,1.05fr)_minmax(340px,0.95fr)] lg:px-8 lg:py-20">
+          <motion.div {...fadeUp} transition={{ duration: 0.45 }}>
+            <div className="mb-5 inline-flex items-center gap-2 rounded-lg border border-teal-200 bg-teal-50 px-3 py-2 text-sm font-medium text-teal-900">
+              <BadgeCheck className="h-4 w-4" />
+              CBAP, CSM, CSPO | Vancouver, BC
+            </div>
+            <h1 className="max-w-4xl text-4xl font-semibold leading-tight tracking-normal text-zinc-950 sm:text-5xl lg:text-6xl">
+              Senior Business Analyst for payments, commerce, and regulated systems delivery.
+            </h1>
+            <p className="mt-5 max-w-3xl text-base leading-8 text-zinc-700 sm:text-lg">
+              I help product, engineering, operations, finance, compliance, and client teams turn complex transaction flows into clear requirements, validated releases, and measurable business outcomes across card payments, core banking, omnichannel commerce, and digital transformation.
+            </p>
+            <div className="mt-6 grid gap-3 text-sm text-zinc-700 sm:grid-cols-3">
+              <span className="inline-flex items-center gap-2 rounded-lg border border-zinc-200 bg-white px-3 py-3">
+                <MapPin className="h-4 w-4 text-teal-700" />
+                Vancouver, BC
+              </span>
+              <span className="inline-flex items-center gap-2 rounded-lg border border-zinc-200 bg-white px-3 py-3">
+                <Phone className="h-4 w-4 text-amber-700" />
+                {contact.phone}
+              </span>
+              <span className="inline-flex items-center gap-2 rounded-lg border border-zinc-200 bg-white px-3 py-3">
+                <Briefcase className="h-4 w-4 text-rose-700" />
+                Remote / Canada
+              </span>
+            </div>
+          </motion.div>
+
+          <motion.div
+            {...fadeUp}
+            transition={{ duration: 0.45, delay: 0.08 }}
+            className="grid gap-3 sm:grid-cols-2 lg:content-start"
+          >
+            {metrics.map((item) => (
+              <div key={item.label} className="rounded-lg border border-zinc-200 bg-white p-4 shadow-sm">
+                <div className="text-3xl font-semibold text-zinc-950">{item.value}</div>
+                <div className="mt-2 text-sm leading-6 text-zinc-600">{item.label}</div>
+              </div>
+            ))}
+          </motion.div>
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
+        <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr]">
+          <div>
+            <div className="mb-3 flex items-center gap-2 text-sm font-semibold uppercase text-teal-800">
+              <Target className="h-4 w-4" />
+              Professional Summary
+            </div>
+            <h2 className="max-w-xl text-3xl font-semibold leading-tight text-zinc-950">
+              Practical domain depth with the documentation discipline banks and payment teams rely on.
+            </h2>
+          </div>
+          <div className="grid gap-3">
+            {highlights.map((item) => (
+              <div key={item} className="flex gap-3 rounded-lg border border-zinc-200 bg-white p-4 shadow-sm">
+                <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-teal-700" />
+                <p className="leading-7 text-zinc-700">{item}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="border-y border-zinc-200 bg-white">
+        <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
+          <div className="mb-7 flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
+            <div>
+              <div className="mb-2 flex items-center gap-2 text-sm font-semibold uppercase text-amber-800">
+                <Layers className="h-4 w-4" />
+                Capability Map
+              </div>
+              <h2 className="text-3xl font-semibold text-zinc-950">Where I create leverage</h2>
+            </div>
+            <p className="max-w-2xl text-sm leading-6 text-zinc-600">
+              A portfolio view of recurring strengths reflected across the Lumovy addendum, RS2 KSA notes, CyberSource update, consulting samples, payments resume, and master payments resume.
+            </p>
+          </div>
+          <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+            {capabilities.map((item) => (
+              <Card key={item.title} className="rounded-lg border-zinc-200 py-0 shadow-sm">
+                <CardContent className="p-5">
+                  <div className="mb-4 inline-flex rounded-lg bg-zinc-100 p-3 text-zinc-900">{item.icon}</div>
+                  <h3 className="text-lg font-semibold text-zinc-950">{item.title}</h3>
+                  <p className="mt-2 min-h-24 text-sm leading-6 text-zinc-600">{item.summary}</p>
+                  <div className="mt-5 flex flex-wrap gap-2">
+                    {item.items.map((skill) => (
+                      <span key={skill} className="rounded-md border border-zinc-200 bg-zinc-50 px-2 py-1 text-xs text-zinc-700">
+                        {skill}
+                      </span>
+                    ))}
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
+        <div className="mb-7 flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
+          <div>
+            <div className="mb-2 flex items-center gap-2 text-sm font-semibold uppercase text-teal-800">
+              <CreditCard className="h-4 w-4" />
+              Payment Message Depth
+            </div>
+            <h2 className="text-3xl font-semibold text-zinc-950">Card, commerce, and treasury payment evidence</h2>
+          </div>
+          <p className="max-w-2xl text-sm leading-6 text-zinc-600">
+            Clear separation of RS2 card-payments expertise from Asseco SWIFT MT and ISO 20022 update work.
+          </p>
+        </div>
+        <div className="grid gap-4 lg:grid-cols-5">
+          {paymentDepth.map((item) => (
+            <Card key={item.title} className="rounded-lg border-zinc-200 py-0 shadow-sm">
+              <CardContent className="p-5">
+                <div className="mb-4 inline-flex rounded-lg bg-zinc-100 p-3 text-zinc-900">{item.icon}</div>
+                <h3 className="text-lg font-semibold text-zinc-950">{item.title}</h3>
+                <p className="mt-3 text-sm leading-6 text-zinc-700">{item.summary}</p>
+                <p className="mt-4 rounded-lg border border-teal-200 bg-teal-50 p-3 text-sm leading-6 text-teal-950">
+                  {item.proof}
+                </p>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
+        <div className="mb-7 flex items-center gap-2 text-sm font-semibold uppercase text-rose-800">
+          <Briefcase className="h-4 w-4" />
+          Experience
+        </div>
+        <div className="space-y-4">
+          {experience.map((item) => (
+            <Card key={`${item.company}-${item.role}`} className="rounded-lg border-zinc-200 py-0 shadow-sm">
+              <CardContent className="p-5 sm:p-6">
+                <div className="grid gap-4 lg:grid-cols-[0.34fr_0.66fr]">
+                  <div>
+                    <h3 className="text-xl font-semibold text-zinc-950">{item.role}</h3>
+                    <p className="mt-1 font-medium text-zinc-700">{item.company}</p>
+                    <p className="mt-3 inline-flex rounded-md bg-zinc-100 px-2.5 py-1 text-sm text-zinc-700">{item.period}</p>
+                    <p className="mt-4 text-sm leading-6 text-zinc-600">{item.scope}</p>
+                  </div>
+                  <div className="grid gap-3">
+                    {item.bullets.map((bullet) => (
+                      <div key={bullet} className="flex gap-3">
+                        <ArrowRight className="mt-1 h-4 w-4 shrink-0 text-teal-700" />
+                        <p className="leading-7 text-zinc-700">{bullet}</p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+      </section>
+
+      <section className="border-y border-zinc-200 bg-zinc-100/70">
+        <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
+          <div className="mb-7 flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
+            <div>
+              <div className="mb-2 flex items-center gap-2 text-sm font-semibold uppercase text-teal-800">
+                <Database className="h-4 w-4" />
+                Featured Work
+              </div>
+              <h2 className="text-3xl font-semibold text-zinc-950">Selected platforms and programs</h2>
+            </div>
+            <p className="max-w-2xl text-sm leading-6 text-zinc-600">
+              Evidence-backed examples spanning payment operations, merchant platforms, core banking, commerce integrations, and release validation.
+            </p>
+          </div>
+          <div className="grid gap-4 lg:grid-cols-3">
+            {caseStudies.map((item) => (
+              <Card key={item.title} className="rounded-lg border-zinc-200 bg-white py-0 shadow-sm">
+                <CardContent className="p-5">
+                  <div className="mb-4 inline-flex rounded-lg bg-teal-50 p-3 text-teal-900">{item.icon}</div>
+                  <h3 className="text-lg font-semibold text-zinc-950">{item.title}</h3>
+                  <p className="mt-3 leading-7 text-zinc-700">{item.summary}</p>
+                  <div className="mt-4 rounded-lg border border-amber-200 bg-amber-50 p-3 text-sm leading-6 text-amber-950">
+                    {item.outcome}
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="border-b border-zinc-200 bg-white">
+        <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
+          <div className="mb-7 flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
+            <div>
+              <div className="mb-2 flex items-center gap-2 text-sm font-semibold uppercase text-amber-800">
+                <Building2 className="h-4 w-4" />
+                Consulting Portfolio
+              </div>
+              <h2 className="text-3xl font-semibold text-zinc-950">Government, insurance, IAM, and enterprise transformation</h2>
+            </div>
+            <p className="max-w-2xl text-sm leading-6 text-zinc-600">
+              Additional project evidence from consulting samples, showing breadth beyond payments while staying anchored in business analysis delivery.
+            </p>
+          </div>
+          <div className="grid gap-4 lg:grid-cols-3">
+            {consultingProjects.map((item) => (
+              <Card key={item.title} className="rounded-lg border-zinc-200 py-0 shadow-sm">
+                <CardContent className="p-5">
+                  <div className="mb-4 flex items-start justify-between gap-3">
+                    <div className="inline-flex rounded-lg bg-amber-50 p-3 text-amber-900">{item.icon}</div>
+                    <span className="rounded-md border border-zinc-200 bg-zinc-50 px-2 py-1 text-right text-xs leading-5 text-zinc-600">
+                      {item.sector}
+                    </span>
+                  </div>
+                  <h3 className="text-lg font-semibold text-zinc-950">{item.title}</h3>
+                  <p className="mt-3 leading-7 text-zinc-700">{item.summary}</p>
+                  <p className="mt-3 text-sm leading-6 text-zinc-600">{item.details}</p>
+                  <div className="mt-4 rounded-lg border border-zinc-200 bg-zinc-50 p-3 text-sm leading-6 text-zinc-700">
+                    {item.proof}
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="mx-auto grid max-w-7xl gap-4 px-4 py-10 sm:px-6 lg:grid-cols-[0.85fr_1.15fr] lg:px-8">
+        <Card className="rounded-lg border-zinc-200 py-0 shadow-sm">
+          <CardContent className="p-5 sm:p-6">
+            <div className="mb-5 flex items-center gap-2">
+              <BadgeCheck className="h-5 w-5 text-teal-700" />
+              <h2 className="text-2xl font-semibold text-zinc-950">Credentials</h2>
+            </div>
+            <div className="grid gap-3">
+              {certifications.map((item) => (
+                <div key={item} className="flex items-start gap-3 rounded-lg border border-zinc-200 bg-zinc-50 p-3">
+                  <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-teal-700" />
+                  <span className="text-sm leading-6 text-zinc-700">{item}</span>
+                </div>
+              ))}
+            </div>
+          </CardContent>
+        </Card>
+
+        <Card className="rounded-lg border-zinc-200 py-0 shadow-sm">
+          <CardContent className="p-5 sm:p-6">
+            <div className="mb-5 flex items-center gap-2">
+              <Workflow className="h-5 w-5 text-amber-700" />
+              <h2 className="text-2xl font-semibold text-zinc-950">Tools, Platforms & Methods</h2>
+            </div>
+            <div className="flex flex-wrap gap-2">
+              {tools.map((item) => (
+                <span key={item} className="rounded-md border border-zinc-200 bg-zinc-50 px-3 py-2 text-sm text-zinc-700">
+                  {item}
+                </span>
+              ))}
+            </div>
+          </CardContent>
+        </Card>
+      </section>
+
+      <section className="border-t border-zinc-200 bg-zinc-950 text-white">
+        <div className="mx-auto grid max-w-7xl gap-6 px-4 py-10 sm:px-6 lg:grid-cols-[1fr_auto] lg:items-center lg:px-8">
+          <div>
+            <h2 className="text-3xl font-semibold">Available for payments, product, business systems, and transformation roles.</h2>
+            <p className="mt-3 max-w-3xl leading-7 text-zinc-300">
+              Strongest fit: Business Systems Analyst, Product Owner, Payments / Fintech Analyst, Implementation Consultant, and retail commerce transformation roles across Canada or remote-first teams.
+            </p>
+          </div>
+          <div className="flex flex-wrap gap-3 lg:justify-end">
+            <Button asChild className="h-10 rounded-lg bg-white px-4 text-zinc-950 hover:bg-zinc-100">
+              <a href={`mailto:${contact.email}`}>
+                <Mail className="mr-2 h-4 w-4" />
+                Email Me
+              </a>
+            </Button>
+            <Button asChild variant="outline" className="h-10 rounded-lg border-white/30 bg-transparent px-4 text-white hover:bg-white/10">
+              <a href={contact.linkedin} target="_blank" rel="noreferrer">
+                <Linkedin className="mr-2 h-4 w-4" />
+                LinkedIn
+              </a>
+            </Button>
+          </div>
+        </div>
+      </section>
+    </main>
+  );
 }
