@@ -1,4 +1,5 @@
-import { motion } from "framer-motion";
+import { useEffect, useRef, useState, type ReactNode } from "react";
+import { motion, useInView, useReducedMotion } from "framer-motion";
 import {
   ArrowRight,
   BadgeCheck,
@@ -35,11 +36,17 @@ const contact = {
 
 const highlights = [
   "11+ years translating payments, banking, retail commerce, and enterprise-system change into release-ready outcomes.",
-  "Deep RS2 BankWORKS card-processing coverage across ISO 8583 MTIs, bitmap-driven data elements, authorization, clearing, settlement, merchant funding, reconciliation, disputes, and reporting.",
-  "Strong omnichannel commerce coverage across CyberSource fraud decisioning, checkout, POS, OMS, tax, inventory, fulfillment, and order-to-cash flows.",
-  "Asseco institutional-payments experience across SWIFT MT-to-ISO 20022 update work, MT103, MT202, MT910, MT940, MT950, MT300, MT320, and treasury confirmation matching.",
-  "Built an AI model that converts meetings, workshops, interview notes, and discovery inputs into structured business analysis artifacts.",
-  "Known for SQL-backed validation, traceable requirements, stakeholder workshops, UAT strategy, and production readiness in regulated environments.",
+  "Deep RS2 BankWORKS card-processing coverage across ISO 8583 MTIs, bitmap-driven data elements, authorization, clearing, settlement, merchant funding, reconciliation, disputes, PCI DSS-aligned controls, and reporting.",
+  "Strong omnichannel commerce coverage across CyberSource fraud decisioning, tokenization, 3D Secure, AVS/CVV, checkout, POS, OMS, tax, inventory, fulfillment, and order-to-cash flows.",
+  "Led SWIFT MT-to-ISO 20022 update and def3000/TR treasury matching work at Asseco, aligning Funds Transfer, Treasury Operations, and technology teams around MT103, MT202, MT910, MT940, MT950, MT300, and MT320 flows.",
+  "Built an AI-powered BA documentation model that turns meetings, workshops, interviews, and discovery notes into structured artifacts while supporting project management, cross-functional alignment, and prioritization discipline.",
+  "Known for SQL-backed validation, traceable requirements, stakeholder workshops, UAT strategy, Eisenhower Matrix and MoSCoW prioritization, and production readiness in regulated environments.",
+];
+
+const professionalSummary = [
+  "I'm Damilola Dahunsi, a CBAP-certified Senior Technical Business Analyst helping organizations turn complex payment, banking, SaaS, and regulated operations into scalable systems, cleaner processes, and implementation-ready requirements.",
+  "Across my career, I've supported platforms processing 1B+ transactions monthly, reduced reconciliation exceptions by 25%, improved onboarding timelines by 40%, and delivered change across institutions including WorldPay, Barclays, and Bank of America.",
+  "I bring deep business analysis, systems thinking, stakeholder leadership, SQL/data validation, API integration support, and Agile delivery experience to help teams move from ambiguity to measurable operational and customer outcomes.",
 ];
 
 const metrics = [
@@ -56,15 +63,15 @@ const capabilities = [
     title: "Payments Platforms",
     icon: <Globe className="h-5 w-5" />,
     summary:
-      "Acquiring, issuing, authorization, clearing, settlement, merchant funding, disputes, chargebacks, statements, reporting, and ISO 8583 message analysis.",
-    items: ["RS2 BankWORKS", "MTI", "Bitmap", "Data Elements", "Visa Base II", "Mastercard IPM"],
+      "Acquiring, issuing, authorization, clearing, settlement, merchant funding, disputes, chargebacks, PCI DSS-aligned controls, tokenization, reporting, and ISO 8583 message analysis.",
+    items: ["RS2 BankWORKS", "MTI", "Bitmap", "Data Elements", "PCI DSS", "Tokenization", "3D Secure"],
   },
   {
     title: "Retail Commerce",
     icon: <Workflow className="h-5 w-5" />,
     summary:
-      "Checkout, POS, OMS, BOPIS, ship-from-store, CyberSource fraud decisioning, risk scoring, tax integrations, fulfillment, and order-to-cash delivery.",
-    items: ["CyberSource", "AVS / CVV", "Velocity rules", "Device metadata", "Oracle Xstore", "Avalara"],
+      "Checkout, POS, OMS, BOPIS, ship-from-store, CyberSource fraud decisioning, risk scoring, card tokenization, 3DS, tax integrations, fulfillment, and order-to-cash delivery.",
+    items: ["CyberSource", "AVS / CVV", "3D Secure", "Tokenization", "Velocity rules", "Device metadata"],
   },
   {
     title: "Banking Integrations",
@@ -84,8 +91,8 @@ const capabilities = [
     title: "AI BA Documentation Automation",
     icon: <Bot className="h-5 w-5" />,
     summary:
-      "AI-assisted artifact generation that turns meetings, workshops, interviews, and notes into structured BA outputs for delivery teams.",
-    items: ["Business summaries", "User stories", "Acceptance criteria", "UAT scenarios", "Risks", "Dependencies", "Assumptions"],
+      "AI-assisted artifact generation and delivery support that turns messy discovery inputs into structured BA outputs, project signals, and prioritized team actions.",
+    items: ["Business summaries", "User stories", "Acceptance criteria", "UAT scenarios", "Eisenhower Matrix", "Risks", "Dependencies"],
   },
 ];
 
@@ -102,9 +109,9 @@ const paymentDepth = [
     title: "Card Lifecycle, Routing & Exceptions",
     icon: <Workflow className="h-5 w-5" />,
     summary:
-      "Can explain and validate 0100/0110 authorization, 0200/0210 financial capture, 0400/0410 reversals, and 0800/0810 network management flows.",
+      "Can explain and validate 0100/0110 authorization, 0200/0210 financial capture, 0400/0410 reversals, 0800/0810 network management, tokenized transactions, and 3DS-influenced card-not-present flows.",
     proof:
-      "Applied across POS, acquirer, card-network, issuer, ONUS/off-us, BIN lookup, fee qualification, authorization response, settlement, statement, and merchant-reporting scenarios.",
+      "Applied across POS, acquirer, card-network, issuer, ONUS/off-us, BIN lookup, fee qualification, authorization response, PCI DSS-aligned handling, settlement, statement, and merchant-reporting scenarios.",
   },
   {
     title: "SWIFT MT & ISO 20022 Update Work",
@@ -118,9 +125,9 @@ const paymentDepth = [
     title: "CyberSource Fraud Decisioning",
     icon: <ShieldCheck className="h-5 w-5" />,
     summary:
-      "Mapped checkout, authorization, fraud screening, settlement, reconciliation, and chargeback handling into CyberSource decisioning flows.",
+      "Mapped checkout, tokenization, authorization, 3D Secure, fraud screening, settlement, reconciliation, and chargeback handling into CyberSource decisioning flows.",
     proof:
-      "Defined rules and mappings for AVS/CVV, velocity checks, device and IP metadata, fraud score, accept/reject/review outcomes, API timeouts, retries, and UAT fraud scenarios.",
+      "Defined rules and mappings for AVS/CVV, velocity checks, device and IP metadata, fraud score, accept/reject/review outcomes, PCI-aware data handling, API timeouts, retries, and UAT fraud scenarios.",
   },
   {
     title: "SWIFT Confirmation Matching",
@@ -154,7 +161,7 @@ const experience = [
       "Analyzed ISO 8583 card-payment flows, including MTI, bitmap, data elements, response codes, processing codes, STAN, terminal ID, reversal behavior, and transaction-type logic.",
       "Coordinated UAT across 15+ financial institutions and 200+ scenarios, contributing to about 95% first-pass acceptance and about 30% fewer post-release defects.",
       "Used SQL-backed transaction, charge, client, and settlement validation to reduce settlement and reconciliation exceptions by about 25%.",
-      "Supported WorldPay, Paysafe, Bank of America, Wells Fargo, Landsbankinn, and Barclays initiatives involving merchant onboarding, pricing, funding, IRF mandates, chargebacks, Visa Base II, Mastercard IPM, Visa AFT, and Mastercard MoneySend.",
+      "Supported WorldPay, Paysafe, Bank of America, Wells Fargo, Landsbankinn, and Barclays initiatives involving merchant onboarding, pricing, funding, IRF mandates, chargebacks, PCI DSS-aligned delivery, tokenized payment flows, Visa Base II, Mastercard IPM, Visa AFT, and Mastercard MoneySend.",
     ],
   },
   {
@@ -286,6 +293,13 @@ const consultingProjects = [
   },
 ];
 
+const myLocation= {
+    currentLocale : "Vancouver, BC",
+    otherLocale: "Ottawa, GTA, ON",
+  };
+const headerCerts= {
+    label : "CBAP®, CSM, CSPO, ITIL® V4",
+  };
 const caseStudies = [
   {
     title: "WorldPay LATAM Acquiring Expansion",
@@ -323,7 +337,7 @@ const caseStudies = [
     title: "Visa & Mastercard IRF Mandates",
     icon: <ShieldCheck className="h-5 w-5" />,
     summary:
-      "Led mandate and interchange analysis across LATAM, EU, and North America, including EMV, tokenized payments, AFS, PID, PTC, and POS entry-mode attributes.",
+      "Led mandate and interchange analysis across LATAM, EU, and North America, including EMV, tokenized payments, PCI DSS-aligned controls, AFS, PID, PTC, and POS entry-mode attributes.",
     outcome:
       "Reduced IRF-related penalties by about 95% on affected clients and lowered scheme non-compliance incidents and acquirer chargeback exposure by about 35%.",
   },
@@ -339,9 +353,9 @@ const caseStudies = [
     title: "CyberSource Fraud Decisioning",
     icon: <ShieldCheck className="h-5 w-5" />,
     summary:
-      "Analyzed retail fraud exposure across ecommerce, card-not-present purchases, account takeover patterns, chargebacks, false declines, and manual review operations.",
+      "Analyzed retail fraud exposure across ecommerce, tokenized card-not-present purchases, 3D Secure decisioning, account takeover patterns, chargebacks, false declines, and manual review operations.",
     outcome:
-      "Mapped transaction payloads and rules for CyberSource fraud screening, including billing and shipping data, device/IP metadata, AVS/CVV, velocity rules, fraud scores, review queues, API errors, and UAT fraud scenarios.",
+      "Mapped transaction payloads and rules for CyberSource fraud screening, including billing and shipping data, device/IP metadata, AVS/CVV, token handling, velocity rules, fraud scores, review queues, API errors, and UAT fraud scenarios.",
   },
   {
     title: "Omnichannel Checkout, POS & OMS",
@@ -355,17 +369,17 @@ const caseStudies = [
     title: "AI BA Artifact Automation Model",
     icon: <Bot className="h-5 w-5" />,
     summary:
-      "Built an AI model that structures messy discovery inputs from meetings, workshop notes, and interviews into delivery-ready business analysis artifacts.",
+      "Built an AI model that structures messy discovery inputs from meetings, workshop notes, and interviews into delivery-ready business analysis and project-management artifacts.",
     outcome:
-      "Generates business summaries, user stories, acceptance criteria, functional requirements, assumptions, risks, dependencies, open questions, and UAT scenarios.",
+      "Generates business summaries, user stories, acceptance criteria, functional requirements, assumptions, risks, dependencies, open questions, UAT scenarios, and prioritization inputs for cross-functional teams.",
   },
 ];
 
 const certifications = [
-  "CBAP - Certified Business Analysis Professional",
+  "CBAP® - Certified Business Analysis Professional",
   "CSM - Certified Scrum Master",
   "CSPO - Certified Scrum Product Owner",
-  "ITIL V4 - Foundation Certificate in Service Management",
+  "ITIL® V4 - Foundation Certificate in Service Management",
   "ISTQB - Certified Software Tester",
 ];
 
@@ -384,15 +398,23 @@ const tools = [
   "Excel",
   "Visio",
   "BPMN / UML",
+  "Eisenhower Matrix",
+  "MoSCoW",
   "SharePoint",
   "REST APIs",
   "SOAP / WSDL",
   "CyberSource",
   "Decision Manager",
+  "PCI DSS",
+  "Tokenization",
+  "3D Secure",
+  "AVS / CVV",
+  "EMV",
+  "Chargebacks",
   "RS2 BankWORKS",
   "ISO 8583",
   "MTI / Bitmap / DE",
-  "ISO 20022",
+  "ISO 20022 update",
   "SWIFT MT",
   "def3000/TR",
   "T24 / Temenos",
@@ -410,7 +432,130 @@ const fadeUp = {
   animate: { opacity: 1, y: 0 },
 };
 
+const revealTransition = { duration: 0.45, ease: [0.22, 1, 0.36, 1] as const };
+
+const liftCardClass = "transition duration-200 ease-out hover:-translate-y-1 hover:shadow-lg";
+
+const navItems = [
+  { href: "#summary", label: "Summary" },
+  { href: "#capabilities", label: "Capabilities" },
+  { href: "#payments", label: "Payments" },
+  { href: "#experience", label: "Experience" },
+  { href: "#featured", label: "Featured Work" },
+  { href: "#consulting", label: "Consulting" },
+  { href: "#tools", label: "Tools" },
+];
+
+function SectionReveal({
+  id,
+  className,
+  children,
+}: {
+  id?: string;
+  className: string;
+  children: ReactNode;
+}) {
+  const reduceMotion = useReducedMotion();
+
+  return (
+    <motion.section
+      id={id}
+      className={`scroll-mt-24 ${className}`}
+      initial={reduceMotion ? false : { opacity: 0, y: 18 }}
+      whileInView={reduceMotion ? undefined : { opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.16 }}
+      transition={revealTransition}
+    >
+      {children}
+    </motion.section>
+  );
+}
+
+function CountUpMetric({ value }: { value: string }) {
+  const ref = useRef<HTMLDivElement>(null);
+  const isInView = useInView(ref, { once: true, amount: 0.5 });
+  const reduceMotion = useReducedMotion();
+  const [displayValue, setDisplayValue] = useState(value);
+
+  useEffect(() => {
+    if (!isInView || reduceMotion) {
+      setDisplayValue(value);
+      return;
+    }
+
+    const match = value.match(/^([^0-9]*)([0-9]+(?:\.[0-9]+)?)(.*)$/);
+    if (!match) {
+      setDisplayValue(value);
+      return;
+    }
+
+    const [, prefix, numericValue, suffix] = match;
+    const target = Number(numericValue);
+    const decimals = numericValue.includes(".") ? numericValue.split(".")[1].length : 0;
+    const duration = 900;
+    const start = performance.now();
+    let frame = 0;
+
+    const tick = (now: number) => {
+      const progress = Math.min((now - start) / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      const current = target * eased;
+      setDisplayValue(`${prefix}${current.toFixed(decimals)}${suffix}`);
+
+      if (progress < 1) {
+        frame = requestAnimationFrame(tick);
+      } else {
+        setDisplayValue(value);
+      }
+    };
+
+    frame = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(frame);
+  }, [isInView, reduceMotion, value]);
+
+  return (
+    <div ref={ref} className="text-3xl font-semibold text-zinc-950">
+      {displayValue}
+    </div>
+  );
+}
+
 export default function Portfolio() {
+  const [isRailVisible, setIsRailVisible] = useState(false);
+  const [activeNav, setActiveNav] = useState(navItems[0].href);
+
+  useEffect(() => {
+    const updateNavigationState = () => {
+      setIsRailVisible(window.scrollY > 260);
+
+      const activeItem = navItems
+        .map((item) => {
+          const section = document.querySelector(item.href);
+          if (!section) return null;
+          return {
+            href: item.href,
+            top: section.getBoundingClientRect().top,
+          };
+        })
+        .filter((item): item is { href: string; top: number } => Boolean(item))
+        .filter((item) => item.top <= window.innerHeight * 0.38)
+        .at(-1);
+
+      if (activeItem) {
+        setActiveNav(activeItem.href);
+      }
+    };
+
+    updateNavigationState();
+    window.addEventListener("scroll", updateNavigationState, { passive: true });
+    window.addEventListener("resize", updateNavigationState);
+
+    return () => {
+      window.removeEventListener("scroll", updateNavigationState);
+      window.removeEventListener("resize", updateNavigationState);
+    };
+  }, []);
+
   return (
     <main className="min-h-screen w-screen bg-zinc-50 text-zinc-950">
       <section className="border-b border-zinc-200 bg-white">
@@ -437,12 +582,35 @@ export default function Portfolio() {
         </div>
       </section>
 
+      <nav
+        aria-label="Portfolio sections"
+        className={`fixed right-5 top-1/2 z-30 hidden -translate-y-1/2 flex-col gap-1 rounded-full border border-white/80 bg-[linear-gradient(145deg,#ffffff_0%,#f4f4f5_58%,#ecfeff_100%)] p-2 shadow-[0_18px_45px_rgba(15,23,42,0.14)] ring-1 ring-zinc-900/5 backdrop-blur-xl transition duration-300 lg:flex ${
+          isRailVisible ? "translate-x-0 opacity-100" : "translate-x-3 opacity-0 pointer-events-none"
+        }`}
+      >
+        {navItems.map((item) => {
+          const isActive = activeNav === item.href;
+          return (
+            <a key={item.href} href={item.href} aria-label={item.label} className="group relative flex h-7 w-7 items-center justify-center">
+              <span className="pointer-events-none absolute right-8 rounded-full border border-white/80 bg-[linear-gradient(135deg,#ffffff_0%,#f8fafc_60%,#ecfeff_100%)] px-3 py-1.5 text-xs font-medium text-zinc-600 opacity-0 shadow-[0_10px_30px_rgba(15,23,42,0.12)] ring-1 ring-zinc-900/5 backdrop-blur-md transition duration-200 group-hover:-translate-x-1 group-hover:opacity-100">
+                {item.label}
+              </span>
+              <span
+                className={`block rounded-full transition-all duration-200 ${
+                  isActive ? "h-6 w-1.5 bg-zinc-900" : "h-2 w-2 bg-zinc-300 group-hover:h-3 group-hover:w-3 group-hover:bg-zinc-500"
+                }`}
+              />
+            </a>
+          );
+        })}
+      </nav>
+
       <section className="bg-[linear-gradient(135deg,#ffffff_0%,#f4f4f5_48%,#ecfeff_100%)]">
         <div className="mx-auto grid max-w-7xl gap-8 px-4 py-12 sm:px-6 sm:py-16 lg:grid-cols-[minmax(0,1.05fr)_minmax(340px,0.95fr)] lg:px-8 lg:py-20">
           <motion.div {...fadeUp} transition={{ duration: 0.45 }}>
             <div className="mb-5 inline-flex items-center gap-2 rounded-lg border border-teal-200 bg-teal-50 px-3 py-2 text-sm font-medium text-teal-900">
               <BadgeCheck className="h-4 w-4" />
-              CBAP®, CSM, CSPO | Ottawa, GTA, ON
+              {headerCerts.label} | {myLocation.otherLocale}
             </div>
             <h1 className="max-w-4xl text-4xl font-semibold leading-tight tracking-normal text-zinc-950 sm:text-5xl lg:text-6xl">
               Senior Business Analyst for payments, commerce, and regulated systems delivery.
@@ -453,7 +621,7 @@ export default function Portfolio() {
             <div className="mt-6 grid gap-3 text-sm text-zinc-700 sm:grid-cols-3">
               <span className="inline-flex items-center gap-2 rounded-lg border border-zinc-200 bg-white px-3 py-3">
                 <MapPin className="h-4 w-4 text-teal-700" />
-               Ottawa, GTA, ON
+               {myLocation.otherLocale}
               </span>
               <span className="inline-flex items-center gap-2 rounded-lg border border-zinc-200 bg-white px-3 py-3">
                 <Phone className="h-4 w-4 text-amber-700" />
@@ -472,8 +640,8 @@ export default function Portfolio() {
             className="grid gap-3 sm:grid-cols-2 lg:content-start"
           >
             {metrics.map((item) => (
-              <div key={item.label} className="rounded-lg border border-zinc-200 bg-white p-4 shadow-sm">
-                <div className="text-3xl font-semibold text-zinc-950">{item.value}</div>
+              <div key={item.label} className={`rounded-lg border border-zinc-200 bg-white p-4 shadow-sm ${liftCardClass}`}>
+                <CountUpMetric value={item.value} />
                 <div className="mt-2 text-sm leading-6 text-zinc-600">{item.label}</div>
               </div>
             ))}
@@ -481,16 +649,23 @@ export default function Portfolio() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
+      <SectionReveal id="summary" className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
         <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr]">
           <div>
             <div className="mb-3 flex items-center gap-2 text-sm font-semibold uppercase text-teal-800">
               <Target className="h-4 w-4" />
               Professional Summary
             </div>
-            <h2 className="max-w-xl text-3xl font-semibold leading-tight text-zinc-950">
+            <div className="max-w-2xl space-y-4">
+              {professionalSummary.map((item) => (
+                <p key={item} className="text-base leading-8 text-zinc-700 sm:text-lg">
+                  {item}
+                </p>
+              ))}
+            </div>
+            <p className="mt-5 max-w-xl text-2xl font-semibold leading-tight text-zinc-950">
               Practical domain depth with the documentation discipline banks and payment teams rely on.
-            </h2>
+            </p>
           </div>
           <div className="grid gap-3">
             {highlights.map((item) => (
@@ -501,9 +676,9 @@ export default function Portfolio() {
             ))}
           </div>
         </div>
-      </section>
+      </SectionReveal>
 
-      <section className="border-y border-zinc-200 bg-white">
+      <SectionReveal id="capabilities" className="border-y border-zinc-200 bg-white">
         <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
           <div className="mb-7 flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
             <div>
@@ -519,7 +694,7 @@ export default function Portfolio() {
           </div>
           <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
             {capabilities.map((item) => (
-              <Card key={item.title} className="rounded-lg border-zinc-200 py-0 shadow-sm">
+              <Card key={item.title} className={`rounded-lg border-zinc-200 py-0 shadow-sm ${liftCardClass}`}>
                 <CardContent className="p-5">
                   <div className="mb-4 inline-flex rounded-lg bg-zinc-100 p-3 text-zinc-900">{item.icon}</div>
                   <h3 className="text-lg font-semibold text-zinc-950">{item.title}</h3>
@@ -536,9 +711,9 @@ export default function Portfolio() {
             ))}
           </div>
         </div>
-      </section>
+      </SectionReveal>
 
-      <section className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
+      <SectionReveal id="payments" className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
         <div className="mb-7 flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
           <div>
             <div className="mb-2 flex items-center gap-2 text-sm font-semibold uppercase text-teal-800">
@@ -553,7 +728,7 @@ export default function Portfolio() {
         </div>
         <div className="grid gap-4 lg:grid-cols-5">
           {paymentDepth.map((item) => (
-            <Card key={item.title} className="rounded-lg border-zinc-200 py-0 shadow-sm">
+            <Card key={item.title} className={`rounded-lg border-zinc-200 py-0 shadow-sm ${liftCardClass}`}>
               <CardContent className="p-5">
                 <div className="mb-4 inline-flex rounded-lg bg-zinc-100 p-3 text-zinc-900">{item.icon}</div>
                 <h3 className="text-lg font-semibold text-zinc-950">{item.title}</h3>
@@ -565,16 +740,16 @@ export default function Portfolio() {
             </Card>
           ))}
         </div>
-      </section>
+      </SectionReveal>
 
-      <section className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
+      <SectionReveal id="experience" className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
         <div className="mb-7 flex items-center gap-2 text-sm font-semibold uppercase text-rose-800">
           <Briefcase className="h-4 w-4" />
           Experience
         </div>
         <div className="space-y-4">
           {experience.map((item) => (
-            <Card key={`${item.company}-${item.role}`} className="rounded-lg border-zinc-200 py-0 shadow-sm">
+            <Card key={`${item.company}-${item.role}`} className={`rounded-lg border-zinc-200 py-0 shadow-sm ${liftCardClass}`}>
               <CardContent className="p-5 sm:p-6">
                 <div className="grid gap-4 lg:grid-cols-[0.34fr_0.66fr]">
                   <div>
@@ -596,9 +771,9 @@ export default function Portfolio() {
             </Card>
           ))}
         </div>
-      </section>
+      </SectionReveal>
 
-      <section className="border-y border-zinc-200 bg-zinc-100/70">
+      <SectionReveal id="featured" className="border-y border-zinc-200 bg-zinc-100/70">
         <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
           <div className="mb-7 flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
             <div>
@@ -614,7 +789,7 @@ export default function Portfolio() {
           </div>
           <div className="grid gap-4 lg:grid-cols-3">
             {caseStudies.map((item) => (
-              <Card key={item.title} className="rounded-lg border-zinc-200 bg-white py-0 shadow-sm">
+              <Card key={item.title} className={`rounded-lg border-zinc-200 bg-white py-0 shadow-sm ${liftCardClass}`}>
                 <CardContent className="p-5">
                   <div className="mb-4 inline-flex rounded-lg bg-teal-50 p-3 text-teal-900">{item.icon}</div>
                   <h3 className="text-lg font-semibold text-zinc-950">{item.title}</h3>
@@ -627,9 +802,9 @@ export default function Portfolio() {
             ))}
           </div>
         </div>
-      </section>
+      </SectionReveal>
 
-      <section className="border-b border-zinc-200 bg-white">
+      <SectionReveal id="consulting" className="border-b border-zinc-200 bg-white">
         <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
           <div className="mb-7 flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
             <div>
@@ -645,7 +820,7 @@ export default function Portfolio() {
           </div>
           <div className="grid gap-4 lg:grid-cols-3">
             {consultingProjects.map((item) => (
-              <Card key={item.title} className="rounded-lg border-zinc-200 py-0 shadow-sm">
+              <Card key={item.title} className={`rounded-lg border-zinc-200 py-0 shadow-sm ${liftCardClass}`}>
                 <CardContent className="p-5">
                   <div className="mb-4 flex items-start justify-between gap-3">
                     <div className="inline-flex rounded-lg bg-amber-50 p-3 text-amber-900">{item.icon}</div>
@@ -664,10 +839,10 @@ export default function Portfolio() {
             ))}
           </div>
         </div>
-      </section>
+      </SectionReveal>
 
-      <section className="mx-auto grid max-w-7xl gap-4 px-4 py-10 sm:px-6 lg:grid-cols-[0.85fr_1.15fr] lg:px-8">
-        <Card className="rounded-lg border-zinc-200 py-0 shadow-sm">
+      <SectionReveal id="tools" className="mx-auto grid max-w-7xl gap-4 px-4 py-10 sm:px-6 lg:grid-cols-[0.85fr_1.15fr] lg:px-8">
+        <Card className={`rounded-lg border-zinc-200 py-0 shadow-sm ${liftCardClass}`}>
           <CardContent className="p-5 sm:p-6">
             <div className="mb-5 flex items-center gap-2">
               <BadgeCheck className="h-5 w-5 text-teal-700" />
@@ -684,7 +859,7 @@ export default function Portfolio() {
           </CardContent>
         </Card>
 
-        <Card className="rounded-lg border-zinc-200 py-0 shadow-sm">
+        <Card className={`rounded-lg border-zinc-200 py-0 shadow-sm ${liftCardClass}`}>
           <CardContent className="p-5 sm:p-6">
             <div className="mb-5 flex items-center gap-2">
               <Workflow className="h-5 w-5 text-amber-700" />
@@ -699,9 +874,9 @@ export default function Portfolio() {
             </div>
           </CardContent>
         </Card>
-      </section>
+      </SectionReveal>
 
-      <section className="border-t border-zinc-200 bg-zinc-950 text-white">
+      <SectionReveal className="border-t border-zinc-200 bg-zinc-950 text-white">
         <div className="mx-auto grid max-w-7xl gap-6 px-4 py-10 sm:px-6 lg:grid-cols-[1fr_auto] lg:items-center lg:px-8">
           <div>
             <h2 className="text-3xl font-semibold">Available for payments, product, business systems, and transformation roles.</h2>
@@ -724,7 +899,7 @@ export default function Portfolio() {
             </Button>
           </div>
         </div>
-      </section>
+      </SectionReveal>
     </main>
   );
 }
