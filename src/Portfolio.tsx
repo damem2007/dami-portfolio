@@ -80,14 +80,14 @@ const capabilities = [
     icon: <Network className="h-5 w-5" />,
     summary:
       "Core banking, digital channels, data mapping matrix, SWIFT MT-to-ISO 20022 matching, account servicing, statements, treasury confirmation matching, and source-to-target mapping.",
-    items: ["T24 / Temenos", "SWIFT MT", "Postman", "Data Mapping", "ISO 20022", "def3000/TR", "ACH", "SEPA", " Loan IQ", "Syndicated Loan"],
+    items: ["T24 / Temenos", "SWIFT MT", "Data Mapping", "ISO 20022", "def3000/TR", "ACH", "SEPA", " Loan IQ", "Syndicated Loan"],
   },
   {
     title: "Delivery Controls",
     icon: <ShieldCheck className="h-5 w-5" />,
     summary:
       "BRDs, FSDs, user stories, process flows, API mappings, data validation, UAT assets, release readiness, and post-go-live stabilization.",
-    items: ["SQL", "Postman", "SOAPUI", "Jira", "Confluence", "Zephyr Scale"],
+    items: ["SQL", "Postman", "SOAPUI", "Jira", "Confluence", "Zephyr Scale", "UAT",  "Selenium"],
   },
   {
     title: "AI BA Documentation Automation",
