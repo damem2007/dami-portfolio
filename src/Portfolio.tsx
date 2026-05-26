@@ -79,8 +79,8 @@ const capabilities = [
     title: "Banking Integrations",
     icon: <Network className="h-5 w-5" />,
     summary:
-      "Core banking, digital channels, SWIFT MT-to-ISO 20022 update work, account servicing, statements, treasury confirmation matching, and source-to-target mapping.",
-    items: ["T24 / Temenos", "SWIFT MT", "ISO 20022 update", "def3000/TR", "ACH", "SEPA"],
+      "Core banking, digital channels, data mapping matrix, SWIFT MT-to-ISO 20022 matching, account servicing, statements, treasury confirmation matching, and source-to-target mapping.",
+    items: ["T24 / Temenos", "SWIFT MT", "Postman", "Data Mapping", "ISO 20022", "def3000/TR", "ACH", "SEPA", " Loan IQ", "Syndicated Loan"],
   },
   {
     title: "Delivery Controls",
@@ -355,7 +355,7 @@ const caseStudies = [
     title: "CyberSource Fraud Decisioning",
     icon: <ShieldCheck className="h-5 w-5" />,
     summary:
-      "Analyzed retail fraud exposure across ecommerce, tokenized card-not-present purchases, 3D Secure decisioning, account takeover patterns, chargebacks, false declines, and manual review operations.",
+      "Analyzed retail fraud exposure across ecommerce, tokenized card-not-present purchases, card present purchases, 3D Secure decisioning, account takeover patterns, chargebacks, false declines, and manual review operations.",
     outcome:
       "Mapped transaction payloads and rules for CyberSource fraud screening, including billing and shipping data, device/IP metadata, AVS/CVV, token handling, velocity rules, fraud scores, review queues, API errors, and UAT fraud scenarios.",
   },
