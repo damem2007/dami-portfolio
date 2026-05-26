@@ -19,9 +19,11 @@ import {
   Map,
   MapPin,
   Network,
+  Moon,
   Plane,
   Phone,
   ShieldCheck,
+  Sun,
   Target,
   Workflow,
 } from "lucide-react";
@@ -437,14 +439,16 @@ const revealTransition = { duration: 0.45, ease: [0.22, 1, 0.36, 1] as const };
 const liftCardClass = "transition duration-200 ease-out hover:-translate-y-1 hover:shadow-lg";
 
 const navItems = [
-  { href: "#summary", label: "Summary" },
-  { href: "#capabilities", label: "Capabilities" },
-  { href: "#payments", label: "Payments" },
-  { href: "#experience", label: "Experience" },
-  { href: "#featured", label: "Featured Work" },
-  { href: "#consulting", label: "Consulting" },
-  { href: "#tools", label: "Tools" },
+  { href: "#summary", label: "Summary", mobileLabel: "Sum", icon: Target },
+  { href: "#capabilities", label: "Capabilities", mobileLabel: "Skills", icon: Layers },
+  { href: "#payments", label: "Payments", mobileLabel: "Pay", icon: CreditCard },
+  { href: "#experience", label: "Experience", mobileLabel: "Exp", icon: Briefcase },
+  { href: "#featured", label: "Featured Work", mobileLabel: "Work", icon: Database },
+  { href: "#consulting", label: "Consulting", mobileLabel: "Cases", icon: Building2 },
+  { href: "#tools", label: "Tools", mobileLabel: "Tools", icon: Workflow },
 ];
+
+type PortfolioTheme = "day" | "night";
 
 function SectionReveal({
   id,
@@ -523,6 +527,16 @@ function CountUpMetric({ value }: { value: string }) {
 export default function Portfolio() {
   const [isRailVisible, setIsRailVisible] = useState(false);
   const [activeNav, setActiveNav] = useState(navItems[0].href);
+  const [theme, setTheme] = useState<PortfolioTheme>(() => {
+    if (typeof window === "undefined") return "day";
+    return window.localStorage.getItem("portfolio-theme") === "night" ? "night" : "day";
+  });
+
+  useEffect(() => {
+    document.documentElement.classList.toggle("dark", theme === "night");
+    document.documentElement.style.colorScheme = theme === "night" ? "dark" : "light";
+    window.localStorage.setItem("portfolio-theme", theme);
+  }, [theme]);
 
   useEffect(() => {
     const updateNavigationState = () => {
@@ -557,7 +571,7 @@ export default function Portfolio() {
   }, []);
 
   return (
-    <main className="min-h-screen w-screen bg-zinc-50 text-zinc-950">
+    <main className={`portfolio-shell ${theme === "night" ? "portfolio-night" : "portfolio-day"} min-h-screen w-screen bg-zinc-50 pb-20 text-zinc-950 lg:pb-0`}>
       <section className="border-b border-zinc-200 bg-white">
         <div className="mx-auto flex max-w-7xl flex-col gap-4 px-4 py-4 sm:px-6 lg:flex-row lg:items-center lg:justify-between lg:px-8">
           <div className="flex flex-col gap-1 sm:flex-row sm:items-center sm:gap-3">
@@ -565,7 +579,25 @@ export default function Portfolio() {
             <span className="hidden h-1 w-1 rounded-full bg-zinc-300 sm:block" />
             <span className="text-sm text-zinc-600">Payments, Commerce & Banking Systems</span>
           </div>
-          <div className="flex flex-wrap gap-2">
+          <div className="flex flex-wrap items-center gap-2">
+            <button
+              type="button"
+              role="switch"
+              aria-checked={theme === "night"}
+              aria-label="Night theme"
+              title={`Switch to ${theme === "night" ? "day" : "night"} theme`}
+              onClick={() => setTheme(theme === "night" ? "day" : "night")}
+              className="theme-switch relative inline-flex h-9 w-[4.5rem] shrink-0 items-center justify-between rounded-full border border-zinc-300 bg-zinc-100 px-2 text-zinc-500 shadow-inner transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-500 focus-visible:ring-offset-2 focus-visible:ring-offset-white"
+            >
+              <span
+                className={`theme-switch-thumb absolute top-1 h-7 w-7 rounded-full shadow-sm transition-transform duration-200 ${
+                  theme === "night" ? "translate-x-7" : "translate-x-0"
+                }`}
+              />
+              <Sun className={`relative z-10 h-4 w-4 transition ${theme === "day" ? "text-amber-600" : "text-zinc-400"}`} />
+              <Moon className={`relative z-10 h-4 w-4 transition ${theme === "night" ? "text-teal-500" : "text-zinc-400"}`} />
+              <span className="sr-only">Current theme: {theme === "night" ? "night" : "day"}</span>
+            </button>
             <Button asChild variant="outline" className="h-9 rounded-lg border-zinc-300 bg-white px-3">
               <a href={`mailto:${contact.email}`}>
                 <Mail className="mr-2 h-4 w-4" />
@@ -584,7 +616,7 @@ export default function Portfolio() {
 
       <nav
         aria-label="Portfolio sections"
-        className={`fixed right-5 top-1/2 z-30 hidden -translate-y-1/2 flex-col gap-1 rounded-full border border-white/80 bg-[linear-gradient(145deg,#ffffff_0%,#f4f4f5_58%,#ecfeff_100%)] p-2 shadow-[0_18px_45px_rgba(15,23,42,0.14)] ring-1 ring-zinc-900/5 backdrop-blur-xl transition duration-300 lg:flex ${
+        className={`fixed right-3 top-1/2 z-30 hidden -translate-y-1/2 flex-col gap-1 rounded-full border border-white/80 bg-[linear-gradient(145deg,#ffffff_0%,#f4f4f5_58%,#ecfeff_100%)] p-2 shadow-[0_18px_45px_rgba(15,23,42,0.14)] ring-1 ring-zinc-900/5 backdrop-blur-xl transition duration-300 lg:flex ${
           isRailVisible ? "translate-x-0 opacity-100" : "translate-x-3 opacity-0 pointer-events-none"
         }`}
       >
@@ -600,6 +632,34 @@ export default function Portfolio() {
                   isActive ? "h-6 w-1.5 bg-zinc-900" : "h-2 w-2 bg-zinc-300 group-hover:h-3 group-hover:w-3 group-hover:bg-zinc-500"
                 }`}
               />
+            </a>
+          );
+        })}
+      </nav>
+
+      <nav
+        aria-label="Portfolio sections mobile"
+        className={`fixed bottom-3 left-2 right-2 z-30 grid grid-cols-7 gap-1 rounded-2xl border border-white/80 bg-[linear-gradient(145deg,#ffffff_0%,#f4f4f5_58%,#ecfeff_100%)] p-1.5 shadow-[0_18px_45px_rgba(15,23,42,0.14)] ring-1 ring-zinc-900/5 backdrop-blur-xl transition duration-300 sm:left-4 sm:right-4 lg:hidden ${
+          isRailVisible ? "translate-y-0 opacity-100" : "translate-y-3 opacity-0 pointer-events-none"
+        }`}
+      >
+        {navItems.map((item) => {
+          const isActive = activeNav === item.href;
+          const Icon = item.icon;
+          return (
+            <a
+              key={item.href}
+              href={item.href}
+              aria-label={item.label}
+              aria-current={isActive ? "true" : undefined}
+              className={`flex min-w-0 flex-col items-center justify-center gap-1 rounded-xl border px-1 py-2 text-[0.64rem] font-semibold leading-none transition ${
+                isActive
+                  ? "border-teal-200 bg-white !text-zinc-950 shadow-sm ring-1 ring-teal-900/5"
+                  : "border-transparent !text-zinc-500 hover:border-white/80 hover:bg-white/70 hover:!text-zinc-950"
+              }`}
+            >
+              <Icon className={`h-4 w-4 ${isActive ? "text-teal-700" : "text-zinc-400"}`} />
+              <span className="max-w-full truncate">{item.mobileLabel}</span>
             </a>
           );
         })}
@@ -713,32 +773,34 @@ export default function Portfolio() {
         </div>
       </SectionReveal>
 
-      <SectionReveal id="payments" className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
-        <div className="mb-7 flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
-          <div>
-            <div className="mb-2 flex items-center gap-2 text-sm font-semibold uppercase text-teal-800">
-              <CreditCard className="h-4 w-4" />
-              Payment Message Depth
+      <SectionReveal id="payments" className="w-full border-y border-zinc-200 bg-[linear-gradient(135deg,#ffffff_0%,#f8fafc_46%,#ecfeff_100%)] px-4 py-12 sm:px-6 lg:px-6 2xl:px-10">
+        <div className="mx-auto max-w-[1500px] lg:pr-10 2xl:pr-16">
+          <div className="mb-8 flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
+            <div>
+              <div className="mb-2 flex items-center gap-2 text-sm font-semibold uppercase text-teal-800">
+                <CreditCard className="h-4 w-4" />
+                Payment Message Depth
+              </div>
+              <h2 className="text-3xl font-semibold text-zinc-950">Card, commerce, and treasury payment evidence</h2>
             </div>
-            <h2 className="text-3xl font-semibold text-zinc-950">Card, commerce, and treasury payment evidence</h2>
+            <p className="max-w-2xl text-sm leading-6 text-zinc-600">
+              Clear separation of RS2 card-payments expertise from Asseco SWIFT MT and ISO 20022 update work.
+            </p>
           </div>
-          <p className="max-w-2xl text-sm leading-6 text-zinc-600">
-            Clear separation of RS2 card-payments expertise from Asseco SWIFT MT and ISO 20022 update work.
-          </p>
-        </div>
-        <div className="grid gap-4 lg:grid-cols-5">
-          {paymentDepth.map((item) => (
-            <Card key={item.title} className={`rounded-lg border-zinc-200 py-0 shadow-sm ${liftCardClass}`}>
-              <CardContent className="p-5">
-                <div className="mb-4 inline-flex rounded-lg bg-zinc-100 p-3 text-zinc-900">{item.icon}</div>
-                <h3 className="text-lg font-semibold text-zinc-950">{item.title}</h3>
-                <p className="mt-3 text-sm leading-6 text-zinc-700">{item.summary}</p>
-                <p className="mt-4 rounded-lg border border-teal-200 bg-teal-50 p-3 text-sm leading-6 text-teal-950">
-                  {item.proof}
-                </p>
-              </CardContent>
-            </Card>
-          ))}
+          <div className="grid gap-4 lg:grid-cols-5">
+            {paymentDepth.map((item) => (
+              <Card key={item.title} className={`rounded-lg border-zinc-200 py-0 shadow-sm ${liftCardClass}`}>
+                <CardContent className="p-5">
+                  <div className="mb-4 inline-flex rounded-lg bg-zinc-100 p-3 text-zinc-900">{item.icon}</div>
+                  <h3 className="text-lg font-semibold text-zinc-950">{item.title}</h3>
+                  <p className="mt-3 text-sm leading-6 text-zinc-700">{item.summary}</p>
+                  <p className="mt-4 rounded-lg border border-teal-200 bg-teal-50 p-3 text-sm leading-6 text-teal-950">
+                    {item.proof}
+                  </p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
         </div>
       </SectionReveal>
 
@@ -885,13 +947,13 @@ export default function Portfolio() {
             </p>
           </div>
           <div className="flex flex-wrap gap-3 lg:justify-end">
-            <Button asChild className="h-10 rounded-lg bg-white px-4 text-zinc-950 hover:bg-zinc-100">
+            <Button asChild className="footer-cta-primary h-10 rounded-lg bg-white px-4 text-zinc-950 hover:bg-zinc-100">
               <a href={`mailto:${contact.email}`}>
                 <Mail className="mr-2 h-4 w-4" />
                 Email Me
               </a>
             </Button>
-            <Button asChild variant="outline" className="h-10 rounded-lg border-white/30 bg-transparent px-4 text-white hover:bg-white/10">
+            <Button asChild variant="outline" className="footer-cta-secondary h-10 rounded-lg border-white/30 bg-transparent px-4 text-white hover:bg-white/10">
               <a href={contact.linkedin} target="_blank" rel="noreferrer">
                 <Linkedin className="mr-2 h-4 w-4" />
                 LinkedIn
