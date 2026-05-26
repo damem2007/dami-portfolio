@@ -81,11 +81,11 @@ const capabilities = [
     items: ["SQL", "Postman", "SOAPUI", "Jira", "Confluence", "Zephyr Scale"],
   },
   {
-    title: "AI BA Automation",
+    title: "AI BA Documentation Automation",
     icon: <Bot className="h-5 w-5" />,
     summary:
       "AI-assisted artifact generation that turns meetings, workshops, interviews, and notes into structured BA outputs for delivery teams.",
-    items: ["Business summaries", "User stories", "Acceptance criteria", "UAT scenarios", "Risks", "Dependencies"],
+    items: ["Business summaries", "User stories", "Acceptance criteria", "UAT scenarios", "Risks", "Dependencies", "Assumptions"],
   },
 ];
 
@@ -442,7 +442,7 @@ export default function Portfolio() {
           <motion.div {...fadeUp} transition={{ duration: 0.45 }}>
             <div className="mb-5 inline-flex items-center gap-2 rounded-lg border border-teal-200 bg-teal-50 px-3 py-2 text-sm font-medium text-teal-900">
               <BadgeCheck className="h-4 w-4" />
-              CBAP, CSM, CSPO | Vancouver, BC
+              CBAP®, CSM, CSPO | Ottawa, GTA, ON
             </div>
             <h1 className="max-w-4xl text-4xl font-semibold leading-tight tracking-normal text-zinc-950 sm:text-5xl lg:text-6xl">
               Senior Business Analyst for payments, commerce, and regulated systems delivery.
@@ -453,7 +453,7 @@ export default function Portfolio() {
             <div className="mt-6 grid gap-3 text-sm text-zinc-700 sm:grid-cols-3">
               <span className="inline-flex items-center gap-2 rounded-lg border border-zinc-200 bg-white px-3 py-3">
                 <MapPin className="h-4 w-4 text-teal-700" />
-                Vancouver, BC
+               Ottawa, GTA, ON
               </span>
               <span className="inline-flex items-center gap-2 rounded-lg border border-zinc-200 bg-white px-3 py-3">
                 <Phone className="h-4 w-4 text-amber-700" />
