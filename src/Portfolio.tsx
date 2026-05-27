@@ -52,12 +52,12 @@ const professionalSummary = [
 ];
 
 const metrics = [
-  { value: "1B+", label: "monthly card transactions supported on RS2 BankWORKS" },
+  { value: "1B+", label: "Supported payment processing environments handling 1B+ monthly card transactions on RS2 BankWORKS across issuer and acquirer ecosystems." },
   { value: "200+", label: "SIT, UAT, regression, and settlement scenarios coordinated" },
-  { value: "95%", label: "first-pass acceptance achieved on major payment programs" },
-  { value: "2.2M+", label: "customer and staff credentials migrated with less than 3% error" },
-  { value: "30%", label: "fewer post-release defects through stronger validation discipline" },
-  { value: "$4M+", label: "combined project portfolios represented across public, financial, and enterprise programs" },
+  { value: "95%", label: "Achieved 95% first-pass certification and stakeholder acceptance across major payment implementation programs." },
+  { value: "2.2M+", label: "Coordinated migration of 2.2M+ customer and staff credentials while maintaining under 3% exception rates." },
+  { value: "30%", label: "Reduced post-release defects by 30% through strengthened validation governance, traceability, and regression coordination" },
+  { value: "$4M+", label: "Supported delivery across $4M+ in combined public-sector, financial services, and enterprise transformation portfolios." },
 ];
 
 const capabilities = [
