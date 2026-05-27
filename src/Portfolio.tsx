@@ -66,7 +66,7 @@ const capabilities = [
     icon: <Globe className="h-5 w-5" />,
     summary:
       "Acquiring, issuing, authorization, clearing, settlement, merchant funding, disputes, chargebacks, PCI DSS-aligned controls, tokenization, reporting, and ISO 8583 message analysis.",
-    items: ["RS2 BankWORKS", "MTI", "Bitmap", "Data Elements", "PCI DSS", "Tokenization", "3D Secure"],
+    items: ["RS2 BankWORKS", "MTI", "Bitmap", "Data Elements", "PCI DSS", "IRF", "Tokenization", "3D Secure", "Visa", "MasterCard"],
   },
   {
     title: "Retail Commerce",
@@ -573,31 +573,13 @@ export default function Portfolio() {
   return (
     <main className={`portfolio-shell ${theme === "night" ? "portfolio-night" : "portfolio-day"} min-h-screen w-screen bg-zinc-50 pb-20 text-zinc-950 lg:pb-0`}>
       <section className="border-b border-zinc-200 bg-white">
-        <div className="mx-auto flex max-w-7xl flex-col gap-4 px-4 py-4 sm:px-6 lg:flex-row lg:items-center lg:justify-between lg:px-8">
+        <div className="mx-auto flex max-w-7xl flex-col gap-4 px-4 py-4 sm:px-6 lg:flex-row lg:items-center lg:justify-between lg:px-8 lg:pr-24">
           <div className="flex flex-col gap-1 sm:flex-row sm:items-center sm:gap-3">
             <span className="text-sm font-semibold">Damilola Dahunsi</span>
             <span className="hidden h-1 w-1 rounded-full bg-zinc-300 sm:block" />
             <span className="text-sm text-zinc-600">Payments, Commerce & Banking Systems</span>
           </div>
           <div className="flex flex-wrap items-center gap-2">
-            <button
-              type="button"
-              role="switch"
-              aria-checked={theme === "night"}
-              aria-label="Night theme"
-              title={`Switch to ${theme === "night" ? "day" : "night"} theme`}
-              onClick={() => setTheme(theme === "night" ? "day" : "night")}
-              className="theme-switch relative inline-flex h-9 w-[4.5rem] shrink-0 items-center justify-between rounded-full border border-zinc-300 bg-zinc-100 px-2 text-zinc-500 shadow-inner transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-500 focus-visible:ring-offset-2 focus-visible:ring-offset-white"
-            >
-              <span
-                className={`theme-switch-thumb absolute top-1 h-7 w-7 rounded-full shadow-sm transition-transform duration-200 ${
-                  theme === "night" ? "translate-x-7" : "translate-x-0"
-                }`}
-              />
-              <Sun className={`relative z-10 h-4 w-4 transition ${theme === "day" ? "text-amber-600" : "text-zinc-400"}`} />
-              <Moon className={`relative z-10 h-4 w-4 transition ${theme === "night" ? "text-teal-500" : "text-zinc-400"}`} />
-              <span className="sr-only">Current theme: {theme === "night" ? "night" : "day"}</span>
-            </button>
             <Button asChild variant="outline" className="h-9 rounded-lg border-zinc-300 bg-white px-3">
               <a href={`mailto:${contact.email}`}>
                 <Mail className="mr-2 h-4 w-4" />
@@ -613,6 +595,16 @@ export default function Portfolio() {
           </div>
         </div>
       </section>
+
+      <button
+        type="button"
+        aria-label={`Switch to ${theme === "night" ? "day" : "night"} theme`}
+        title={`Switch to ${theme === "night" ? "day" : "night"} theme`}
+        onClick={() => setTheme(theme === "night" ? "day" : "night")}
+        className="theme-float"
+      >
+        {theme === "night" ? <Moon className="h-5 w-5" /> : <Sun className="h-5 w-5" />}
+      </button>
 
       <nav
         aria-label="Portfolio sections"
@@ -749,8 +741,8 @@ export default function Portfolio() {
               <h2 className="text-3xl font-semibold text-zinc-950">Where I create leverage</h2>
             </div>
             <p className="max-w-2xl text-sm leading-6 text-zinc-600">
-              A portfolio view of recurring strengths reflected across the Lumovy addendum, RS2 KSA notes, CyberSource update, consulting samples, payments resume, and master payments resume.
-            </p>
+              {/*  */}
+             </p>
           </div>
           <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
             {capabilities.map((item) => (
@@ -784,7 +776,7 @@ export default function Portfolio() {
               <h2 className="text-3xl font-semibold text-zinc-950">Card, commerce, and treasury payment evidence</h2>
             </div>
             <p className="max-w-2xl text-sm leading-6 text-zinc-600">
-              Clear separation of RS2 card-payments expertise from Asseco SWIFT MT and ISO 20022 update work.
+              {/** */}
             </p>
           </div>
           <div className="grid gap-4 lg:grid-cols-5">
