@@ -45,23 +45,23 @@ const highlights = [
   "Payments analyst depth across RS2 BankWORKS, ISO 8583 MTIs, bitmap-driven data elements, authorization, clearing, settlement, merchant funding, reconciliation, disputes, PCI DSS-aligned controls, and reporting.",
   "Commerce and fraud-decisioning experience across CyberSource, tokenization, 3D Secure, AVS/CVV, checkout, POS, OMS, tax, inventory, fulfillment, and order-to-cash flows.",
   "Institutional-payments experience at Asseco across SWIFT MT-to-ISO 20022 update work and def3000/TR treasury confirmation matching for MT103, MT202, MT910, MT940, MT950, MT300, and MT320 flows.",
-  "Built an AI-powered BA documentation model that turns meetings, workshops, interviews, and discovery notes into structured artifacts while supporting project management, cross-functional alignment, and prioritization discipline.",
+  "Built an AI-powered BA documentation model that turns meetings, workshops, interviews, and discovery notes into structured artifacts for project management, cross-functional alignment, and prioritization discipline.",
   "Known for SQL-backed validation, traceable requirements, stakeholder workshops, UAT strategy, Eisenhower Matrix and MoSCoW prioritization, and production readiness in regulated environments.",
 ];
 
 const professionalSummary = [
   "I'm Damilola Dahunsi, a CBAP-certified Senior Technical Business Analyst for enterprise payments, banking integrations, commerce platforms, and regulated systems delivery.",
-  "Across my career, I've supported platforms processing 1B+ transactions monthly, reduced reconciliation exceptions by 25%, improved onboarding timelines by 40%, and delivered change across institutions including WorldPay, Barclays, and Bank of America.",
-  "I bring deep business analysis, systems thinking, stakeholder leadership, SQL/data validation, API integration support, and Agile delivery experience where transaction systems, operations, compliance, and customer outcomes meet.",
+  "Across my career, I've worked on platforms processing 1B+ transactions monthly, reduced reconciliation exceptions by 25%, improved onboarding timelines by 40%, and delivered change across institutions including WorldPay, Barclays, and Bank of America.",
+  "I bring deep business analysis, systems thinking, stakeholder leadership, SQL/data validation, API integration analysis, and Agile delivery experience where transaction systems, operations, compliance, and customer outcomes meet.",
 ];
 
 const metrics = [
-  { value: "1B+", label: "Supported payment processing environments handling 1B+ monthly card transactions on RS2 BankWORKS across issuer and acquirer ecosystems." },
+  { value: "1B+", label: "Worked on RS2 BankWORKS payment environments handling 1B+ monthly card transactions across issuer and acquirer ecosystems." },
   { value: "200+", label: "SIT, UAT, regression, and settlement scenarios coordinated" },
   { value: "95%", label: "Achieved 95% first-pass certification and stakeholder acceptance across major payment implementation programs." },
   { value: "2.2M+", label: "Coordinated migration of 2.2M+ customer and staff credentials while maintaining under 3% exception rates." },
   { value: "30%", label: "Reduced post-release defects by 30% through strengthened validation governance, traceability, and regression coordination" },
-  { value: "$4M+", label: "Supported delivery across $4M+ in combined public-sector, financial services, and enterprise transformation portfolios." },
+  { value: "$4M+", label: "Contributed delivery leadership across $4M+ in combined public-sector, financial services, and enterprise transformation portfolios." },
 ];
 
 const recruiterSnapshot = [
@@ -104,7 +104,7 @@ const capabilities = [
     title: "AI BA Documentation Automation",
     icon: <Bot className="h-5 w-5" />,
     summary:
-      "AI-assisted artifact generation and delivery support that turns messy discovery inputs into structured BA outputs, project signals, and prioritized team actions.",
+      "AI-assisted artifact generation that turns messy discovery inputs into structured BA outputs, project signals, and prioritized team actions.",
     items: ["Business summaries", "User stories", "Acceptance criteria", "UAT scenarios", "Eisenhower Matrix", "Risks", "Dependencies"],
   },
 ];
@@ -123,7 +123,7 @@ const enterpriseProof = [
     title: "Scale",
     icon: <BarChart3 className="h-5 w-5" />,
     summary:
-      "Supported high-volume payment and regulated delivery environments spanning 1B+ monthly card transactions, 15+ financial institutions, 200+ SIT/UAT/regression scenarios, 2.2M+ credential migrations, and $4M+ combined transformation portfolios.",
+      "Operated across high-volume payment and regulated delivery environments spanning 1B+ monthly card transactions, 15+ financial institutions, 200+ SIT/UAT/regression scenarios, 2.2M+ credential migrations, and $4M+ combined transformation portfolios.",
   },
   {
     title: "Technical Ecosystems",
@@ -141,7 +141,7 @@ const enterpriseProof = [
     title: "Implementation Outcomes",
     icon: <BadgeCheck className="h-5 w-5" />,
     summary:
-      "Delivered analysis, validation, and rollout support tied to 95% first-pass acceptance, 30% fewer post-release defects, 25% fewer reconciliation exceptions, 40% faster onboarding, 95% fewer IRF-related penalties, and large-scale credential migration with less than 3% exceptions.",
+      "Delivered analysis, validation, and rollout execution tied to 95% first-pass acceptance, 30% fewer post-release defects, 25% fewer reconciliation exceptions, 40% faster onboarding, 95% fewer IRF-related penalties, and large-scale credential migration with less than 3% exceptions.",
   },
 ];
 
@@ -195,7 +195,7 @@ const paymentDepth = [
     summary:
       "Practical understanding of MTI, bitmap, and data elements including DE2 PAN, DE3 processing code, DE4 amount, DE11 STAN, DE39 response code, and DE41 terminal ID.",
     proof:
-      "Used to support RS2 BankWORKS testing, transaction-type handling, reversals, response-code analysis, routing defects, and clearing or settlement downstream impact.",
+      "Applied to RS2 BankWORKS testing, transaction-type handling, reversals, response-code analysis, routing defects, and clearing or settlement downstream impact.",
   },
   {
     title: "Card Lifecycle, Routing & Exceptions",
@@ -225,7 +225,7 @@ const paymentDepth = [
     title: "SWIFT Confirmation Matching",
     icon: <FileCheck2 className="h-5 w-5" />,
     summary:
-      "Implemented analysis support for a def3000/TR treasury module automating confirmation matching across specific incoming, outgoing, and statement messages.",
+      "Defined analysis and validation logic for a def3000/TR treasury module automating confirmation matching across specific incoming, outgoing, and statement messages.",
     proof:
       "Covered MT103/MT202/MT910 against MT940/MT950, plus incoming MT300 and MT320 matched with outgoing MT300 and MT320 for Funds Transfer and Treasury Operations teams.",
   },
@@ -236,11 +236,11 @@ const experience = [
     company: "Intuit TurboTax Canada",
     role: "Business Systems Analyst",
     period: "Jan 2016 - Apr 2016",
-    scope: "Canadian consumer tax preparation, product-release support, tax law updates, and client-facing validation",
+    scope: "Canadian consumer tax preparation, product-release readiness, tax law updates, and client-facing validation",
     bullets: [
       "Led requirements analysis sessions with cross-functional teams for 25+ client and stakeholder needs tied to product releases and changing tax-law requirements.",
-      "Created acceptance criteria, test plans, process flows, internal and external communications, and release-support documentation for tax-regulated product changes.",
-      "Coordinated UAT and validation processes supporting 99.5% defect-free releases while maintaining strong stakeholder communication and prioritization discipline.",
+      "Created acceptance criteria, test plans, process flows, internal and external communications, and release-readiness documentation for tax-regulated product changes.",
+      "Coordinated UAT and validation processes contributing to 99.5% defect-free releases while maintaining strong stakeholder communication and prioritization discipline.",
     ],
   },
   {
@@ -253,7 +253,7 @@ const experience = [
       "Analyzed ISO 8583 card-payment flows, including MTI, bitmap, data elements, response codes, processing codes, STAN, terminal ID, reversal behavior, and transaction-type logic.",
       "Coordinated UAT across 15+ financial institutions and 200+ scenarios, contributing to about 95% first-pass acceptance and about 30% fewer post-release defects.",
       "Used SQL-backed transaction, charge, client, and settlement validation to reduce settlement and reconciliation exceptions by about 25%.",
-      "Supported WorldPay, Paysafe, Bank of America, Wells Fargo, Landsbankinn, and Barclays initiatives involving merchant onboarding, pricing, funding, IRF mandates, chargebacks, PCI DSS-aligned delivery, tokenized payment flows, Visa Base II, Mastercard IPM, Visa AFT, and Mastercard MoneySend.",
+      "Delivered analysis for WorldPay, Paysafe, Bank of America, Wells Fargo, Landsbankinn, and Barclays initiatives involving merchant onboarding, pricing, funding, IRF mandates, chargebacks, PCI DSS-aligned delivery, tokenized payment flows, Visa Base II, Mastercard IPM, Visa AFT, and Mastercard MoneySend.",
     ],
   },
   {
@@ -262,9 +262,9 @@ const experience = [
     period: "Jun 2016 - Oct 2021",
     scope: "Core banking, authentication, SWIFT, treasury, and enterprise implementation programs",
     bullets: [
-      "Delivered analysis and implementation support for 15+ banking and financial-system initiatives integrating T24, Finacle, Flexcube, SWIFT Alliance, MFA platforms, middleware, and digital channels.",
-      "Supported SWIFT MT and ISO 20022 update work for institutional payments, including message mapping, statement validation, confirmation matching, exception handling, and downstream reconciliation.",
-      "Implemented analysis support for Asseco's def3000/TR treasury confirmation matching module covering MT103, MT202, MT910, MT940, MT950, MT300, and MT320 message relationships.",
+      "Delivered analysis and implementation execution for 15+ banking and financial-system initiatives integrating T24, Finacle, Flexcube, SWIFT Alliance, MFA platforms, middleware, and digital channels.",
+      "Worked on SWIFT MT and ISO 20022 update patterns for institutional payments, including message mapping, statement validation, confirmation matching, exception handling, and downstream reconciliation.",
+      "Defined requirements and validation logic for Asseco's def3000/TR treasury confirmation matching module covering MT103, MT202, MT910, MT940, MT950, MT300, and MT320 message relationships.",
       "Led migration and validation planning for 2.2M+ customer and staff credentials with less than 3% error while preserving continuity across internet banking, mobile banking, SWIFT, and core banking integrations.",
       "Produced BRDs, process models, source-to-target mappings, API requirements, UAT assets, training materials, and release plans that improved onboarding timelines by about 40%.",
     ],
@@ -298,7 +298,7 @@ const consultingProjects = [
     icon: <ShieldCheck className="h-5 w-5" />,
     sector: "Financial Sector | Four major Nigerian banks",
     summary:
-      "Supported bank-wide MFA and identity-management implementations covering customer-facing mobile tokens and internal workforce authentication.",
+      "Delivered bank-wide MFA and identity-management implementation analysis covering customer-facing mobile tokens and internal workforce authentication.",
     details:
       "Facilitated PoC and kickoff sessions, documented functional and non-functional requirements, built migration and reconciliation plans, assessed security and operational impacts, and coordinated phased rollout, training, and adoption.",
     proof: "$600K+ portfolio across major banks; 2.2M+ credentials migrated with less than 3% error in the strongest-cited program.",
@@ -311,7 +311,7 @@ const consultingProjects = [
       "Led analysis and planning for a transportation modernization initiative covering data mining, licensing, inspection, enforcement, and future-state digital service delivery.",
     details:
       "Performed process assessments, gap analysis, infrastructure evaluation, Visio and Miro process modeling, legacy data validation, and authored an RFP package with functional requirements, technical specifications, and vendor evaluation matrix.",
-    proof: "$1M modernization program; Asseco supported vendor selection rather than bidding.",
+    proof: "$1M modernization program; Asseco advised vendor selection rather than bidding.",
   },
   {
     title: "FIRS Fiscalization & Digital Tax Control",
@@ -348,7 +348,7 @@ const consultingProjects = [
     icon: <Map className="h-5 w-5" />,
     sector: "Public Sector | Lagos State Ministry of Technology",
     summary:
-      "Supported one of West Africa's large geospatial technology programs to capture high-resolution orthophoto map data for urban planning, resource management, and environmental monitoring.",
+      "Contributed analysis and delivery coordination to one of West Africa's large geospatial technology programs capturing high-resolution orthophoto map data for urban planning, resource management, and environmental monitoring.",
     details:
       "Facilitated stakeholder workshops across Lagos State, Asseco Poland, and Nigeria teams; translated scope into functional and technical specifications; aligned orthophoto accuracy, data-output, risk, dependency, and training requirements for technology transfer.",
     proof: "$1.4M program; involvement concentrated in the first two years of a four-year engagement.",
@@ -360,7 +360,7 @@ const consultingProjects = [
     summary:
       "Led underwriting and claims analysis for a core insurance platform covering life, annuity, and general insurance lines.",
     details:
-      "Facilitated interviews and workshops, documented findings using UML and process-flow diagrams, secured functional requirement sign-off, and supported customization across Asseco Poland, Asseco Nigeria, and client teams.",
+      "Facilitated interviews and workshops, documented findings using UML and process-flow diagrams, secured functional requirement sign-off, and coordinated customization across Asseco Poland, Asseco Nigeria, and client teams.",
     proof: "Part of an approximately $1.5M combined insurance-platform program.",
   },
   {
@@ -368,7 +368,7 @@ const consultingProjects = [
     icon: <CreditCard className="h-5 w-5" />,
     sector: "Payments | Parkway Projects",
     summary:
-      "Supported QA and UAT for a multi-tenancy corporate payment collection and cash-management platform deployed across 20+ African countries.",
+      "Executed QA and UAT for a multi-tenancy corporate payment collection and cash-management platform deployed across 20+ African countries.",
     details:
       "Covered corporate onboarding, bank and tenant onboarding, release management, requirements traceability, payment collection workflows, security compliance validation, reporting, and multi-channel posting across branch, web, POS, mobile, ATM, and direct debit.",
     proof: "Approximately $500K in combined implemented projects on the platform.",
@@ -378,7 +378,7 @@ const consultingProjects = [
     icon: <Workflow className="h-5 w-5" />,
     sector: "Enterprise Mobility | Nigerian Breweries",
     summary:
-      "Led UAT and test execution for mobile and back-office applications supporting sales performance, SKU forecasting, distributor order visibility, asset tracking, and field-service operations.",
+      "Led UAT and test execution for mobile and back-office applications powering sales performance, SKU forecasting, distributor order visibility, asset tracking, and field-service operations.",
     details:
       "Created and executed test plans and test cases through production deployment for Android and .NET-backed platforms integrating CRM, inventory, asset management, marketing, customer self-service, and field service modules.",
     proof: "Approximately $200K combined project portfolio.",
@@ -397,13 +397,13 @@ const caseStudies = [
     title: "WorldPay LATAM Acquiring Expansion",
     icon: <Globe className="h-5 w-5" />,
     problem:
-      "WorldPay needed acquiring expansion support across Brazil and LATAM without losing scheme, settlement, pricing, dispute, and cross-border control.",
+      "WorldPay needed acquiring-expansion execution across Brazil and LATAM without losing scheme, settlement, pricing, dispute, and cross-border control.",
     system:
       "RS2 BankWORKS, Visa Debit, Visa AFT, Visa Direct / OCT-aligned flows, Mastercard MoneySend, clearing, settlement, pricing, and merchant reporting.",
     role:
       "Translated client, operational, and scheme needs into requirements, validation scenarios, mappings, and readiness evidence across business, technology, and operations teams.",
     outcome:
-      "Supported delivery readiness for acquiring expansion while validating payment flows that affected authorization, clearing, settlement, pricing, and dispute operations.",
+      "Advanced delivery readiness for acquiring expansion while validating payment flows that affected authorization, clearing, settlement, pricing, and dispute operations.",
   },
   {
     title: "ISO 8583 Transaction Flow Analysis",
@@ -413,7 +413,7 @@ const caseStudies = [
     system:
       "POS/gateway, acquirer, card network, issuer, authorization response, clearing, settlement, merchant reporting, MTI, bitmap, DE2, DE3, DE4, DE11, DE39, DE41, STAN, AFS, product ID, and fee identifier.",
     role:
-      "Mapped transaction behavior, interpreted message fields, traced failure points, supported SQL-backed validation, and connected defect evidence to business impact.",
+      "Mapped transaction behavior, interpreted message fields, traced failure points, executed SQL-backed validation, and connected defect evidence to business impact.",
     outcome:
       "Improved testing precision and defect triage for authorization, reversal, routing, clearing, settlement, and merchant-reporting scenarios.",
   },
@@ -423,9 +423,9 @@ const caseStudies = [
     problem:
       "Merchant users needed clearer reporting, stronger chargeback visibility, and more reliable downstream payment-data consistency.",
     system:
-      "RS2 acquiring platform, merchant portal reporting, chargeback workflows, source-to-target payment data, SQL validation, and operational support processes.",
+      "RS2 acquiring platform, merchant portal reporting, chargeback workflows, source-to-target payment data, SQL validation, and operational resolution processes.",
     role:
-      "Analyzed reporting gaps, validated payment-data mappings, documented requirements, supported UAT, and coordinated issue resolution between business and technical teams.",
+      "Analyzed reporting gaps, validated payment-data mappings, documented requirements, coordinated UAT, and drove issue resolution between business and technical teams.",
     outcome:
       "Improved reporting accuracy by about 40%, reduced chargeback disputes by about 25%, and cut issue-resolution time by about 30%.",
   },
@@ -435,9 +435,9 @@ const caseStudies = [
     problem:
       "A major financial institution needed structured onboarding across payment workflows, stakeholder groups, and card-scheme aligned validation requirements.",
     system:
-      "RS2 BankWORKS, Visa and Mastercard workflows, API scenarios, Zephyr/Jenkins-supported validation, SQL checks, stakeholder UAT, and release readiness controls.",
+      "RS2 BankWORKS, Visa and Mastercard workflows, API scenarios, Zephyr/Jenkins-enabled validation, SQL checks, stakeholder UAT, and release readiness controls.",
     role:
-      "Produced detailed requirements, validation artifacts, test scenarios, traceability, and stakeholder sign-off support across business, technical, QA, and operations teams.",
+      "Produced detailed requirements, validation artifacts, test scenarios, traceability, and stakeholder sign-off evidence across business, technical, QA, and operations teams.",
     outcome:
       "Contributed to about 95% first-pass acceptance, timely deployment quality, and about 30% fewer post-launch defects.",
   },
@@ -461,7 +461,7 @@ const caseStudies = [
     system:
       "Asseco def3000/TR, SWIFT MT103, MT202, MT910, MT940, MT950, incoming and outgoing MT300/MT320, treasury confirmation matching, and exception workflows.",
     role:
-      "Supported implementation analysis, message relationship mapping, requirement definition, validation artifacts, and operational exception logic for the COTS treasury module.",
+      "Led implementation analysis, message relationship mapping, requirement definition, validation artifacts, and operational exception logic for the COTS treasury module.",
     outcome:
       "Matched MT103, MT202, and MT910 against MT940/MT950, and matched incoming MT300/MT320 with outgoing MT300/MT320 to improve Funds Transfer and Treasury Operations efficiency.",
   },
