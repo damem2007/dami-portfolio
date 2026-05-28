@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
+  <defs>
+    <!-- Deep Slate and Vibrant Sky Blue Professional Gradient Themes -->
+    <linearGradient id="damiShieldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1E293B" />
+      <stop offset="100%" stop-color="#0F172A" />
+    </linearGradient>
+    <linearGradient id="damiGoldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#38BDF8" />
+      <stop offset="100%" stop-color="#0284C7" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background Base Ring Shield -->
+  <circle cx="256" cy="256" r="240" fill="url(#damiShieldGrad)" stroke="url(#damiGoldGrad)" stroke-width="14" />
+  
+  <!-- Geometric Shadow 'D' (Left side) -->
+  <path fill="url(#damiGoldGrad)" opacity="0.4" d="M130 140 H210 C280 140 320 180 320 256 C320 332 280 372 210 372 H130 V140 Z M185 192 V320 H210 C250 320 265 298 265 256 C265 214 250 192 210 192 H185 Z" />
+  
+  <!-- Geometric Foreground 'D' (Right side) -->
+  <path fill="#E2E8F0" d="M230 140 H310 C380 140 420 180 420 256 C420 332 380 372 310 372 H230 V140 Z M285 192 V320 H310 C350 320 365 298 365 256 C365 214 340 192 310 192 H285 Z" />
+</svg>
