@@ -334,7 +334,8 @@ button:focus-visible {
 }
 
 .portfolio-night .text-zinc-950,
-.portfolio-night .text-zinc-900 {
+.portfolio-night .text-zinc-900,
+.portfolio-night .text-zinc-800 {
   color: #f8fafc !important;
 }
 

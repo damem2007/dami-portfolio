@@ -10,6 +10,7 @@ import {
   CheckCircle2,
   CreditCard,
   Database,
+  Download,
   FileCheck2,
   Globe,
   Landmark,
@@ -25,6 +26,7 @@ import {
   ShieldCheck,
   Sun,
   Target,
+  Waypoints,
   Workflow,
 } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
@@ -36,19 +38,21 @@ const contact = {
   linkedin: "https://www.linkedin.com/in/damidahunsi",
 };
 
+const resumeHref = "/files/Damilola_Dahunsi_Technical_Business_Analyst_Resume.pdf";
+
 const highlights = [
-  "11+ years translating payments, banking, retail commerce, and enterprise-system change into release-ready outcomes.",
-  "Deep RS2 BankWORKS card-processing coverage across ISO 8583 MTIs, bitmap-driven data elements, authorization, clearing, settlement, merchant funding, reconciliation, disputes, PCI DSS-aligned controls, and reporting.",
-  "Strong omnichannel commerce coverage across CyberSource fraud decisioning, tokenization, 3D Secure, AVS/CVV, checkout, POS, OMS, tax, inventory, fulfillment, and order-to-cash flows.",
-  "Led SWIFT MT-to-ISO 20022 update and def3000/TR treasury matching work at Asseco, aligning Funds Transfer, Treasury Operations, and technology teams around MT103, MT202, MT910, MT940, MT950, MT300, and MT320 flows.",
+  "11+ years translating enterprise payments, banking, retail commerce, and regulated platform change into release-ready outcomes.",
+  "Payments analyst depth across RS2 BankWORKS, ISO 8583 MTIs, bitmap-driven data elements, authorization, clearing, settlement, merchant funding, reconciliation, disputes, PCI DSS-aligned controls, and reporting.",
+  "Commerce and fraud-decisioning experience across CyberSource, tokenization, 3D Secure, AVS/CVV, checkout, POS, OMS, tax, inventory, fulfillment, and order-to-cash flows.",
+  "Institutional-payments experience at Asseco across SWIFT MT-to-ISO 20022 update work and def3000/TR treasury confirmation matching for MT103, MT202, MT910, MT940, MT950, MT300, and MT320 flows.",
   "Built an AI-powered BA documentation model that turns meetings, workshops, interviews, and discovery notes into structured artifacts while supporting project management, cross-functional alignment, and prioritization discipline.",
   "Known for SQL-backed validation, traceable requirements, stakeholder workshops, UAT strategy, Eisenhower Matrix and MoSCoW prioritization, and production readiness in regulated environments.",
 ];
 
 const professionalSummary = [
-  "I'm Damilola Dahunsi, a CBAP-certified Senior Technical Business Analyst helping organizations turn complex payment, banking, SaaS, and regulated operations into scalable systems, cleaner processes, and implementation-ready requirements.",
+  "I'm Damilola Dahunsi, a CBAP-certified Senior Technical Business Analyst for enterprise payments, banking integrations, commerce platforms, and regulated systems delivery.",
   "Across my career, I've supported platforms processing 1B+ transactions monthly, reduced reconciliation exceptions by 25%, improved onboarding timelines by 40%, and delivered change across institutions including WorldPay, Barclays, and Bank of America.",
-  "I bring deep business analysis, systems thinking, stakeholder leadership, SQL/data validation, API integration support, and Agile delivery experience to help teams move from ambiguity to measurable operational and customer outcomes.",
+  "I bring deep business analysis, systems thinking, stakeholder leadership, SQL/data validation, API integration support, and Agile delivery experience where transaction systems, operations, compliance, and customer outcomes meet.",
 ];
 
 const metrics = [
@@ -58,6 +62,13 @@ const metrics = [
   { value: "2.2M+", label: "Coordinated migration of 2.2M+ customer and staff credentials while maintaining under 3% exception rates." },
   { value: "30%", label: "Reduced post-release defects by 30% through strengthened validation governance, traceability, and regression coordination" },
   { value: "$4M+", label: "Supported delivery across $4M+ in combined public-sector, financial services, and enterprise transformation portfolios." },
+];
+
+const recruiterSnapshot = [
+  "Best fit: Senior Technical BA / BSA roles where payments, integrations, compliance, and operations intersect.",
+  "Enterprise focus: card platforms, banking integrations, treasury operations, fraud controls, commerce systems, and regulated delivery.",
+  "Payment depth: ISO 8583, RS2 BankWORKS, Visa Base II, Mastercard IPM, CyberSource, PCI DSS, tokenization, SWIFT MT, and ISO 20022 update work.",
+  "Delivery signal: requirements, process models, API/data mappings, SQL validation, UAT governance, release readiness, and post-go-live stabilization.",
 ];
 
 const capabilities = [
@@ -87,7 +98,7 @@ const capabilities = [
     icon: <ShieldCheck className="h-5 w-5" />,
     summary:
       "BRDs, FSDs, user stories, process flows, API mappings, data validation, UAT assets, release readiness, and post-go-live stabilization.",
-    items: ["SQL", "Postman", "SOAPUI", "Jira", "Confluence", "Zephyr Scale", "UAT",  "Selenium"],
+    items: ["SQL", "Postman", "SOAPUI", "Jira", "Confluence", "Zephyr Scale", "UAT", "Selenium"],
   },
   {
     title: "AI BA Documentation Automation",
@@ -95,6 +106,85 @@ const capabilities = [
     summary:
       "AI-assisted artifact generation and delivery support that turns messy discovery inputs into structured BA outputs, project signals, and prioritized team actions.",
     items: ["Business summaries", "User stories", "Acceptance criteria", "UAT scenarios", "Eisenhower Matrix", "Risks", "Dependencies"],
+  },
+];
+
+const targetRoles = [
+  "Senior Technical Business Analyst",
+  "Business Systems Analyst - Payments",
+  "Payments / Fintech Product Analyst",
+  "Banking Implementation Consultant",
+  "Product Owner - Payments or Commerce",
+  "Digital Transformation BA - Regulated Systems",
+];
+
+const enterpriseProof = [
+  {
+    title: "Scale",
+    icon: <BarChart3 className="h-5 w-5" />,
+    summary:
+      "Supported high-volume payment and regulated delivery environments spanning 1B+ monthly card transactions, 15+ financial institutions, 200+ SIT/UAT/regression scenarios, 2.2M+ credential migrations, and $4M+ combined transformation portfolios.",
+  },
+  {
+    title: "Technical Ecosystems",
+    icon: <Network className="h-5 w-5" />,
+    summary:
+      "Worked across RS2 BankWORKS, SOA payment-switch architecture, real-time authorization, file-based clearing, DMS, merchant accounting, statement generation, T24/Temenos, Flexcube, Finacle, SWIFT Alliance, CyberSource, Decision Manager, SFCC, Shopify, Oracle Xstore, ORMS/OROB, ERP, and 3PL integrations.",
+  },
+  {
+    title: "Payments Expertise",
+    icon: <CreditCard className="h-5 w-5" />,
+    summary:
+      "Covered ISO 8583 MTI, bitmap, DE-level analysis, Visa Base II, Mastercard IPM, Visa AFT/OCT, Mastercard MoneySend, IRF mandates, PCI DSS-aligned controls, tokenization, 3D Secure, AVS/CVV, chargebacks, settlement, reconciliation, and merchant funding.",
+  },
+  {
+    title: "Implementation Outcomes",
+    icon: <BadgeCheck className="h-5 w-5" />,
+    summary:
+      "Delivered analysis, validation, and rollout support tied to 95% first-pass acceptance, 30% fewer post-release defects, 25% fewer reconciliation exceptions, 40% faster onboarding, 95% fewer IRF-related penalties, and large-scale credential migration with less than 3% exceptions.",
+  },
+];
+
+const systemsThinking = [
+  {
+    title: "ISO 8583 Card Lifecycle",
+    icon: <CreditCard className="h-5 w-5" />,
+    summary:
+      "POS or ecommerce channel -> gateway / adapter -> RS2 authorization -> scheme network -> issuer response -> clearing file -> settlement -> merchant funding, statement, reporting, and reconciliation.",
+    evidence:
+      "Connects message type changes, issuer/acquirer responsibilities, exception points, reconciliation controls, and downstream financial impact.",
+  },
+  {
+    title: "CyberSource Decisioning Flow",
+    icon: <ShieldCheck className="h-5 w-5" />,
+    summary:
+      "Checkout -> tokenized payment payload -> CyberSource fraud screening -> accept, reject, or review decision -> authorization -> settlement, reconciliation, and chargeback monitoring.",
+    evidence:
+      "Connects customer checkout behavior, fraud rules, API payload mapping, PCI-aware data handling, manual review queues, and chargeback operations.",
+  },
+  {
+    title: "SWIFT Confirmation Matching",
+    icon: <FileCheck2 className="h-5 w-5" />,
+    summary:
+      "Payment, statement, and treasury messages -> MT103/MT202/MT910 against MT940/MT950 -> incoming MT300/MT320 against outgoing MT300/MT320 -> matched, exception, investigation, or operational follow-up.",
+    evidence:
+      "Demonstrates how message relationships, treasury operations, funds-transfer confirmation, and reconciliation controls translate into implementation requirements.",
+  },
+  {
+    title: "Omnichannel Commerce Operations",
+    icon: <Workflow className="h-5 w-5" />,
+    summary:
+      "SFCC or Shopify -> OMS / ORMS / OROB -> Oracle Xstore POS -> CyberSource / Decision Manager / Avalara -> ERP, 3PL, customer service, reporting, and order-to-cash controls.",
+    evidence:
+      "Frames retail commerce as an operating system across order capture, inventory, tax, fraud, fulfillment, customer service, finance, and reporting.",
+  },
+  {
+    title: "BA Delivery Operating Model",
+    icon: <Waypoints className="h-5 w-5" />,
+    summary:
+      "Discovery -> current-state process model -> future-state workflow -> source-to-target or API mapping -> SIT/UAT assets -> release readiness -> post-go-live validation and stabilization.",
+    evidence:
+      "Clarifies how ambiguity becomes traceable artifacts, testable requirements, stakeholder decisions, and production-ready release controls.",
   },
 ];
 
@@ -145,7 +235,7 @@ const experience = [
   {
     company: "Intuit TurboTax Canada",
     role: "Business Systems Analyst",
-    period: "Jan 2026 - Apr 2026",
+    period: "Jan 2016 - Apr 2016",
     scope: "Canadian consumer tax preparation, product-release support, tax law updates, and client-facing validation",
     bullets: [
       "Led requirements analysis sessions with cross-functional teams for 25+ client and stakeholder needs tied to product releases and changing tax-law requirements.",
@@ -295,85 +385,121 @@ const consultingProjects = [
   },
 ];
 
-const myLocation= {
-    currentLocale : "Vancouver, BC",
-    otherLocale: "Ottawa, GTA, ON",
-  };
-const headerCerts= {
-    label : "CBAP®, CSM, CSPO, ITIL® V4",
-  };
+const myLocation = {
+  currentLocale: "Vancouver, BC",
+  otherLocale: "Ottawa, GTA, ON",
+};
+const headerCerts = {
+  label: "CBAP®, CSM, CSPO, ITIL® V4",
+};
 const caseStudies = [
   {
     title: "WorldPay LATAM Acquiring Expansion",
     icon: <Globe className="h-5 w-5" />,
-    summary:
-      "Supported onboarding, requirements analysis, scheme alignment, and delivery readiness for WorldPay's Brazil and LATAM acquiring expansion on RS2 BankWORKS.",
+    problem:
+      "WorldPay needed acquiring expansion support across Brazil and LATAM without losing scheme, settlement, pricing, dispute, and cross-border control.",
+    system:
+      "RS2 BankWORKS, Visa Debit, Visa AFT, Visa Direct / OCT-aligned flows, Mastercard MoneySend, clearing, settlement, pricing, and merchant reporting.",
+    role:
+      "Translated client, operational, and scheme needs into requirements, validation scenarios, mappings, and readiness evidence across business, technology, and operations teams.",
     outcome:
-      "Validated Visa Debit, Visa AFT, Visa Direct / OCT-aligned, Mastercard MoneySend, settlement, pricing, dispute, and cross-border flows.",
+      "Supported delivery readiness for acquiring expansion while validating payment flows that affected authorization, clearing, settlement, pricing, and dispute operations.",
   },
   {
     title: "ISO 8583 Transaction Flow Analysis",
     icon: <CreditCard className="h-5 w-5" />,
-    summary:
-      "Mapped and validated card transaction behavior across POS/gateway, acquirer, card network, issuer, authorization response, clearing, settlement, and merchant reporting.",
+    problem:
+      "Card transaction defects required analysis beyond surface-level testing because failures could originate in message format, routing, response handling, fee qualification, or settlement impact.",
+    system:
+      "POS/gateway, acquirer, card network, issuer, authorization response, clearing, settlement, merchant reporting, MTI, bitmap, DE2, DE3, DE4, DE11, DE39, DE41, STAN, AFS, product ID, and fee identifier.",
+    role:
+      "Mapped transaction behavior, interpreted message fields, traced failure points, supported SQL-backed validation, and connected defect evidence to business impact.",
     outcome:
-      "Used MTI, bitmap, DE2, DE3, DE4, DE11, DE39, DE41, processing code, STAN, POS entry mode, AFS, product ID, fee identifier, and response-code analysis for testing and defect triage.",
+      "Improved testing precision and defect triage for authorization, reversal, routing, clearing, settlement, and merchant-reporting scenarios.",
   },
   {
     title: "Bank of America Merchant Portal",
     icon: <BarChart3 className="h-5 w-5" />,
-    summary:
-      "Analyzed chargebacks, reporting consistency, downstream merchant visibility, and source-to-target payment-data integrity on the RS2 acquiring platform.",
+    problem:
+      "Merchant users needed clearer reporting, stronger chargeback visibility, and more reliable downstream payment-data consistency.",
+    system:
+      "RS2 acquiring platform, merchant portal reporting, chargeback workflows, source-to-target payment data, SQL validation, and operational support processes.",
+    role:
+      "Analyzed reporting gaps, validated payment-data mappings, documented requirements, supported UAT, and coordinated issue resolution between business and technical teams.",
     outcome:
       "Improved reporting accuracy by about 40%, reduced chargeback disputes by about 25%, and cut issue-resolution time by about 30%.",
   },
   {
     title: "Wells Fargo BankWORKS Onboarding",
     icon: <Layers className="h-5 w-5" />,
-    summary:
-      "Drove detailed requirement analysis, validation artifacts, API scenarios, and multi-stakeholder UAT for Visa and Mastercard-aligned onboarding workflows.",
+    problem:
+      "A major financial institution needed structured onboarding across payment workflows, stakeholder groups, and card-scheme aligned validation requirements.",
+    system:
+      "RS2 BankWORKS, Visa and Mastercard workflows, API scenarios, Zephyr/Jenkins-supported validation, SQL checks, stakeholder UAT, and release readiness controls.",
+    role:
+      "Produced detailed requirements, validation artifacts, test scenarios, traceability, and stakeholder sign-off support across business, technical, QA, and operations teams.",
     outcome:
       "Contributed to about 95% first-pass acceptance, timely deployment quality, and about 30% fewer post-launch defects.",
   },
   {
     title: "Visa & Mastercard IRF Mandates",
     icon: <ShieldCheck className="h-5 w-5" />,
-    summary:
-      "Led mandate and interchange analysis across LATAM, EU, and North America, including EMV, tokenized payments, PCI DSS-aligned controls, AFS, PID, PTC, and POS entry-mode attributes.",
+    problem:
+      "Clients needed to absorb scheme mandate changes without increased interchange qualification errors, penalties, non-compliance exposure, or chargeback risk.",
+    system:
+      "Visa and Mastercard mandate rules, EMV, tokenized payments, PCI DSS-aligned controls, AFS, PID, PTC, POS entry mode, interchange qualification, pricing, and settlement.",
+    role:
+      "Analyzed mandate impacts, translated rule changes into requirements and validation scenarios, and aligned scheme, product, operations, and delivery stakeholders.",
     outcome:
       "Reduced IRF-related penalties by about 95% on affected clients and lowered scheme non-compliance incidents and acquirer chargeback exposure by about 35%.",
   },
   {
     title: "def3000/TR SWIFT Confirmation Matching",
     icon: <FileCheck2 className="h-5 w-5" />,
-    summary:
-      "Supported implementation of a commercial off-the-shelf Asseco def3000/TR treasury module for automated SWIFT confirmation and statement matching.",
+    problem:
+      "Funds Transfer and Treasury Operations teams needed automated matching between payment, confirmation, statement, and treasury messages to reduce manual effort and exception handling.",
+    system:
+      "Asseco def3000/TR, SWIFT MT103, MT202, MT910, MT940, MT950, incoming and outgoing MT300/MT320, treasury confirmation matching, and exception workflows.",
+    role:
+      "Supported implementation analysis, message relationship mapping, requirement definition, validation artifacts, and operational exception logic for the COTS treasury module.",
     outcome:
       "Matched MT103, MT202, and MT910 against MT940/MT950, and matched incoming MT300/MT320 with outgoing MT300/MT320 to improve Funds Transfer and Treasury Operations efficiency.",
   },
   {
     title: "CyberSource Fraud Decisioning",
     icon: <ShieldCheck className="h-5 w-5" />,
-    summary:
-      "Analyzed retail fraud exposure across ecommerce, tokenized card-not-present purchases, card present purchases, 3D Secure decisioning, account takeover patterns, chargebacks, false declines, and manual review operations.",
+    problem:
+      "Retail and ecommerce teams needed stronger fraud controls without weakening checkout reliability, authorization confidence, customer experience, or manual review operations.",
+    system:
+      "CyberSource fraud screening, Decision Manager, tokenized card-not-present purchases, card-present purchases, 3D Secure, AVS/CVV, device/IP metadata, velocity rules, fraud scores, review queues, API errors, and chargeback handling.",
+    role:
+      "Mapped checkout, tokenization, authorization, fraud screening, review outcomes, API payloads, PCI-aware data handling, retry/timeout behavior, and UAT fraud scenarios.",
     outcome:
-      "Mapped transaction payloads and rules for CyberSource fraud screening, including billing and shipping data, device/IP metadata, AVS/CVV, token handling, velocity rules, fraud scores, review queues, API errors, and UAT fraud scenarios.",
+      "Created delivery-ready decisioning logic and validation coverage for accept, reject, and review outcomes across fraud, payment, ecommerce, QA, and compliance stakeholders.",
   },
   {
     title: "Omnichannel Checkout, POS & OMS",
     icon: <Workflow className="h-5 w-5" />,
-    summary:
-      "Supported retail commerce flow improvements across ecommerce checkout, POS, OMS, inventory, payments, tax, fraud controls, fulfillment, and reporting.",
+    problem:
+      "Commerce operations needed coordinated improvements across online checkout, POS, order management, inventory, payments, fraud, tax, fulfillment, and finance visibility.",
+    system:
+      "CyberSource, Decision Manager, Avalara, Oracle Xstore, ORMS / OROB, SFCC, Shopify, ERP, 3PL, marketplace, customer service, and reporting touchpoints.",
+    role:
+      "Connected customer-facing flows to back-office operations by defining integration touchpoints, order-to-cash controls, exception scenarios, and stakeholder-ready requirements.",
     outcome:
-      "Connected CyberSource, Decision Manager, Avalara, Oracle Xstore, ORMS / OROB, SFCC, Shopify, ERP, 3PL, and marketplace touchpoints.",
+      "Improved the clarity of how checkout, fulfillment, payment status, tax, refunds, operations, and reporting interact across the commerce ecosystem.",
   },
   {
     title: "AI BA Artifact Automation Model",
     icon: <Bot className="h-5 w-5" />,
-    summary:
-      "Built an AI model that structures messy discovery inputs from meetings, workshop notes, and interviews into delivery-ready business analysis and project-management artifacts.",
+    problem:
+      "Discovery work often leaves teams with scattered meeting notes, workshop outputs, interview findings, risks, assumptions, dependencies, and open questions that are hard to convert into delivery assets quickly.",
+    system:
+      "AI model for BA artifact automation using meeting notes, workshop notes, interviews, discovery inputs, prioritization logic, and structured output schemas.",
+    role:
+      "Designed the artifact structure and automation logic to convert raw discovery material into business summaries, user stories, acceptance criteria, requirements, assumptions, risks, dependencies, open questions, and UAT scenarios.",
     outcome:
-      "Generates business summaries, user stories, acceptance criteria, functional requirements, assumptions, risks, dependencies, open questions, UAT scenarios, and prioritization inputs for cross-functional teams.",
+      "Creates a reusable BA acceleration layer for cross-functional collaboration, project management, delivery prioritization, and stakeholder decision-making.",
   },
 ];
 
@@ -384,49 +510,33 @@ const certifications = [
   "ITIL® V4 - Foundation Certificate in Service Management",
   "ISTQB - Certified Software Tester",
 ];
+const industryCertifications = [
+  "Advanced General Ledger Training from Acquirer's Perspective",
+  "An Insider's Guide to Payments and Payment Systems - iFinance Academy",
+  "Payment Card Industry Data Security Standard - iFinance Academy",
+  "Anti-Money Laundering & Combatting the Financing of Terrorism - iFinance Academy",
+  "General Data Protection Regulation - iFinance Academy",
+  "Anti-Fraud and Payments Handling - iFinance Academy",
+  "Anti-Bribery - iFinance Academy",
+];
 
-const tools = [
-  "SQL",
-  "Oracle",
-  "PostgreSQL",
-  "Postman",
-  "SOAPUI",
-  "Wizdler",
-  "Jira",
-  "Confluence",
-  "Zephyr Scale",
-  "Jenkins",
-  "Power BI",
-  "Excel",
-  "Visio",
-  "BPMN / UML",
-  "Eisenhower Matrix",
-  "MoSCoW",
-  "SharePoint",
-  "REST APIs",
-  "SOAP / WSDL",
-  "CyberSource",
-  "Decision Manager",
-  "PCI DSS",
-  "Tokenization",
-  "3D Secure",
-  "AVS / CVV",
-  "EMV",
-  "Chargebacks",
-  "RS2 BankWORKS",
-  "ISO 8583",
-  "MTI / Bitmap / DE",
-  "ISO 20022 update",
-  "SWIFT MT",
-  "def3000/TR",
-  "T24 / Temenos",
-  "Loan IQ",
-  "Oracle Flexcube",
-  "SWIFT Alliance",
-  "SFCC",
-  "Shopify",
-  "Oracle Xstore",
-  "ORMS / OROB",
+const stackGroups = [
+  {
+    title: "Payments",
+    items: ["RS2 BankWORKS", "ISO 8583", "MTI / Bitmap / DE", "Visa Base II", "Mastercard IPM", "Visa AFT / OCT", "Mastercard MoneySend", "IRF", "PCI DSS", "Tokenization", "3D Secure", "AVS / CVV", "Chargebacks"],
+  },
+  {
+    title: "Banking",
+    items: ["T24 / Temenos", "Oracle Flexcube", "Finacle", "SWIFT Alliance", "SWIFT MT", "ISO 20022 update", "def3000/TR", "ACH", "SEPA", "Loan IQ familiarity"],
+  },
+  {
+    title: "Delivery & Data",
+    items: ["SQL", "Oracle", "PostgreSQL", "Postman", "SOAPUI", "Wizdler", "Jira", "Confluence", "Zephyr Scale", "Jenkins", "Power BI", "Excel", "Visio", "BPMN / UML", "Eisenhower Matrix", "MoSCoW"],
+  },
+  {
+    title: "Commerce",
+    items: ["CyberSource", "Decision Manager", "SFCC", "Shopify", "Oracle Xstore", "ORMS / OROB", "Avalara", "ERP", "3PL", "Order-to-cash"],
+  },
 ];
 
 const fadeUp = {
@@ -437,14 +547,15 @@ const fadeUp = {
 const revealTransition = { duration: 0.45, ease: [0.22, 1, 0.36, 1] as const };
 
 const liftCardClass = "transition duration-200 ease-out hover:-translate-y-1 hover:shadow-lg";
+const sectionIntroClass = "max-w-2xl rounded-lg border border-zinc-200 bg-zinc-50 p-4 text-sm leading-6 text-zinc-700 shadow-sm";
 
 const navItems = [
   { href: "#summary", label: "Summary", mobileLabel: "Sum", icon: Target },
-  { href: "#capabilities", label: "Capabilities", mobileLabel: "Skills", icon: Layers },
+  { href: "#proof", label: "Enterprise Proof", mobileLabel: "Proof", icon: BarChart3 },
+  { href: "#systems", label: "Systems Thinking", mobileLabel: "Flow", icon: Waypoints },
   { href: "#payments", label: "Payments", mobileLabel: "Pay", icon: CreditCard },
   { href: "#experience", label: "Experience", mobileLabel: "Exp", icon: Briefcase },
-  { href: "#featured", label: "Featured Work", mobileLabel: "Work", icon: Database },
-  { href: "#consulting", label: "Consulting", mobileLabel: "Cases", icon: Building2 },
+  { href: "#featured", label: "Case Studies", mobileLabel: "Cases", icon: Database },
   { href: "#tools", label: "Tools", mobileLabel: "Tools", icon: Workflow },
 ];
 
@@ -581,6 +692,12 @@ export default function Portfolio() {
           </div>
           <div className="flex flex-wrap items-center gap-2">
             <Button asChild variant="outline" className="h-9 rounded-lg border-zinc-300 bg-white px-3">
+              <a href={resumeHref} download>
+                <Download className="mr-2 h-4 w-4" />
+                Resume
+              </a>
+            </Button>
+            <Button asChild variant="outline" className="h-9 rounded-lg border-zinc-300 bg-white px-3">
               <a href={`mailto:${contact.email}`}>
                 <Mail className="mr-2 h-4 w-4" />
                 Email
@@ -608,9 +725,8 @@ export default function Portfolio() {
 
       <nav
         aria-label="Portfolio sections"
-        className={`fixed right-3 top-1/2 z-30 hidden -translate-y-1/2 flex-col gap-1 rounded-full border border-white/80 bg-[linear-gradient(145deg,#ffffff_0%,#f4f4f5_58%,#ecfeff_100%)] p-2 shadow-[0_18px_45px_rgba(15,23,42,0.14)] ring-1 ring-zinc-900/5 backdrop-blur-xl transition duration-300 lg:flex ${
-          isRailVisible ? "translate-x-0 opacity-100" : "translate-x-3 opacity-0 pointer-events-none"
-        }`}
+        className={`fixed right-3 top-1/2 z-30 hidden -translate-y-1/2 flex-col gap-1 rounded-full border border-white/80 bg-[linear-gradient(145deg,#ffffff_0%,#f4f4f5_58%,#ecfeff_100%)] p-2 shadow-[0_18px_45px_rgba(15,23,42,0.14)] ring-1 ring-zinc-900/5 backdrop-blur-xl transition duration-300 lg:flex ${isRailVisible ? "translate-x-0 opacity-100" : "translate-x-3 opacity-0 pointer-events-none"
+          }`}
       >
         {navItems.map((item) => {
           const isActive = activeNav === item.href;
@@ -620,9 +736,8 @@ export default function Portfolio() {
                 {item.label}
               </span>
               <span
-                className={`block rounded-full transition-all duration-200 ${
-                  isActive ? "h-6 w-1.5 bg-zinc-900" : "h-2 w-2 bg-zinc-300 group-hover:h-3 group-hover:w-3 group-hover:bg-zinc-500"
-                }`}
+                className={`block rounded-full transition-all duration-200 ${isActive ? "h-6 w-1.5 bg-zinc-900" : "h-2 w-2 bg-zinc-300 group-hover:h-3 group-hover:w-3 group-hover:bg-zinc-500"
+                  }`}
               />
             </a>
           );
@@ -631,9 +746,8 @@ export default function Portfolio() {
 
       <nav
         aria-label="Portfolio sections mobile"
-        className={`fixed bottom-3 left-2 right-2 z-30 grid grid-cols-7 gap-1 rounded-2xl border border-white/80 bg-[linear-gradient(145deg,#ffffff_0%,#f4f4f5_58%,#ecfeff_100%)] p-1.5 shadow-[0_18px_45px_rgba(15,23,42,0.14)] ring-1 ring-zinc-900/5 backdrop-blur-xl transition duration-300 sm:left-4 sm:right-4 lg:hidden ${
-          isRailVisible ? "translate-y-0 opacity-100" : "translate-y-3 opacity-0 pointer-events-none"
-        }`}
+        className={`fixed bottom-3 left-2 right-2 z-30 grid grid-cols-7 gap-1 rounded-2xl border border-white/80 bg-[linear-gradient(145deg,#ffffff_0%,#f4f4f5_58%,#ecfeff_100%)] p-1.5 shadow-[0_18px_45px_rgba(15,23,42,0.14)] ring-1 ring-zinc-900/5 backdrop-blur-xl transition duration-300 sm:left-4 sm:right-4 lg:hidden ${isRailVisible ? "translate-y-0 opacity-100" : "translate-y-3 opacity-0 pointer-events-none"
+          }`}
       >
         {navItems.map((item) => {
           const isActive = activeNav === item.href;
@@ -644,11 +758,10 @@ export default function Portfolio() {
               href={item.href}
               aria-label={item.label}
               aria-current={isActive ? "true" : undefined}
-              className={`flex min-w-0 flex-col items-center justify-center gap-1 rounded-xl border px-1 py-2 text-[0.64rem] font-semibold leading-none transition ${
-                isActive
+              className={`flex min-w-0 flex-col items-center justify-center gap-1 rounded-xl border px-1 py-2 text-[0.64rem] font-semibold leading-none transition ${isActive
                   ? "border-teal-200 bg-white !text-zinc-950 shadow-sm ring-1 ring-teal-900/5"
                   : "border-transparent !text-zinc-500 hover:border-white/80 hover:bg-white/70 hover:!text-zinc-950"
-              }`}
+                }`}
             >
               <Icon className={`h-4 w-4 ${isActive ? "text-teal-700" : "text-zinc-400"}`} />
               <span className="max-w-full truncate">{item.mobileLabel}</span>
@@ -665,15 +778,44 @@ export default function Portfolio() {
               {headerCerts.label} | {myLocation.otherLocale}
             </div>
             <h1 className="max-w-4xl text-4xl font-semibold leading-tight tracking-normal text-zinc-950 sm:text-5xl lg:text-6xl">
-              Senior Business Analyst for payments, commerce, and regulated systems delivery.
+              Senior Technical Business Analyst for enterprise payments, banking integrations, and regulated systems delivery.
             </h1>
             <p className="mt-5 max-w-3xl text-base leading-8 text-zinc-700 sm:text-lg">
-              I help product, engineering, operations, finance, compliance, and client teams turn complex transaction flows into clear requirements, validated releases, and measurable business outcomes across card payments, core banking, omnichannel commerce, and digital transformation.
+              I help product, engineering, operations, finance, compliance, and client teams turn complex transaction flows into clear requirements, validated releases, and measurable outcomes across card payments, SWIFT/treasury, core banking, omnichannel commerce, and digital transformation.
             </p>
+            <div className="mt-6 grid gap-2">
+              {recruiterSnapshot.map((item) => (
+                <div key={item} className="flex gap-3 rounded-lg border border-zinc-200 bg-white p-3 text-sm leading-6 text-zinc-700 shadow-sm">
+                  <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-teal-700" />
+                  <span>{item}</span>
+                </div>
+              ))}
+            </div>
+            <div className="mt-6 flex flex-wrap gap-2">
+              {targetRoles.slice(0, 4).map((role) => (
+                <span key={role} className="rounded-md border border-teal-200 bg-white px-3 py-2 text-sm font-medium text-zinc-800">
+                  {role}
+                </span>
+              ))}
+            </div>
+            <div className="mt-6 flex flex-wrap gap-3">
+              <Button asChild className="h-10 rounded-lg bg-zinc-950 px-4 text-white hover:bg-zinc-800">
+                <a href={resumeHref} download>
+                  <Download className="mr-2 h-4 w-4" />
+                  Download Resume
+                </a>
+              </Button>
+              <Button asChild variant="outline" className="h-10 rounded-lg border-zinc-300 bg-white px-4">
+                <a href={`mailto:${contact.email}`}>
+                  <Mail className="mr-2 h-4 w-4" />
+                  Email
+                </a>
+              </Button>
+            </div>
             <div className="mt-6 grid gap-3 text-sm text-zinc-700 sm:grid-cols-3">
               <span className="inline-flex items-center gap-2 rounded-lg border border-zinc-200 bg-white px-3 py-3">
                 <MapPin className="h-4 w-4 text-teal-700" />
-               {myLocation.otherLocale}
+                {myLocation.otherLocale}
               </span>
               <span className="inline-flex items-center gap-2 rounded-lg border border-zinc-200 bg-white px-3 py-3">
                 <Phone className="h-4 w-4 text-amber-700" />
@@ -730,6 +872,34 @@ export default function Portfolio() {
         </div>
       </SectionReveal>
 
+      <SectionReveal id="proof" className="border-y border-zinc-200 bg-white">
+        <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
+          <div className="mb-7 flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
+            <div>
+              <div className="mb-2 flex items-center gap-2 text-sm font-semibold uppercase text-teal-800">
+                <BarChart3 className="h-4 w-4" />
+                Enterprise Proof
+              </div>
+              <h2 className="text-3xl font-semibold text-zinc-950">Enterprise payment scale, ecosystems, and delivery outcomes</h2>
+            </div>
+            <p className={sectionIntroClass}>
+              Senior BA and BSA delivery across high-volume card platforms, banking integrations, treasury operations, compliance controls, and regulated releases.
+            </p>
+          </div>
+          <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+            {enterpriseProof.map((item) => (
+              <Card key={item.title} className={`rounded-lg border-zinc-200 py-0 shadow-sm ${liftCardClass}`}>
+                <CardContent className="p-5">
+                  <div className="mb-4 inline-flex rounded-lg bg-zinc-100 p-3 text-zinc-900">{item.icon}</div>
+                  <h3 className="text-lg font-semibold text-zinc-950">{item.title}</h3>
+                  <p className="mt-3 text-sm leading-6 text-zinc-700">{item.summary}</p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </SectionReveal>
+
       <SectionReveal id="capabilities" className="border-y border-zinc-200 bg-white">
         <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
           <div className="mb-7 flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
@@ -740,9 +910,9 @@ export default function Portfolio() {
               </div>
               <h2 className="text-3xl font-semibold text-zinc-950">Where I create leverage</h2>
             </div>
-            <p className="max-w-2xl text-sm leading-6 text-zinc-600">
-              {/*  */}
-             </p>
+            <p className={sectionIntroClass}>
+              Practical leverage across requirements, data validation, payment operations, integration mapping, stakeholder alignment, and production-readiness controls.
+            </p>
           </div>
           <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
             {capabilities.map((item) => (
@@ -773,10 +943,10 @@ export default function Portfolio() {
                 <CreditCard className="h-4 w-4" />
                 Payment Message Depth
               </div>
-              <h2 className="text-3xl font-semibold text-zinc-950">Card, commerce, and treasury payment evidence</h2>
+              <h2 className="text-3xl font-semibold text-zinc-950">Card, commerce, and treasury payment expertise</h2>
             </div>
-            <p className="max-w-2xl text-sm leading-6 text-zinc-600">
-              {/** */}
+            <p className={sectionIntroClass}>
+              ISO 8583 card processing, CyberSource decisioning, SWIFT MT/ISO 20022 update work, and treasury confirmation matching across operationally sensitive payment flows.
             </p>
           </div>
           <div className="grid gap-4 lg:grid-cols-5">
@@ -793,6 +963,35 @@ export default function Portfolio() {
               </Card>
             ))}
           </div>
+        </div>
+      </SectionReveal>
+
+      <SectionReveal id="systems" className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
+        <div className="mb-7 flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
+          <div>
+            <div className="mb-2 flex items-center gap-2 text-sm font-semibold uppercase text-amber-800">
+              <Waypoints className="h-4 w-4" />
+              Systems Thinking
+            </div>
+            <h2 className="text-3xl font-semibold text-zinc-950">Payment, treasury, commerce, and delivery operating flows</h2>
+          </div>
+          <p className={sectionIntroClass}>
+            Transaction paths, integration touchpoints, control points, exception states, and release artifacts translated into implementation-ready requirements.
+          </p>
+        </div>
+        <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-5">
+          {systemsThinking.map((item) => (
+            <Card key={item.title} className={`rounded-lg border-zinc-200 py-0 shadow-sm ${liftCardClass}`}>
+              <CardContent className="p-5">
+                <div className="mb-4 inline-flex rounded-lg bg-zinc-100 p-3 text-zinc-900">{item.icon}</div>
+                <h3 className="text-lg font-semibold text-zinc-950">{item.title}</h3>
+                <p className="mt-3 text-sm leading-6 text-zinc-700">{item.summary}</p>
+                <p className="mt-4 rounded-lg border border-amber-200 bg-amber-50 p-3 text-sm leading-6 text-amber-950">
+                  {item.evidence}
+                </p>
+              </CardContent>
+            </Card>
+          ))}
         </div>
       </SectionReveal>
 
@@ -833,12 +1032,12 @@ export default function Portfolio() {
             <div>
               <div className="mb-2 flex items-center gap-2 text-sm font-semibold uppercase text-teal-800">
                 <Database className="h-4 w-4" />
-                Featured Work
+                Case Studies
               </div>
-              <h2 className="text-3xl font-semibold text-zinc-950">Selected platforms and programs</h2>
+              <h2 className="text-3xl font-semibold text-zinc-950">Implementation case studies across complex operating environments</h2>
             </div>
-            <p className="max-w-2xl text-sm leading-6 text-zinc-600">
-              Evidence-backed examples spanning payment operations, merchant platforms, core banking, commerce integrations, and release validation.
+            <p className={sectionIntroClass}>
+              Delivery work across payments, banking, commerce, fraud decisioning, treasury operations, and AI-enabled business analysis.
             </p>
           </div>
           <div className="grid gap-4 lg:grid-cols-3">
@@ -847,8 +1046,22 @@ export default function Portfolio() {
                 <CardContent className="p-5">
                   <div className="mb-4 inline-flex rounded-lg bg-teal-50 p-3 text-teal-900">{item.icon}</div>
                   <h3 className="text-lg font-semibold text-zinc-950">{item.title}</h3>
-                  <p className="mt-3 leading-7 text-zinc-700">{item.summary}</p>
-                  <div className="mt-4 rounded-lg border border-amber-200 bg-amber-50 p-3 text-sm leading-6 text-amber-950">
+                  <div className="mt-4 grid gap-3 text-sm leading-6">
+                    <p className="rounded-lg border border-zinc-200 bg-zinc-50 p-3 text-zinc-700">
+                      <span className="font-semibold text-zinc-950">Problem: </span>
+                      {item.problem}
+                    </p>
+                    <p className="rounded-lg border border-zinc-200 bg-zinc-50 p-3 text-zinc-700">
+                      <span className="font-semibold text-zinc-950">Ecosystem: </span>
+                      {item.system}
+                    </p>
+                    <p className="rounded-lg border border-teal-200 bg-teal-50 p-3 text-teal-950">
+                      <span className="font-semibold">My role: </span>
+                      {item.role}
+                    </p>
+                  </div>
+                  <div className="mt-3 rounded-lg border border-amber-200 bg-amber-50 p-3 text-sm leading-6 text-amber-950">
+                    <span className="font-semibold">Outcome: </span>
                     {item.outcome}
                   </div>
                 </CardContent>
@@ -868,8 +1081,8 @@ export default function Portfolio() {
               </div>
               <h2 className="text-3xl font-semibold text-zinc-950">Government, insurance, IAM, and enterprise transformation</h2>
             </div>
-            <p className="max-w-2xl text-sm leading-6 text-zinc-600">
-              Additional project evidence from consulting samples, showing breadth beyond payments while staying anchored in business analysis delivery.
+            <p className={sectionIntroClass}>
+              Advisory and implementation work across public-sector modernization, identity security, insurance platforms, geospatial programs, transportation, tax control, and enterprise mobility.
             </p>
           </div>
           <div className="grid gap-4 lg:grid-cols-3">
@@ -910,6 +1123,28 @@ export default function Portfolio() {
                 </div>
               ))}
             </div>
+
+            <div className="mt-6 border-t border-zinc-200 pt-6">
+              <div className="mb-4 flex items-start gap-3">
+                <div className="rounded-lg bg-amber-50 p-2 text-amber-900">
+                  <ShieldCheck className="h-5 w-5" />
+                </div>
+                <div>
+                  <h3 className="text-lg font-semibold text-zinc-950">Industry Credentials & Training</h3>
+                  <p className="mt-1 text-sm leading-6 text-zinc-600">
+                    Payment, controls, security, privacy, and compliance training that supports regulated delivery environments.
+                  </p>
+                </div>
+              </div>
+              <div className="grid gap-2">
+                {industryCertifications.map((item) => (
+                  <div key={item} className="flex items-start gap-3 rounded-lg border border-amber-200 bg-amber-50 p-3">
+                    <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-amber-700" />
+                    <span className="text-sm leading-6 text-amber-950">{item}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
           </CardContent>
         </Card>
 
@@ -917,13 +1152,20 @@ export default function Portfolio() {
           <CardContent className="p-5 sm:p-6">
             <div className="mb-5 flex items-center gap-2">
               <Workflow className="h-5 w-5 text-amber-700" />
-              <h2 className="text-2xl font-semibold text-zinc-950">Tools, Platforms & Methods</h2>
+              <h2 className="text-2xl font-semibold text-zinc-950">Technical Stack by Domain</h2>
             </div>
-            <div className="flex flex-wrap gap-2">
-              {tools.map((item) => (
-                <span key={item} className="rounded-md border border-zinc-200 bg-zinc-50 px-3 py-2 text-sm text-zinc-700">
-                  {item}
-                </span>
+            <div className="grid gap-4 md:grid-cols-2">
+              {stackGroups.map((group) => (
+                <div key={group.title} className="rounded-lg border border-zinc-200 bg-zinc-50 p-3">
+                  <h3 className="mb-3 text-sm font-semibold text-zinc-950">{group.title}</h3>
+                  <div className="flex flex-wrap gap-2">
+                    {group.items.map((item) => (
+                      <span key={item} className="rounded-md border border-zinc-200 bg-white px-3 py-2 text-sm text-zinc-700">
+                        {item}
+                      </span>
+                    ))}
+                  </div>
+                </div>
               ))}
             </div>
           </CardContent>
@@ -939,6 +1181,12 @@ export default function Portfolio() {
             </p>
           </div>
           <div className="flex flex-wrap gap-3 lg:justify-end">
+            <Button asChild className="footer-cta-primary h-10 rounded-lg bg-white px-4 text-zinc-950 hover:bg-zinc-100">
+              <a href={resumeHref} download>
+                <Download className="mr-2 h-4 w-4" />
+                Download Resume
+              </a>
+            </Button>
             <Button asChild className="footer-cta-primary h-10 rounded-lg bg-white px-4 text-zinc-950 hover:bg-zinc-100">
               <a href={`mailto:${contact.email}`}>
                 <Mail className="mr-2 h-4 w-4" />
