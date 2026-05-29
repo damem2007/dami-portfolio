@@ -234,7 +234,7 @@ const paymentDepth = [
 const experience = [
   {
     company: "Intuit TurboTax Canada",
-    role: "Business Systems Analyst",
+    role: "Product Expert / Business Systems Analyst",
     period: "Jan 2016 - Apr 2016",
     scope: "Canadian consumer tax preparation, product-release readiness, tax law updates, and client-facing validation",
     bullets: [
