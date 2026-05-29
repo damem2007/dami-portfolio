@@ -883,7 +883,7 @@ export default function Portfolio() {
               <h2 className="text-3xl font-semibold text-zinc-950">Enterprise payment scale, ecosystems, and delivery outcomes</h2>
             </div>
             <p className={sectionIntroClass}>
-              Senior BA and BSA delivery across high-volume card platforms, banking integrations, treasury operations, compliance controls, and regulated releases.
+              Technical BA and BSA delivery across high-volume card platforms, banking integrations, treasury operations, compliance controls, and regulated releases.
             </p>
           </div>
           <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
