@@ -552,15 +552,15 @@ const industryCertifications = [
 const stackGroups = [
   {
     title: "Payments",
-    items: ["RS2 BankWORKS", "ISO 8583", "MTI / Bitmap / DE", "Visa Base II", "Mastercard IPM", "Visa AFT / OCT", "Mastercard MoneySend", "IRF", "PCI DSS", "Tokenization", "3D Secure", "AVS / CVV", "Chargebacks"],
+    items: ["RS2 BankWORKS", "ISO 8583", "MTI / Bitmap / DE", "ISO 20022", "Visa Base II", "Mastercard IPM", "Visa AFT / OCT", "Chargebacks", "Mastercard MoneySend", "PCI DSS", "Tokenization", "3D Secure", "IRF"],
   },
   {
     title: "Banking",
-    items: ["T24 / Temenos", "Oracle Flexcube", "Finacle", "SWIFT Alliance", "SWIFT MT", "ISO 20022 update", "def3000/TR", "ACH", "SEPA", "Loan IQ familiarity"],
+    items: ["T24 / Temenos", "Oracle Flexcube", "Finacle", "SWIFT Alliance",  "ACH", "SWIFT MT", "ISO 20022 update", "def3000/TR", "SEPA", "Loan IQ"],
   },
   {
     title: "Delivery & Data",
-    items: ["SQL", "Oracle", "PostgreSQL", "Postman", "SOAPUI", "Wizdler", "Jira", "Confluence", "Zephyr Scale", "Jenkins", "Power BI", "Excel", "Visio", "BPMN / UML", "Eisenhower Matrix", "MoSCoW"],
+    items: ["SQL", "Oracle", "PostgreSQL", "Postman", "SOAPUI", "Wizdler", "Jira", "Confluence", "Zephyr Scale", "Jenkins", "Power BI", "Excel", "Visio", "Agile", "BPMN / UML", "Eisenhower Matrix", "MoSCoW"],
   },
   {
     title: "Commerce",
