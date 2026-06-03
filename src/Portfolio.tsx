@@ -39,20 +39,21 @@ const contact = {
 };
 
 const resumeHref = "/files/Damilola_Dahunsi_Technical_Business_Analyst_Resume.pdf";
+const portraitSrc = "/images/damilola-dahunsi-portrait-cropped.png";
 
 const highlights = [
-  "11+ years translating enterprise payments, banking, retail commerce, and regulated platform change into release-ready outcomes.",
+  "Senior Business Analyst for payments, financial institutions, regulated delivery, and enterprise implementation.",
   "Payments analyst depth across RS2 BankWORKS, ISO 8583 MTIs, bitmap-driven data elements, authorization, clearing, settlement, merchant funding, reconciliation, disputes, PCI DSS-aligned controls, and reporting.",
   "Commerce and fraud-decisioning experience across CyberSource, tokenization, 3D Secure, AVS/CVV, checkout, POS, OMS, tax, inventory, fulfillment, and order-to-cash flows.",
   "Institutional-payments experience at Asseco across SWIFT MT-to-ISO 20022 update work and def3000/TR treasury confirmation matching for MT103, MT202, MT910, MT940, MT950, MT300, and MT320 flows.",
-  "Built an AI-powered BA documentation model that turns meetings, workshops, interviews, and discovery notes into structured artifacts for project management, cross-functional alignment, and prioritization discipline.",
+  "Designed and built an AI-powered BA Intelligence Platform that converts unstructured enterprise source materials into BABOK-aligned requirements, risks, assumptions, UAT scenarios, governance outputs, and delivery-ready artifacts.",
   "Known for SQL-backed validation, traceable requirements, stakeholder workshops, UAT strategy, Eisenhower Matrix and MoSCoW prioritization, and production readiness in regulated environments.",
 ];
 
 const professionalSummary = [
-  "I'm Damilola Dahunsi, a CBAP-certified Senior Technical Business Analyst for enterprise payments, banking integrations, commerce platforms, and regulated systems delivery.",
-  "Across my career, I've worked on platforms processing 1B+ transactions monthly, reduced reconciliation exceptions by 25%, improved onboarding timelines by 40%, and delivered change across institutions including WorldPay, Barclays, and Bank of America.",
-  "I bring deep business analysis, systems thinking, stakeholder leadership, SQL/data validation, API integration analysis, and Agile delivery experience where transaction systems, operations, compliance, and customer outcomes meet.",
+  "I'm Damilola Dahunsi, a CBAP-certified Senior Technical Business Analyst focused on payments, financial institutions, banking integrations, commerce platforms, and regulated delivery.",
+  "I bring the mix FinTech leaders look for: payment-domain depth, executive-ready analysis, SQL-backed validation, product delivery judgement, and practical AI automation capability.",
+  "My strongest work sits where payment platforms, financial operations, compliance controls, data, APIs, and delivery accountability meet.",
 ];
 
 const metrics = [
@@ -65,10 +66,24 @@ const metrics = [
 ];
 
 const recruiterSnapshot = [
-  "Best fit: Senior Technical BA / BSA roles where payments, integrations, compliance, and operations intersect.",
-  "Enterprise focus: card platforms, banking integrations, treasury operations, fraud controls, commerce systems, and regulated delivery.",
-  "Payment depth: ISO 8583, RS2 BankWORKS, Visa Base II, Mastercard IPM, CyberSource, PCI DSS, tokenization, SWIFT MT, and ISO 20022 update work.",
-  "Delivery signal: requirements, process models, API/data mappings, SQL validation, UAT governance, release readiness, and post-go-live stabilization.",
+  "Senior BA/BSA for payments and financial institutions: card platforms, banking integrations, treasury operations, fraud controls, and regulated delivery.",
+  "Payments depth: ISO 8583, RS2 BankWORKS, CyberSource, SWIFT MT, ISO 20022 update work, PCI DSS, tokenization, settlement, reconciliation, and treasury confirmation matching.",
+  "Flagship differentiator: designed and built a Next.js AI BA Intelligence Platform for BABOK-aligned analysis automation and delivery intelligence.",
+];
+
+const executiveSignals = [
+  {
+    value: "50-70%",
+    label: "Projected reduction in first-pass BA artifact production time through the AI BA Intelligence Platform.",
+  },
+  {
+    value: "24-55h",
+    label: "Estimated savings per medium-sized analysis cycle through source review, classification, traceability, artifact generation, and export automation.",
+  },
+  {
+    value: "40+",
+    label: "Structured BA entity and deliverable categories across requirements, risks, stakeholders, UAT, governance, delivery analysis, and open questions.",
+  },
 ];
 
 const capabilities = [
@@ -104,8 +119,8 @@ const capabilities = [
     title: "AI BA Documentation Automation",
     icon: <Bot className="h-5 w-5" />,
     summary:
-      "AI-assisted artifact generation that turns messy discovery inputs into structured BA outputs, project signals, and prioritized team actions.",
-    items: ["Business summaries", "User stories", "Acceptance criteria", "UAT scenarios", "Eisenhower Matrix", "Risks", "Dependencies"],
+      "AI-powered business analysis intelligence that turns unstructured discovery materials into traceable requirements, delivery artifacts, and strategic decision intelligence.",
+    items: ["BABOK", "Requirements engineering", "40+ BA entities", "Traceability", "UAT scenarios", "Governance outputs", "Version control"],
   },
 ];
 
@@ -119,6 +134,12 @@ const targetRoles = [
 ];
 
 const enterpriseProof = [
+  {
+    title: "AI Delivery Intelligence",
+    icon: <Bot className="h-5 w-5" />,
+    summary:
+      "Designed and built a full-stack Next.js BA Intelligence Platform projected to reduce first-pass artifact production time by 50-70% and save 24-55 hours per medium-sized analysis cycle.",
+  },
   {
     title: "Scale",
     icon: <BarChart3 className="h-5 w-5" />,
@@ -146,6 +167,14 @@ const enterpriseProof = [
 ];
 
 const systemsThinking = [
+  {
+    title: "AI BA Intelligence Platform",
+    icon: <Bot className="h-5 w-5" />,
+    summary:
+      "Source ingestion -> BABOK-aligned orchestration -> canonical BA model -> structured AI outputs -> phase-based refinement -> version history -> exportable delivery artifacts.",
+    evidence:
+      "Separates core analysis from document views, preserving traceability, confidence signals, prior findings, and incremental analysis from the latest approved baseline.",
+  },
   {
     title: "ISO 8583 Card Lifecycle",
     icon: <CreditCard className="h-5 w-5" />,
@@ -394,6 +423,18 @@ const headerCerts = {
 };
 const caseStudies = [
   {
+    title: "AI BA Intelligence Platform",
+    icon: <Bot className="h-5 w-5" />,
+    problem:
+      "Business Analysts spend significant time converting scattered discovery inputs into structured requirements, risks, stakeholder summaries, UAT scenarios, and delivery artifacts, creating delays, inconsistency, traceability gaps, and rework.",
+    system:
+      "Full-stack Next.js platform using source material ingestion, BABOK-aligned orchestration, structured AI outputs, semantic modelling, phase-based refinement, version control, and export automation.",
+    role:
+      "Designed and built the platform, including the canonical BA knowledge framework, 40+ structured BA entity types, traceability logic, editable phase history, and delivery-artifact generation model.",
+    outcome:
+      "Projected to reduce first-pass BA artifact creation time by 50-70% and save 24-55 hours per medium-sized analysis cycle while improving traceability, consistency, and analysis coverage. Unlike generic AI summarizers, it models business analysis as structured semantic intelligence.",
+  },
+  {
     title: "WorldPay LATAM Acquiring Expansion",
     icon: <Globe className="h-5 w-5" />,
     problem:
@@ -489,18 +530,6 @@ const caseStudies = [
     outcome:
       "Improved the clarity of how checkout, fulfillment, payment status, tax, refunds, operations, and reporting interact across the commerce ecosystem.",
   },
-  {
-    title: "AI BA Artifact Automation Model",
-    icon: <Bot className="h-5 w-5" />,
-    problem:
-      "Discovery work often leaves teams with scattered meeting notes, workshop outputs, interview findings, risks, assumptions, dependencies, and open questions that are hard to convert into delivery assets quickly.",
-    system:
-      "AI model for BA artifact automation using meeting notes, workshop notes, interviews, discovery inputs, prioritization logic, and structured output schemas.",
-    role:
-      "Designed the artifact structure and automation logic to convert raw discovery material into business summaries, user stories, acceptance criteria, requirements, assumptions, risks, dependencies, open questions, and UAT scenarios.",
-    outcome:
-      "Creates a reusable BA acceleration layer for cross-functional collaboration, project management, delivery prioritization, and stakeholder decision-making.",
-  },
 ];
 
 const certifications = [
@@ -556,7 +585,47 @@ const navItems = [
   { href: "#payments", label: "Payments", mobileLabel: "Pay", icon: CreditCard },
   { href: "#experience", label: "Experience", mobileLabel: "Exp", icon: Briefcase },
   { href: "#featured", label: "Case Studies", mobileLabel: "Cases", icon: Database },
+  { href: "#consulting", label: "Consulting", mobileLabel: "More", icon: Building2 },
   { href: "#tools", label: "Tools", mobileLabel: "Tools", icon: Workflow },
+];
+
+const portfolioMenu = [
+  {
+    href: "#payments",
+    label: "Payment Depth",
+    summary: "ISO 8583, RS2 BankWORKS, CyberSource, PCI DSS, SWIFT, ISO 20022, settlement, reconciliation, and treasury matching.",
+    icon: <CreditCard className="h-5 w-5" />,
+  },
+  {
+    href: "#featured",
+    label: "Case Studies",
+    summary: "Problem, ecosystem, role, and outcome evidence across payments, fraud, treasury, commerce, and AI-enabled BA delivery.",
+    icon: <Database className="h-5 w-5" />,
+  },
+  {
+    href: "#systems",
+    label: "Systems Thinking",
+    summary: "Operating flows, integration touchpoints, control points, exception states, and implementation-ready analysis.",
+    icon: <Waypoints className="h-5 w-5" />,
+  },
+  {
+    href: "#experience",
+    label: "Experience",
+    summary: "Career proof across RS2, Asseco, Intuit, Baqers, and Parkway Projects.",
+    icon: <Briefcase className="h-5 w-5" />,
+  },
+  {
+    href: "#consulting",
+    label: "Consulting Portfolio",
+    summary: "Government, IAM, insurance, geospatial, transportation, fiscalization, collections, and enterprise mobility programs.",
+    icon: <Building2 className="h-5 w-5" />,
+  },
+  {
+    href: "#tools",
+    label: "Credentials & Stack",
+    summary: "Certifications, industry training, grouped platforms, analysis methods, and delivery tools.",
+    icon: <Workflow className="h-5 w-5" />,
+  },
 ];
 
 type PortfolioTheme = "day" | "night";
@@ -578,7 +647,7 @@ function SectionReveal({
       className={`scroll-mt-24 ${className}`}
       initial={reduceMotion ? false : { opacity: 0, y: 18 }}
       whileInView={reduceMotion ? undefined : { opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.16 }}
+      viewport={{ once: true, amount: 0.02 }}
       transition={revealTransition}
     >
       {children}
@@ -746,7 +815,7 @@ export default function Portfolio() {
 
       <nav
         aria-label="Portfolio sections mobile"
-        className={`fixed bottom-3 left-2 right-2 z-30 grid grid-cols-7 gap-1 rounded-2xl border border-white/80 bg-[linear-gradient(145deg,#ffffff_0%,#f4f4f5_58%,#ecfeff_100%)] p-1.5 shadow-[0_18px_45px_rgba(15,23,42,0.14)] ring-1 ring-zinc-900/5 backdrop-blur-xl transition duration-300 sm:left-4 sm:right-4 lg:hidden ${isRailVisible ? "translate-y-0 opacity-100" : "translate-y-3 opacity-0 pointer-events-none"
+        className={`fixed bottom-3 left-2 right-2 z-30 grid grid-cols-4 gap-1 rounded-2xl border border-white/80 bg-[linear-gradient(145deg,#ffffff_0%,#f4f4f5_58%,#ecfeff_100%)] p-1.5 shadow-[0_18px_45px_rgba(15,23,42,0.14)] ring-1 ring-zinc-900/5 backdrop-blur-xl transition duration-300 sm:left-4 sm:right-4 sm:grid-cols-8 lg:hidden ${isRailVisible ? "translate-y-0 opacity-100" : "translate-y-3 opacity-0 pointer-events-none"
           }`}
       >
         {navItems.map((item) => {
@@ -778,10 +847,10 @@ export default function Portfolio() {
               {headerCerts.label} | {myLocation.otherLocale}
             </div>
             <h1 className="max-w-4xl text-4xl font-semibold leading-tight tracking-normal text-zinc-950 sm:text-5xl lg:text-6xl">
-              Senior Technical Business Analyst for enterprise payments, banking integrations, and regulated systems delivery.
+              Senior Business Analyst for payments, financial institutions, and regulated delivery.
             </h1>
             <p className="mt-5 max-w-3xl text-base leading-8 text-zinc-700 sm:text-lg">
-              I help product, engineering, operations, finance, compliance, and client teams turn complex transaction flows into clear requirements, validated releases, and measurable outcomes across card payments, SWIFT/treasury, core banking, omnichannel commerce, and digital transformation.
+              I help FinTech, banking, payment, commerce, and operations teams turn complex transaction flows into clear requirements, validated releases, and measurable outcomes. AI-powered BA delivery intelligence is my flagship differentiator, not the whole story.
             </p>
             <div className="mt-6 grid gap-2">
               {recruiterSnapshot.map((item) => (
@@ -799,7 +868,7 @@ export default function Portfolio() {
               ))}
             </div>
             <div className="mt-6 flex flex-wrap gap-3">
-              <Button asChild className="h-10 rounded-lg bg-zinc-950 px-4 text-white hover:bg-zinc-800">
+              <Button asChild className="hero-download-cta h-10 rounded-lg bg-zinc-950 px-4 text-white hover:bg-zinc-800">
                 <a href={resumeHref} download>
                   <Download className="mr-2 h-4 w-4" />
                   Download Resume
@@ -833,15 +902,64 @@ export default function Portfolio() {
             transition={{ duration: 0.45, delay: 0.08 }}
             className="grid gap-3 sm:grid-cols-2 lg:content-start"
           >
-            {metrics.map((item) => (
+            <div className={`rounded-lg border border-zinc-200 bg-white p-4 shadow-sm sm:col-span-2 ${liftCardClass}`}>
+              <div className="flex items-center gap-4">
+                <div className="h-36 w-28 shrink-0 overflow-hidden rounded-lg shadow-sm sm:h-44 sm:w-36">
+                  <img
+                    src={portraitSrc}
+                    alt="Damilola Dahunsi"
+                    className="h-full w-full object-cover object-top"
+                  />
+                </div>
+                <div>
+                  <p className="text-sm font-semibold uppercase text-teal-800">Damilola Dahunsi, CBAP</p>
+                  <p className="mt-1 text-lg font-semibold leading-snug text-zinc-950">
+                    Payments-first Senior BA with AI-enabled requirements engineering and enterprise delivery automation capability.
+                  </p>
+                </div>
+              </div>
+            </div>
+            {metrics.slice(0, 4).map((item) => (
               <div key={item.label} className={`rounded-lg border border-zinc-200 bg-white p-4 shadow-sm ${liftCardClass}`}>
                 <CountUpMetric value={item.value} />
                 <div className="mt-2 text-sm leading-6 text-zinc-600">{item.label}</div>
               </div>
             ))}
+            {executiveSignals.slice(0, 2).map((item) => (
+              <div key={item.label} className={`rounded-lg border border-teal-200 bg-teal-50 p-4 shadow-sm ${liftCardClass}`}>
+                <CountUpMetric value={item.value} />
+                <div className="mt-2 text-sm leading-6 text-teal-950">{item.label}</div>
+              </div>
+            ))}
           </motion.div>
         </div>
       </section>
+
+      <SectionReveal className="border-y border-zinc-200 bg-white">
+        <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
+          <div className="mb-6 flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
+            <div>
+              <div className="mb-2 flex items-center gap-2 text-sm font-semibold uppercase text-teal-800">
+                <Map className="h-4 w-4" />
+                Portfolio Menu
+              </div>
+              <h2 className="text-3xl font-semibold text-zinc-950">Choose the proof you want to inspect</h2>
+            </div>
+            <p className={sectionIntroClass}>
+              The full portfolio remains available, but the menu lets payment leaders, recruiters, and hiring teams jump directly to the proof that matters most.
+            </p>
+          </div>
+          <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-3">
+            {portfolioMenu.map((item) => (
+              <a key={item.href} href={item.href} className={`rounded-lg border border-zinc-200 bg-zinc-50 p-4 shadow-sm ${liftCardClass}`}>
+                <div className="mb-3 inline-flex rounded-lg bg-white p-3 text-teal-900">{item.icon}</div>
+                <h3 className="text-lg font-semibold text-zinc-950">{item.label}</h3>
+                <p className="mt-2 text-sm leading-6 text-zinc-700">{item.summary}</p>
+              </a>
+            ))}
+          </div>
+        </div>
+      </SectionReveal>
 
       <SectionReveal id="summary" className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
         <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr]">
@@ -976,7 +1094,7 @@ export default function Portfolio() {
             <h2 className="text-3xl font-semibold text-zinc-950">Payment, treasury, commerce, and delivery operating flows</h2>
           </div>
           <p className={sectionIntroClass}>
-            Transaction paths, integration touchpoints, control points, exception states, and release artifacts translated into implementation-ready requirements.
+            Operating flows across payments, treasury, commerce, and AI-enabled analysis, showing how complex work becomes implementation-ready requirements.
           </p>
         </div>
         <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-5">

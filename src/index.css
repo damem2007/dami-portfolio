@@ -276,6 +276,21 @@ button:focus-visible {
   color: #09090b !important;
 }
 
+.portfolio-shell .hero-download-cta {
+  background-color: #09090b !important;
+  border-color: #09090b !important;
+  color: #ffffff !important;
+}
+
+.portfolio-shell .hero-download-cta:hover {
+  background-color: #27272a !important;
+  color: #ffffff !important;
+}
+
+.portfolio-shell .hero-download-cta svg {
+  color: #ffffff !important;
+}
+
 .portfolio-shell .footer-cta-secondary {
   background-color: transparent !important;
   border-color: rgba(255, 255, 255, 0.34) !important;
