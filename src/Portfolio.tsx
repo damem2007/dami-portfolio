@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState, type ReactNode } from "react";
 import { motion, useInView, useReducedMotion } from "framer-motion";
+import { FooterLink } from "./components/footerLink";
 import {
   ArrowRight,
   BadgeCheck,
@@ -31,7 +32,7 @@ import {
 } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-
+import { navItems } from "./lib/utils";
 const contact = {
   email: "dahunsi.damilola@outlook.com",
   phone: "236-660-6272",
@@ -578,16 +579,7 @@ const revealTransition = { duration: 0.45, ease: [0.22, 1, 0.36, 1] as const };
 const liftCardClass = "transition duration-200 ease-out hover:-translate-y-1 hover:shadow-lg";
 const sectionIntroClass = "max-w-2xl rounded-lg border border-zinc-200 bg-zinc-50 p-4 text-sm leading-6 text-zinc-700 shadow-sm";
 
-const navItems = [
-  { href: "#summary", label: "Summary", mobileLabel: "Sum", icon: Target },
-  { href: "#proof", label: "Enterprise Proof", mobileLabel: "Proof", icon: BarChart3 },
-  { href: "#systems", label: "Systems Thinking", mobileLabel: "Flow", icon: Waypoints },
-  { href: "#payments", label: "Payments", mobileLabel: "Pay", icon: CreditCard },
-  { href: "#experience", label: "Experience", mobileLabel: "Exp", icon: Briefcase },
-  { href: "#featured", label: "Case Studies", mobileLabel: "Cases", icon: Database },
-  { href: "#consulting", label: "Consulting", mobileLabel: "More", icon: Building2 },
-  { href: "#tools", label: "Tools", mobileLabel: "Tools", icon: Workflow },
-];
+
 
 const portfolioMenu = [
   {
@@ -1317,6 +1309,9 @@ export default function Portfolio() {
                 LinkedIn
               </a>
             </Button>
+          </div>
+           <div className="col-span-full justify-self-end">
+            <FooterLink href="/privacy">Privacy Policy</FooterLink>
           </div>
         </div>
       </SectionReveal>

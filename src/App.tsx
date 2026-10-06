@@ -1,6 +1,13 @@
+import {Route, Routes } from "react-router-dom";
 import Portfolio from "./Portfolio";
+import Privacy from "./Privacy";
 function App(){
-  return <Portfolio/>;
+  return (
+      <Routes>
+        <Route path="/" element={<Portfolio />} />
+        <Route path="/privacy" element={<Privacy />} />
+      </Routes>
+  );
 }
 // import { useState } from 'react'
 // import reactLogo from './assets/react.svg'
