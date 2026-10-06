@@ -29,7 +29,6 @@ const formatDate = updatedDate.toLocaleDateString(undefined, {
   day: "numeric",
 });
 
-
 const resumeHref =
   "/files/Damilola_Dahunsi_Technical_Business_Analyst_Resume.pdf";
 //const portraitSrc = "/images/damilola-dahunsi-portrait-cropped.png";
@@ -102,8 +101,9 @@ export default function Privacy() {
     const updateNavigationState = () => {
       setIsRailVisible(window.scrollY > 260);
 
-      const activeItem = navItems.filter((item) => item.type === "section")
-      .map((item) => {
+      const activeItem = navItems
+        .filter((item) => item.type === "section")
+        .map((item) => {
           const section = document.querySelector(item.href);
           if (!section) return null;
           return {
@@ -291,8 +291,8 @@ export default function Privacy() {
               <div className="mt-4 space-y-4 text-base leading-7 text-zinc-700">
                 <p>
                   This website may collect information that you voluntarily
-                  provide when using a contact form or otherwise communicating
-                  with me, including:
+                  provide when you contact me or submit information through the
+                  website, including:
                 </p>
 
                 <ul className="list-disc space-y-2 pl-6">
@@ -303,11 +303,11 @@ export default function Privacy() {
                 </ul>
 
                 <p>
-                  Basic technical information may also be collected
-                  automatically by the website or hosting provider, such as
-                  browser type, device information, IP address, and website
-                  usage information for security, reliability, and analytics
-                  purposes.
+                  Limited technical information may also be processed by the
+                  website or its hosting and infrastructure providers, such as
+                  browser type, device information, IP address, and request
+                  information required for security, reliability, and operation
+                  of the website.
                 </p>
               </div>
             </div>
@@ -320,68 +320,111 @@ export default function Privacy() {
 
               <div className="mt-4 space-y-4 text-base leading-7 text-zinc-700">
                 <p>
-                  Information submitted through this website is used only for
-                  legitimate purposes related to operating this portfolio
-                  website, including:
+                  Information provided through this website is used only for
+                  purposes connected with this portfolio and professional
+                  communication, including:
                 </p>
 
                 <ul className="list-disc space-y-2 pl-6">
-                  <li>Responding to messages or inquiries</li>
+                  <li>Responding to inquiries or messages you send to me</li>
                   <li>
-                    Communicating regarding professional opportunities,
-                    projects, or services
+                    Communicating about professional opportunities, projects,
+                    services, or other requests you initiate
                   </li>
-                  <li>Sending requested email communications</li>
                   <li>
-                    Maintaining the security and functionality of the website
+                    Sending requested transactional or confirmation emails
+                  </li>
+                  <li>
+                    Maintaining the security, reliability, and functionality of
+                    this website
                   </li>
                 </ul>
 
                 <p className="font-medium text-zinc-950">
-                  I do not sell or rent your personal information.
+                  I do not sell, rent, or trade your personal information.
                 </p>
               </div>
             </div>
 
-            {/* Mailjet */}
+            {/* Email communications */}
             <div className="rounded-lg border border-teal-200 bg-teal-50 p-6 shadow-sm sm:p-8">
               <div className="flex items-center gap-2 text-sm font-semibold uppercase text-teal-800">
                 <Mail className="h-4 w-4" />
-                Email Services
+                Email Communications
               </div>
 
               <div className="mt-4 space-y-4 text-base leading-7 text-zinc-700">
                 <p>
-                  This website may use{" "}
-                  <span className="font-semibold text-zinc-950">Mailjet</span>{" "}
-                  to send transactional or contact-related emails.
+                  This website may use Mailjet, a third-party email delivery
+                  service, to send emails generated from contact requests or
+                  other website-related communications.
                 </p>
 
                 <p>
-                  When email functionality is used, information such as your
-                  name, email address, and relevant message information may be
-                  processed by Mailjet for the purpose of delivering the
-                  communication.
+                  When an email is sent, information such as your name, email
+                  address, and the content necessary to deliver the
+                  communication may be processed by Mailjet on my behalf.
                 </p>
 
                 <p>
-                  Mailjet processes information according to its own privacy and
-                  data-protection policies.
+                  I do not use purchased, rented, scraped, or otherwise acquired
+                  third-party mailing lists for email communication.
+                </p>
+
+                <p>
+                  Where a communication is promotional or marketing-related, it
+                  will only be sent where appropriate consent has been obtained
+                  and will provide a method to opt out of future marketing
+                  communications.
+                </p>
+
+                <p>
+                  Transactional or direct-response emails sent in connection
+                  with a message or request you initiated may not include an
+                  unsubscribe option because they are sent specifically to
+                  complete or respond to that interaction.
                 </p>
 
                 <a
-                  href="https://www.mailjet.com/legal/privacy-policy/"
+                  href="https://www.mailjet.com/legal/sending-policy/"
                   target="_blank"
                   rel="noreferrer"
                   className="inline-flex items-center gap-2 font-medium text-teal-700 hover:text-teal-900"
                 >
-                  View Mailjet Privacy Policy
+                  Mailjet Acceptable Use Policy
                   <ArrowRight className="h-4 w-4" />
                 </a>
               </div>
             </div>
 
-            {/* Third party */}
+            {/* Consent */}
+            <div className="rounded-lg border border-zinc-200 bg-white p-6 shadow-sm sm:p-8">
+              <h2 className="text-2xl font-semibold text-zinc-950">
+                Consent and Email Preferences
+              </h2>
+
+              <div className="mt-4 space-y-4 text-base leading-7 text-zinc-700">
+                <p>
+                  Providing your email address through this website allows me to
+                  respond to the specific inquiry or request you submitted.
+                </p>
+
+                <p>
+                  Providing an email address for a contact request does not
+                  automatically subscribe you to marketing emails or mailing
+                  lists.
+                </p>
+
+                <p>
+                  If I introduce newsletters or other recurring marketing
+                  communications in the future, those communications will
+                  require appropriate consent and will include an option to
+                  unsubscribe.
+                </p>
+              </div>
+            </div>
+
+            {/* Third-party services */}
             <div className="rounded-lg border border-zinc-200 bg-white p-6 shadow-sm sm:p-8">
               <h2 className="text-2xl font-semibold text-zinc-950">
                 Third-Party Services
@@ -389,19 +432,19 @@ export default function Privacy() {
 
               <div className="mt-4 space-y-4 text-base leading-7 text-zinc-700">
                 <p>
-                  The website may rely on third-party hosting, email, analytics,
-                  or infrastructure providers where necessary to operate the
-                  site.
+                  This website may rely on third-party hosting, email delivery,
+                  security, analytics, or infrastructure providers where
+                  required to operate the website.
                 </p>
 
                 <p>
                   These providers may process limited information on my behalf
-                  solely for the purposes for which their services are used.
+                  only to provide the relevant service.
                 </p>
               </div>
             </div>
 
-            {/* Retention */}
+            {/* Data retention */}
             <div className="rounded-lg border border-zinc-200 bg-white p-6 shadow-sm sm:p-8">
               <h2 className="text-2xl font-semibold text-zinc-950">
                 Data Retention
@@ -410,20 +453,23 @@ export default function Privacy() {
               <p className="mt-4 text-base leading-7 text-zinc-700">
                 Personal information is retained only for as long as reasonably
                 necessary to respond to an inquiry, maintain relevant
-                correspondence, meet legitimate business or security
-                requirements, or comply with applicable legal obligations.
+                professional correspondence, protect the website, meet
+                legitimate operational requirements, or comply with applicable
+                legal obligations.
               </p>
             </div>
 
             {/* Cookies */}
             <div className="rounded-lg border border-zinc-200 bg-white p-6 shadow-sm sm:p-8">
-              <h2 className="text-2xl font-semibold text-zinc-950">Cookies</h2>
+              <h2 className="text-2xl font-semibold text-zinc-950">
+                Cookies and Similar Technologies
+              </h2>
 
               <p className="mt-4 text-base leading-7 text-zinc-700">
                 This website may use essential cookies or similar technologies
-                required for website functionality. If analytics or other
-                non-essential tracking technologies are introduced, this policy
-                may be updated accordingly.
+                required for website functionality. If analytics, advertising,
+                or other non-essential tracking technologies are introduced,
+                this Privacy Policy may be updated accordingly.
               </p>
             </div>
 
@@ -436,36 +482,36 @@ export default function Privacy() {
               <p className="mt-4 text-base leading-7 text-zinc-700">
                 Reasonable technical and organizational measures are used to
                 protect information submitted through this website. However, no
-                method of internet transmission or electronic storage can be
-                guaranteed to be completely secure.
+                method of transmission over the Internet or electronic storage
+                can be guaranteed to be completely secure.
               </p>
             </div>
 
-            {/* Choices */}
+            {/* Your rights */}
             <div className="rounded-lg border border-zinc-200 bg-white p-6 shadow-sm sm:p-8">
               <h2 className="text-2xl font-semibold text-zinc-950">
                 Your Choices
               </h2>
 
               <p className="mt-4 text-base leading-7 text-zinc-700">
-                You may request access to, correction of, or deletion of
-                personal information that you have provided through this
-                website, subject to any applicable legal or legitimate retention
+                You may contact me to request access to, correction of, or
+                deletion of personal information you have provided through this
+                website, subject to applicable legal and legitimate retention
                 requirements.
               </p>
             </div>
 
-            {/* Policy changes */}
+            {/* Changes */}
             <div className="rounded-lg border border-zinc-200 bg-white p-6 shadow-sm sm:p-8">
               <h2 className="text-2xl font-semibold text-zinc-950">
-                Changes to This Policy
+                Changes to This Privacy Policy
               </h2>
 
               <p className="mt-4 text-base leading-7 text-zinc-700">
-                This Privacy Policy may be updated periodically to reflect
-                changes to the website, its services, or applicable
-                requirements. The latest version will be published on this page
-                with an updated revision date.
+                This Privacy Policy may be updated from time to time to reflect
+                changes to this website, its services, email functionality, or
+                applicable requirements. The current version will remain
+                available on this page together with its latest revision date.
               </p>
             </div>
 
@@ -475,9 +521,9 @@ export default function Privacy() {
 
               <div className="mt-4 space-y-4 text-base leading-7 text-zinc-700">
                 <p>
-                  If you have questions about this Privacy Policy or how
-                  information submitted through this website is handled, please
-                  contact me by email.
+                  If you have questions about this Privacy Policy, your personal
+                  information, or email communications from this website, please
+                  contact me at:
                 </p>
 
                 <a
