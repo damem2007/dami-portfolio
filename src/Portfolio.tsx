@@ -675,7 +675,7 @@ const homeCapabilityItems = [
   {
     title: "Data Analysis",
     icon: <BarChart3 className="h-5 w-5" />,
-    summary: "SQL-backed and advanced Excel analysis that connects transactions, charges, settlement, reconciliation, reporting, and operational decisions, including the Sun Life project.",
+    summary: "SQL-backed and advanced Excel analysis that connects transactions, charges, settlement, reconciliation, reporting, and operational decisions.",
     tags: ["SQL", "Advanced Excel", "FILTER()", "MATCH()", "INDEX()", "Data mapping"],
   },
   {
