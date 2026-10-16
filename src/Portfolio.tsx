@@ -1082,7 +1082,7 @@ export function PortfolioLibrary({ compact = true }: { compact?: boolean }) {
               <p className="mt-5 max-w-2xl text-lg leading-8 text-zinc-700">Explore the work by sector, then follow the implementation detail: the problem, ecosystem, role, artifacts, and outcome.</p>
               <div className="mt-7 flex flex-wrap gap-3">
                 <Link to="/" className="inline-flex h-10 items-center gap-2 rounded-lg border border-zinc-300 bg-white px-4 text-sm font-semibold text-zinc-900 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md"><ArrowRight className="h-4 w-4 rotate-180" />Back to profile</Link>
-                <a href="#portfolio-sectors" className="inline-flex h-10 items-center gap-2 rounded-lg bg-zinc-950 px-4 text-sm font-semibold text-white shadow-sm transition hover:-translate-y-0.5 hover:bg-zinc-800">Browse sectors <ArrowRight className="h-4 w-4" /></a>
+                <a href="#portfolio-sectors" className="inline-flex h-10 items-center gap-2 rounded-lg bg-zinc-950 px-4 text-sm font-semibold !text-white shadow-sm transition hover:-translate-y-0.5 hover:bg-zinc-800">Browse sectors <ArrowRight className="h-4 w-4" /></a>
               </div>
             </div>
           </div>
