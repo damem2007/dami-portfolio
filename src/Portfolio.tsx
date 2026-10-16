@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState, type ReactNode } from "react";
 import { motion, useInView, useReducedMotion } from "framer-motion";
+import { Link } from "react-router-dom";
 import { FooterLink } from "./components/footerLink";
 import {
   ArrowRight,
@@ -620,7 +621,86 @@ const portfolioMenu = [
   },
 ];
 
+const sectorPortfolio = [
+  {
+    title: "Payments & FinTech",
+    summary: "Card platforms, acquiring, issuing, scheme mandates, reconciliation, settlement, and payment operations.",
+    icon: <CreditCard className="h-5 w-5" />,
+    href: "#payments",
+    projects: ["RS2 BankWORKS", "WorldPay LATAM Acquiring", "ISO 8583 Transaction Analysis", "Visa & Mastercard IRF Mandates"],
+  },
+  {
+    title: "Banking & Institutional Payments",
+    summary: "Core banking, SWIFT messaging, ISO 20022 update work, treasury operations, and identity modernization.",
+    icon: <Landmark className="h-5 w-5" />,
+    href: "#payments",
+    projects: ["Asseco SWIFT / ISO 20022", "def3000/TR Confirmation Matching", "Tier-1 Bank MFA / IAM", "2.2M+ Credential Migration"],
+  },
+  {
+    title: "AI & BA Automation",
+    summary: "LLM-enabled requirements engineering that turns discovery material into traceable analysis and delivery artifacts.",
+    icon: <Bot className="h-5 w-5" />,
+    href: "#featured",
+    projects: ["AI BA Intelligence Platform", "Canonical BA Knowledge Framework", "Phase-based Refinement", "Version-controlled Analysis"],
+  },
+  {
+    title: "Commerce, Fraud & Data",
+    summary: "Checkout, fraud decisioning, omnichannel operations, SQL-backed validation, and order-to-cash integration analysis.",
+    icon: <Database className="h-5 w-5" />,
+    href: "#featured",
+    projects: ["CyberSource Fraud Decisioning", "Bank of America Merchant Portal", "Omnichannel Checkout, POS & OMS", "Baqers.ca Commerce Platform"],
+  },
+  {
+    title: "Public Sector & Transformation",
+    summary: "Modernization, fiscalization, transport, geospatial, insurance, and enterprise mobility programmes.",
+    icon: <Building2 className="h-5 w-5" />,
+    href: "#consulting",
+    projects: ["MOT / NITT Transportation Modernization", "FIRS Fiscalization", "Lagos State eGIS", "NCAA Customer Protection Portal"],
+  },
+];
+
+const homeCapabilityItems = [
+  {
+    title: "Payments Analysis",
+    icon: <CreditCard className="h-5 w-5" />,
+    summary: "ISO 8583, RS2 BankWORKS, authorization, clearing, settlement, reconciliation, disputes, PCI DSS, and tokenization.",
+    tags: ["MTI / Bitmap / DE", "Acquiring", "Issuing", "Scheme mandates"],
+  },
+  {
+    title: "Technical Analysis",
+    icon: <Waypoints className="h-5 w-5" />,
+    summary: "Integration mapping, system flows, functional specifications, APIs, process models, UAT, and release readiness.",
+    tags: ["BPMN / UML", "API mapping", "Requirements", "UAT"],
+  },
+  {
+    title: "Data Analysis",
+    icon: <BarChart3 className="h-5 w-5" />,
+    summary: "SQL-backed validation that connects transactions, charges, settlement, reconciliation, reporting, and operational decisions.",
+    tags: ["SQL", "Data mapping", "Power BI", "Exception analysis"],
+  },
+  {
+    title: "LLM / AI-Enabled BA",
+    icon: <Bot className="h-5 w-5" />,
+    summary: "A full-stack BA Intelligence Platform that turns discovery material into structured, traceable, delivery-ready analysis.",
+    tags: ["BABOK", "40+ BA entities", "Traceability", "Version control"],
+  },
+];
+
 type PortfolioTheme = "day" | "night";
+
+function FloatingThemeToggle({ theme, onToggle }: { theme: PortfolioTheme; onToggle: () => void }) {
+  return (
+    <button
+      type="button"
+      aria-label={`Switch to ${theme === "night" ? "day" : "night"} theme`}
+      title={`Switch to ${theme === "night" ? "day" : "night"} theme`}
+      onClick={onToggle}
+      className="theme-float"
+    >
+      {theme === "night" ? <Moon className="h-5 w-5" /> : <Sun className="h-5 w-5" />}
+    </button>
+  );
+}
 
 function SectionReveal({
   id,
@@ -655,13 +735,11 @@ function CountUpMetric({ value }: { value: string }) {
 
   useEffect(() => {
     if (!isInView || reduceMotion) {
-      setDisplayValue(value);
       return;
     }
 
     const match = value.match(/^([^0-9]*)([0-9]+(?:\.[0-9]+)?)(.*)$/);
     if (!match) {
-      setDisplayValue(value);
       return;
     }
 
@@ -696,7 +774,178 @@ function CountUpMetric({ value }: { value: string }) {
   );
 }
 
-export default function Portfolio() {
+export function Home() {
+  const [theme, setTheme] = useState<PortfolioTheme>(() => {
+    if (typeof window === "undefined") return "night";
+    return window.localStorage.getItem("portfolio-theme") === "day" ? "day" : "night";
+  });
+
+  useEffect(() => {
+    document.documentElement.classList.toggle("dark", theme === "night");
+    document.documentElement.style.colorScheme = theme === "night" ? "dark" : "light";
+    window.localStorage.setItem("portfolio-theme", theme);
+  }, [theme]);
+
+  return (
+    <main className={`portfolio-shell ${theme === "night" ? "portfolio-night" : "portfolio-day"} min-h-screen w-screen bg-zinc-50 text-zinc-950`}>
+      <FloatingThemeToggle theme={theme} onToggle={() => setTheme(theme === "night" ? "day" : "night")} />
+
+      <header className="border-b border-zinc-200 bg-white">
+        <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-4 sm:px-6 lg:px-8 lg:pr-24">
+          <Link to="/" className="flex min-w-0 items-center gap-3">
+            <span className="text-sm font-semibold tracking-wide text-zinc-950">Damilola Dahunsi</span>
+            <span className="hidden h-1 w-1 shrink-0 rounded-full bg-teal-500 sm:block" />
+            <span className="hidden truncate text-sm text-zinc-600 sm:block">Payments, systems & AI-enabled delivery</span>
+          </Link>
+          <nav aria-label="Primary navigation" className="flex items-center gap-1 text-sm font-medium">
+            <Link to="/" className="rounded-lg bg-zinc-100 px-3 py-2 text-zinc-950">About</Link>
+            <Link to="/portfolio" className="rounded-lg px-3 py-2 text-zinc-600 transition hover:bg-zinc-100 hover:text-zinc-950">Portfolio</Link>
+          </nav>
+        </div>
+      </header>
+
+      <section className="border-b border-zinc-200 bg-[linear-gradient(135deg,#ffffff_0%,#f4f4f5_48%,#ecfeff_100%)]">
+        <div className="mx-auto grid max-w-7xl gap-10 px-4 py-14 sm:px-6 sm:py-20 lg:grid-cols-[minmax(0,1.12fr)_minmax(320px,0.88fr)] lg:px-8 lg:py-24">
+          <motion.div {...fadeUp} transition={{ duration: 0.45 }}>
+            <div className="mb-5 inline-flex items-center gap-2 rounded-lg border border-teal-200 bg-teal-50 px-3 py-2 text-sm font-semibold uppercase tracking-wide text-teal-900">
+              <BadgeCheck className="h-4 w-4" />
+              CBAP-certified Senior Business Analyst
+            </div>
+            <h1 className="max-w-4xl text-4xl font-semibold leading-[1.06] tracking-tight text-zinc-950 sm:text-6xl lg:text-7xl">
+              I turn payment complexity into decisions, delivery, and measurable outcomes.
+            </h1>
+            <p className="mt-6 max-w-3xl text-lg leading-8 text-zinc-700 sm:text-xl">
+              I bridge payments, technical analysis, data validation, and LLM-enabled business analysis to help financial institutions and enterprise teams move from complex operating flows to implementation-ready change.
+            </p>
+            <div className="mt-8 flex flex-wrap gap-3">
+              <Button asChild className="hero-download-cta h-11 rounded-lg bg-zinc-950 px-5 text-white hover:bg-zinc-800">
+                <Link to="/portfolio">
+                  Explore Portfolio
+                  <ArrowRight className="ml-2 h-4 w-4" />
+                </Link>
+              </Button>
+              <Button asChild variant="outline" className="h-11 rounded-lg border-zinc-300 bg-white px-5">
+                <a href={resumeHref} download>
+                  <Download className="mr-2 h-4 w-4" />
+                  Download Resume
+                </a>
+              </Button>
+              <Button asChild variant="outline" className="h-11 rounded-lg border-zinc-300 bg-white px-5">
+                <a href={contact.linkedin} target="_blank" rel="noreferrer">
+                  <Linkedin className="mr-2 h-4 w-4" />
+                  LinkedIn
+                </a>
+              </Button>
+            </div>
+            <div className="mt-8 flex flex-wrap gap-2 text-sm text-zinc-700">
+              {["Payments & FinTech", "Technical Analysis", "Data Analysis", "LLM / AI Automation"].map((item) => (
+                <span key={item} className="rounded-md border border-zinc-200 bg-white px-3 py-2 font-medium shadow-sm">{item}</span>
+              ))}
+            </div>
+          </motion.div>
+
+          <motion.aside {...fadeUp} transition={{ duration: 0.45, delay: 0.08 }} className="self-end">
+            <div className="border-l-2 border-teal-500 pl-6">
+              <div className="mb-6 flex items-center gap-4">
+                <div className="h-28 w-24 shrink-0 overflow-hidden rounded-lg shadow-lg sm:h-36 sm:w-32">
+                  <img src={portraitSrc} alt="Damilola Dahunsi" className="h-full w-full object-cover object-top" />
+                </div>
+                <div>
+                  <p className="text-sm font-semibold uppercase tracking-wide text-teal-800">Payments-first operator</p>
+                  <p className="mt-2 text-xl font-semibold leading-snug text-zinc-950">Domain depth with the documentation discipline delivery teams rely on.</p>
+                </div>
+              </div>
+              <div className="space-y-4 text-sm leading-7 text-zinc-700">
+                <p><span className="font-semibold text-zinc-950">Payments:</span> RS2 BankWORKS, ISO 8583, CyberSource, PCI DSS, tokenization, SWIFT MT and ISO 20022 update work.</p>
+                <p><span className="font-semibold text-zinc-950">Enterprise:</span> banking integrations, treasury operations, commerce, regulated releases, UAT, and production readiness.</p>
+                <p><span className="font-semibold text-zinc-950">Flagship:</span> designed and built an AI BA Intelligence Platform for structured, traceable analysis automation.</p>
+              </div>
+            </div>
+          </motion.aside>
+        </div>
+      </section>
+
+      <section className="border-b border-zinc-200 bg-white">
+        <div className="mx-auto grid max-w-7xl grid-cols-2 gap-px bg-zinc-200 px-4 sm:grid-cols-4 sm:px-6 lg:px-8">
+          {metrics.slice(0, 4).map((item) => (
+            <div key={item.label} className="bg-white px-3 py-6 sm:px-5 sm:py-8">
+              <CountUpMetric value={item.value} />
+              <p className="mt-2 text-sm leading-6 text-zinc-600">{item.label}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8 lg:py-20">
+        <div className="mb-8 max-w-2xl">
+          <p className="text-sm font-semibold uppercase tracking-wide text-teal-700">Where I create leverage</p>
+          <h2 className="mt-2 text-3xl font-semibold tracking-tight text-zinc-950 sm:text-4xl">Four lenses. One delivery mindset.</h2>
+          <p className="mt-3 text-base leading-7 text-zinc-600">I connect domain context, technical detail, data evidence, and delivery decisions so teams can act with confidence.</p>
+        </div>
+        <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+          {homeCapabilityItems.map((item) => (
+            <article key={item.title} className={`border-t-2 border-teal-500 bg-white pt-5 ${liftCardClass}`}>
+              <div className="mb-4 inline-flex rounded-lg bg-zinc-100 p-3 text-zinc-900">{item.icon}</div>
+              <h3 className="text-xl font-semibold text-zinc-950">{item.title}</h3>
+              <p className="mt-3 text-sm leading-7 text-zinc-600">{item.summary}</p>
+              <div className="mt-5 flex flex-wrap gap-2">
+                {item.tags.map((tag) => <span key={tag} className="rounded-md border border-zinc-200 bg-zinc-50 px-2 py-1 text-xs text-zinc-700">{tag}</span>)}
+              </div>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section className="border-y border-zinc-200 bg-zinc-100/70">
+        <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8 lg:py-20">
+          <div className="mb-8 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+            <div>
+              <p className="text-sm font-semibold uppercase tracking-wide text-amber-700">Selected work</p>
+              <h2 className="mt-2 text-3xl font-semibold tracking-tight text-zinc-950 sm:text-4xl">Evidence across sectors, not just job titles.</h2>
+            </div>
+            <Link to="/portfolio" className="inline-flex items-center gap-2 text-sm font-semibold text-teal-800 hover:text-teal-600">View the full portfolio <ArrowRight className="h-4 w-4" /></Link>
+          </div>
+          <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+            {sectorPortfolio.slice(0, 5).map((sector) => (
+              <Link key={sector.title} to={`/portfolio${sector.href}`} className={`group rounded-lg border border-zinc-200 bg-white p-5 shadow-sm ${liftCardClass}`}>
+                <div className="mb-5 flex items-center justify-between gap-3">
+                  <div className="inline-flex rounded-lg bg-teal-50 p-3 text-teal-900">{sector.icon}</div>
+                  <ArrowRight className="h-4 w-4 text-zinc-400 transition group-hover:translate-x-1 group-hover:text-teal-700" />
+                </div>
+                <h3 className="text-xl font-semibold text-zinc-950">{sector.title}</h3>
+                <p className="mt-3 text-sm leading-7 text-zinc-600">{sector.summary}</p>
+                <div className="mt-5 space-y-2 border-t border-zinc-200 pt-4 text-sm text-zinc-700">
+                  {sector.projects.slice(0, 3).map((project) => <p key={project} className="flex gap-2"><span className="text-teal-600">•</span>{project}</p>)}
+                </div>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-zinc-950 text-white">
+        <div className="mx-auto grid max-w-7xl gap-8 px-4 py-14 sm:px-6 lg:grid-cols-[1fr_auto] lg:items-center lg:px-8 lg:py-20">
+          <div>
+            <p className="text-sm font-semibold uppercase tracking-wide text-teal-300">Ready for the right problem</p>
+            <h2 className="mt-2 max-w-3xl text-3xl font-semibold tracking-tight sm:text-4xl">Payments, product, business systems, data, and transformation delivery.</h2>
+            <p className="mt-4 max-w-2xl leading-7 text-zinc-300">Explore the full case library or start a conversation about a role where business context and technical delivery need to meet.</p>
+          </div>
+          <div className="flex flex-wrap gap-3 lg:justify-end">
+            <Button asChild className="footer-cta-primary h-11 rounded-lg bg-white px-5 text-zinc-950 hover:bg-zinc-100"><Link to="/portfolio">Open Portfolio</Link></Button>
+            <Button asChild variant="outline" className="footer-cta-secondary h-11 rounded-lg border-white/30 bg-transparent px-5 text-white hover:bg-white/10"><a href={`mailto:${contact.email}`}><Mail className="mr-2 h-4 w-4" />Email Me</a></Button>
+          </div>
+          <div className="col-span-full lg:text-right">
+            <Link to="/privacy" className="text-sm font-medium text-zinc-300 transition-colors hover:text-white">
+              Privacy Policy
+            </Link>
+          </div>
+        </div>
+      </section>
+    </main>
+  );
+}
+
+export function PortfolioLibrary({ compact = true }: { compact?: boolean }) {
   const [isRailVisible, setIsRailVisible] = useState(false);
   const [activeNav, setActiveNav] = useState(navItems[0].href);
   const [theme, setTheme] = useState<PortfolioTheme>(() => {
@@ -752,6 +1001,7 @@ export default function Portfolio() {
             <span className="text-sm text-zinc-600">Payments, Commerce & Banking Systems</span>
           </div>
           <div className="flex flex-wrap items-center gap-2">
+            <Link to="/" className="mr-1 rounded-lg px-3 py-2 text-sm font-medium text-zinc-600 transition hover:bg-zinc-100 hover:text-zinc-950">About</Link>
             <Button asChild variant="outline" className="h-9 rounded-lg border-zinc-300 bg-white px-3">
               <a href={resumeHref} download>
                 <Download className="mr-2 h-4 w-4" />
@@ -774,15 +1024,7 @@ export default function Portfolio() {
         </div>
       </section>
 
-      <button
-        type="button"
-        aria-label={`Switch to ${theme === "night" ? "day" : "night"} theme`}
-        title={`Switch to ${theme === "night" ? "day" : "night"} theme`}
-        onClick={() => setTheme(theme === "night" ? "day" : "night")}
-        className="theme-float"
-      >
-        {theme === "night" ? <Moon className="h-5 w-5" /> : <Sun className="h-5 w-5" />}
-      </button>
+      <FloatingThemeToggle theme={theme} onToggle={() => setTheme(theme === "night" ? "day" : "night")} />
 
       <nav
         aria-label="Portfolio sections"
@@ -831,6 +1073,23 @@ export default function Portfolio() {
         })}
       </nav>
 
+      {compact && (
+        <section className="border-b border-zinc-200 bg-[linear-gradient(135deg,#ffffff_0%,#f4f4f5_48%,#ecfeff_100%)]">
+          <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8 lg:py-16">
+            <div className="max-w-3xl">
+              <p className="text-sm font-semibold uppercase tracking-wide text-teal-700">Portfolio library</p>
+              <h1 className="mt-3 text-4xl font-semibold tracking-tight text-zinc-950 sm:text-6xl">Sector depth, project evidence, and delivery context.</h1>
+              <p className="mt-5 max-w-2xl text-lg leading-8 text-zinc-700">Explore the work by sector, then follow the implementation detail: the problem, ecosystem, role, artifacts, and outcome.</p>
+              <div className="mt-7 flex flex-wrap gap-3">
+                <Link to="/" className="inline-flex h-10 items-center gap-2 rounded-lg border border-zinc-300 bg-white px-4 text-sm font-semibold text-zinc-900 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md"><ArrowRight className="h-4 w-4 rotate-180" />Back to profile</Link>
+                <a href="#portfolio-sectors" className="inline-flex h-10 items-center gap-2 rounded-lg bg-zinc-950 px-4 text-sm font-semibold text-white shadow-sm transition hover:-translate-y-0.5 hover:bg-zinc-800">Browse sectors <ArrowRight className="h-4 w-4" /></a>
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
+
+      {!compact && (
       <section className="bg-[linear-gradient(135deg,#ffffff_0%,#f4f4f5_48%,#ecfeff_100%)]">
         <div className="mx-auto grid max-w-7xl gap-8 px-4 py-12 sm:px-6 sm:py-16 lg:grid-cols-[minmax(0,1.05fr)_minmax(340px,0.95fr)] lg:px-8 lg:py-20">
           <motion.div {...fadeUp} transition={{ duration: 0.45 }}>
@@ -926,6 +1185,34 @@ export default function Portfolio() {
           </motion.div>
         </div>
       </section>
+      )}
+
+      {compact && (
+        <SectionReveal id="portfolio-sectors" className="border-b border-zinc-200 bg-white">
+          <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8 lg:py-14">
+            <div className="mb-7 max-w-2xl">
+              <p className="text-sm font-semibold uppercase tracking-wide text-amber-700">Explore by sector</p>
+              <h2 className="mt-2 text-3xl font-semibold tracking-tight text-zinc-950">Choose the context that matters to you.</h2>
+              <p className="mt-3 leading-7 text-zinc-600">A recruiter can scan the headline evidence; a delivery leader can follow the technical and operational detail.</p>
+            </div>
+            <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+              {sectorPortfolio.map((sector) => (
+                <a key={sector.title} href={sector.href} className={`group rounded-lg border border-zinc-200 bg-zinc-50 p-5 shadow-sm ${liftCardClass}`}>
+                  <div className="mb-5 flex items-center justify-between gap-3">
+                    <div className="inline-flex rounded-lg bg-white p-3 text-teal-900 shadow-sm">{sector.icon}</div>
+                    <ArrowRight className="h-4 w-4 text-zinc-400 transition group-hover:translate-x-1 group-hover:text-teal-700" />
+                  </div>
+                  <h3 className="text-xl font-semibold text-zinc-950">{sector.title}</h3>
+                  <p className="mt-3 text-sm leading-7 text-zinc-600">{sector.summary}</p>
+                  <div className="mt-5 space-y-2 border-t border-zinc-200 pt-4 text-sm text-zinc-700">
+                    {sector.projects.map((project) => <p key={project} className="flex gap-2"><span className="text-teal-600">•</span>{project}</p>)}
+                  </div>
+                </a>
+              ))}
+            </div>
+          </div>
+        </SectionReveal>
+      )}
 
       <SectionReveal className="border-y border-zinc-200 bg-white">
         <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">

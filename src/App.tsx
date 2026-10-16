@@ -1,10 +1,11 @@
 import {Route, Routes } from "react-router-dom";
-import Portfolio from "./Portfolio";
+import { Home, PortfolioLibrary } from "./Portfolio";
 import Privacy from "./Privacy";
 function App(){
   return (
       <Routes>
-        <Route path="/" element={<Portfolio />} />
+        <Route path="/" element={<Home />} />
+        <Route path="/portfolio" element={<PortfolioLibrary />} />
         <Route path="/privacy" element={<Privacy />} />
       </Routes>
   );

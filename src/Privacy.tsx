@@ -1,9 +1,8 @@
-import { useEffect, useRef, useState, type ReactNode } from "react";
-import { motion, useInView, useReducedMotion } from "framer-motion";
+import { useEffect, useState, type ReactNode } from "react";
+import { motion, useReducedMotion } from "framer-motion";
 import { FooterLink } from "./components/footerLink";
 import {
   ArrowRight,
-  BarChart3,
   Briefcase,
   Download,
   Linkedin,
@@ -11,7 +10,6 @@ import {
   Moon,
   ShieldCheck,
   Sun,
-  Target,
 } from "lucide-react";
 //import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
