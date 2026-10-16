@@ -686,6 +686,33 @@ const homeCapabilityItems = [
   },
 ];
 
+const homeCertificationItems = [
+  {
+    acronym: "CBAP",
+    title: "Certified Business Analysis Professional",
+    expertise: "Requirements engineering, stakeholder analysis, traceability, and solution evaluation.",
+    icon: <BadgeCheck className="h-5 w-5" />,
+  },
+  {
+    acronym: "CSM",
+    title: "Certified Scrum Master",
+    expertise: "Scrum facilitation, team collaboration, iterative delivery, and impediment visibility.",
+    icon: <Waypoints className="h-5 w-5" />,
+  },
+  {
+    acronym: "CSPO",
+    title: "Certified Scrum Product Owner",
+    expertise: "Backlog refinement, product prioritization, stakeholder value, and outcome-focused delivery.",
+    icon: <Target className="h-5 w-5" />,
+  },
+  {
+    acronym: "ITIL V4",
+    title: "Foundation Certificate in Service Management",
+    expertise: "Service management, change and release readiness, operational controls, and post-go-live stability.",
+    icon: <ShieldCheck className="h-5 w-5" />,
+  },
+];
+
 type PortfolioTheme = "day" | "night";
 
 function FloatingThemeToggle({ theme, onToggle }: { theme: PortfolioTheme; onToggle: () => void }) {
@@ -893,6 +920,28 @@ export function Home() {
               </div>
             </article>
           ))}
+        </div>
+      </section>
+
+      <section className="border-y border-zinc-200 bg-white">
+        <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8 lg:py-16">
+          <div className="mb-8 max-w-2xl">
+            <p className="text-sm font-semibold uppercase tracking-wide text-amber-700">Credentials & delivery expertise</p>
+            <h2 className="mt-2 text-3xl font-semibold tracking-tight text-zinc-950 sm:text-4xl">Certified in the disciplines that keep delivery moving.</h2>
+            <p className="mt-3 leading-7 text-zinc-600">These certifications are reflected in how I shape requirements, facilitate teams, prioritize work, and carry change through operational readiness.</p>
+          </div>
+          <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+            {homeCertificationItems.map((item) => (
+              <article key={item.acronym} className="border-l-2 border-amber-400 pl-4">
+                <div className="flex items-center gap-3 text-amber-700">
+                  {item.icon}
+                  <span className="text-sm font-bold tracking-wide">{item.acronym}</span>
+                </div>
+                <h3 className="mt-3 text-lg font-semibold text-zinc-950">{item.title}</h3>
+                <p className="mt-2 text-sm leading-6 text-zinc-600">{item.expertise}</p>
+              </article>
+            ))}
+          </div>
         </div>
       </section>
 
