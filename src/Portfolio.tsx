@@ -562,7 +562,7 @@ const stackGroups = [
   },
   {
     title: "Delivery & Data",
-    items: ["SQL", "Oracle", "PostgreSQL", "Postman", "SOAPUI", "Wizdler", "Jira", "Confluence", "Zephyr Scale", "Jenkins", "Power BI", "Excel", "Visio", "Agile", "BPMN / UML", "Eisenhower Matrix", "MoSCoW"],
+    items: ["SQL", "Oracle", "PostgreSQL", "Advanced Excel", "FILTER()", "MATCH()", "INDEX()", "Postman", "SOAPUI", "Wizdler", "Jira", "Confluence", "Zephyr Scale", "Jenkins", "Power BI", "Visio", "Agile", "BPMN / UML", "Eisenhower Matrix", "MoSCoW"],
   },
   {
     title: "Commerce",
@@ -675,8 +675,8 @@ const homeCapabilityItems = [
   {
     title: "Data Analysis",
     icon: <BarChart3 className="h-5 w-5" />,
-    summary: "SQL-backed validation that connects transactions, charges, settlement, reconciliation, reporting, and operational decisions.",
-    tags: ["SQL", "Data mapping", "Power BI", "Exception analysis"],
+    summary: "SQL-backed and advanced Excel analysis that connects transactions, charges, settlement, reconciliation, reporting, and operational decisions, including the Sun Life project.",
+    tags: ["SQL", "Advanced Excel", "FILTER()", "MATCH()", "INDEX()", "Data mapping"],
   },
   {
     title: "LLM / AI-Enabled BA",
